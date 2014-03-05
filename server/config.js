@@ -1,4 +1,4 @@
-Meteor.publish("timelineMain", function (route, id) {
+Meteor.publish('timelineMain', function (route, id) {
 	if (route === 'main')
 		return Timeline.find({}, {limit: 1, sort: {created: -1}});
 	else if (route === 'single')

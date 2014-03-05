@@ -22,9 +22,9 @@ Router.map(function () {
       Deps.autorun(function () {
         var skip = Session.get('skip');
         Meteor.subscribe('timelineCarousel', skip, function () {
-        	Meteor.setTimeout(function (){
-	        	Session.set('timelineCarouselLoaded', true);
-        	}, 500);
+					Meteor.setTimeout(function () {
+						Session.set('timelineCarouselLoaded', true);
+					}, 500);
         });
       });
 		},
@@ -32,9 +32,9 @@ Router.map(function () {
 			// skip last timeline in carousel
 			timelineCarousel: function () {
 				if (!Session.equals('skip', 0))
-					return Timeline.find({}, {skip:1, limit:4, sort: {created: -1}});
+					return Timeline.find({}, {skip: 1, limit: 4, sort: {created: -1}});
 				else
-					return Timeline.find({}, {limit:4, sort: {created: -1}});
+					return Timeline.find({}, {limit: 4, sort: {created: -1}});
 			},
 
 			// get the last timeline as main 
@@ -67,22 +67,25 @@ Router.map(function () {
 		},
 		waitOn: function () {
 			Deps.autorun(function () {
-        Meteor.subscribe('timelineMain', 'single', Session.get('singleTimeline'));
+				var id = Session.get('singleTimeline');
+        Meteor.subscribe('timelineMain', 'single', id);
       });
 
       Deps.autorun(function () {
         var skip = Session.get('skip');
         Meteor.subscribe('timelineCarousel', skip, function () {
-        	Meteor.setTimeout(function (){
-	        	Session.set('timelineCarouselLoaded', true);
-        	}, 500);
+					Meteor.setTimeout(function () {
+						Session.set('timelineCarouselLoaded', true);
+					}, 500);
         });
       });
 		},
 		data: {
 			// skip last timeline in carousel
 			timelineCarousel: function () {
-				return Timeline.find({'tid': {$ne:Session.get('singleTimeline')}}, {limit:4, sort: {created: -1}});
+				return Timeline.find({
+					'tid': {$ne: Session.get('singleTimeline')}
+				}, {limit: 4, sort: {created: -1}});
 			},
 
 			// set the main timeline according to url 

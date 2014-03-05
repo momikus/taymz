@@ -1,5 +1,5 @@
 Meteor.methods({
-  totalTimelineCount: function() {
+  totalTimelineCount: function () {
     return Timeline.find({}).count();
   }
 });

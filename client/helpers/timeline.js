@@ -7,8 +7,9 @@ Template.timeline.rendered = function () {
 	});
 
 	// lazy load images
-	$("img.lazy").lazyload({
-		effect : "fadeIn"
+	// with fadeIn effect
+	$('img.lazy').lazyload({
+		effect : 'fadeIn'
 	});
 };
 
