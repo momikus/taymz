@@ -1,0 +1,1 @@
+Timeline = new Meteor.Collection('timeline');

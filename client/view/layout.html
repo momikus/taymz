@@ -1,0 +1,35 @@
+<template name="home">
+	{{yield 'header'}}
+	<div class="clear"></div>
+	{{yield 'gezCizgi'}}
+	<div id="mainContainer">
+		{{yield}}
+		<div class="clear"></div>
+	</div>
+</template>
+
+<template name="singleTimeline">
+	{{yield 'header'}}
+	<div class="clear"></div>
+	{{yield 'gezCizgi'}}
+	<div id="mainContainer">
+		{{yield}}
+		<div class="clear"></div>
+	</div>
+</template>
+
+<template name="add">
+	{{yield 'header'}}
+	<div class="clear"></div>
+	{{yield 'entryCall'}}
+	
+	<div id="mainContainer">
+		{{yield}}
+		<div class="clear"></div>
+	</div>
+</template>
+
+
+
+
+	

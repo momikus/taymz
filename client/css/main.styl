@@ -1,0 +1,584 @@
+//ff1					= 'Alegreya Sans', sans-serif;
+ff1 				= 'Open Sans', sans-serif
+ff2					= Times New Roman, 'Black Ops One', cursive;
+fuipreclouds 		= #eff0f2
+fuipreturquoise		= #48c9b0
+fuiturquoise 		= #1abc9c
+fuigreensea 		= #16a085
+fuiemerald 			= #2ecc71
+fuinephritis 		= #27ae60
+fuipeterriver 		= #3498db
+fuibelizehole 		= #2980b9
+fuiamethyst 		= #9b59b6
+fuiwisteria 		= #8e44ad
+fuiwetasphalt 		= #34495e
+fuimidnightblue 	= #2c3e50
+fuisunflower 		= #f1c40f
+fuiorange 			= #f39c12
+fuicarrot 			= #e67e22
+fuipumpkin 			= #d35400
+fuializarin 		= #e74c3c
+fuipomegranate 		= #c0392b
+fuiclouds 			= #ecf0f1
+fuisilver 			= #bdc3c7
+fuiconcrete 		= #95a5a6
+fuiasbestos 		= #7f8c8d
+border-radius(n)
+	-webkit-border-radius n
+	-moz-border-radius n
+	border-radius n
+box-shadow(){
+	-webkit-box-shadow arguments
+	-moz-box-shadow arguments
+	box-shadow arguments
+}
+.cannotbeselected {
+	-webkit-user-select: none !important;
+	-khtml-user-select: none !important;
+	-moz-user-select: none !important;
+	-o-user-select: none !important;
+	user-select: none !important;		
+}
+.clear {
+	clear both
+}
+.float100 {
+	float left
+	width 100%
+}
+:focus {
+	outline none
+}
+a {
+	color black
+	text-decoration none
+	&:hover {
+		color fuibelizehole
+		cursor pointer
+	}
+}
+// [contentEditable=true]{
+// 	border 1px dashed #ccc
+// }
+// [data-placeholder]:empty:not(:focus):not([data-div-placeholder-content]):before {
+// 	content: attr(data-placeholder);
+// 	color: fuiconcrete;
+// }
+body {
+	font-family ff1
+	margin 0
+	background url(/img/bg.png) repeat
+}
+button, a.senDeYap {
+	height 36px
+	font-weight bold
+	background fuisilver
+	font-size 15px
+	color white
+	border-radius(4px)
+	border-width 0
+	margin 0
+	line-height 36px
+	text-align center
+}
+#mainContainer {
+	text-align center
+	width 1000px
+	margin auto
+}
+.standartCerceve {
+	background white
+	box-shadow(0 1px 2px rgba(0,0,0,0.07))
+	border-radius(3px)
+}
+#header {
+	position relative
+	background url(/img/bg.png)
+	#inner {
+		width 1000px
+		margin auto
+		height 50px
+		h1 a {
+			color fuimidnightblue
+			margin 0 auto 0
+			line-height 50px
+			font-size 30px
+			padding 0 0
+			font-weight bold
+			width 200px
+			float left
+			position relative
+		}
+		p {
+			color fuiconcrete
+		}
+		.mudur {
+			float right
+			width 140px
+			margin 7px 0 0 7px
+			&:hover, &.active {
+				cursor pointer
+				background fuiturquoise
+			}
+			&:focus {
+				outline 0
+			}
+			&:active {
+				background fuigreensea
+			}
+			&.active2 {
+				&:hover {
+					background fuializarin
+				}
+				&:active {
+					background fuipomegranate
+				}
+			}
+			i {
+				content "\f011"
+				font-family FontAwesome
+				font-weight normal
+				margin-left 6px
+			}
+			&.active3, .active3:hover {
+				background fuisilver
+			}
+		}
+		.senDeYap {
+			width 44px
+			float right
+			margin 7px 0 0 7px
+			i {
+				margin 0
+				font-size 24px
+				line-height 38px
+			}
+		}
+	}
+}
+.gezCizgi {
+	padding 20px 0
+	text-align center
+	background url(/img/bg2.png) repeat
+	border-bottom 1px solid white
+	border-top 1px solid white
+	box-shadow(inset 0 0px 5px black)
+	.inner {
+		width 860px
+		margin auto
+		text-align center
+		display inline-block
+		position relative
+		height 175px
+		overflow hidden
+		.carousel {
+			position absolute
+			top 0 
+			left 0
+			height 100%
+			a {
+				margin 0  20px 0 0
+				display inline-block
+				width 200px
+				height 100%
+				background white
+				padding 10px
+				float left
+				color fuimidnightblue
+				.imgContainer {
+					width 100%
+					height 90px
+					overflow hidden
+					img {
+						width 100%
+						height auto
+					}
+				}
+				h4 {
+					font-size 16px
+					font-weight 700
+					line-height 20px
+					text-align left
+					padding 7px 0
+				}
+				&:hover {
+					background white
+					color fuializarin
+				}
+			}
+		}
+	}
+	i {
+		display inline-block
+		height 175px
+		line-height 175px
+		vertical-align top
+		font-size 30px
+		width 50px
+		margin-right 20px
+		color fuiconcrete
+		&:hover {
+			cursor pointer
+			color white
+		}
+		&.fa-chevron-circle-right {
+			margin 0 0 0 20px
+		}
+	}
+}
+.baslikOlay {
+	position relative
+	h2, textarea {
+		font-size: 40px;
+		letter-spacing -1px
+		line-height: 44px;
+		font-weight: 900;
+		padding: 20px;
+		color fuiwetasphalt
+		background none
+		box-shadow(none)
+		text-align center
+		display block
+		width 100%
+		font-family ff1
+	}
+	textarea {
+		border 1px dashed #ccc
+		resize vertical
+	}
+	span#counterTitle {
+		position absolute
+		bottom 5px
+		right 5px
+		color fuiconcrete
+		font-weight bold
+	}
+	&:before {
+		position absolute
+		content ""
+		width 6px
+		height 40px
+		background fuiwetasphalt
+		bottom 0
+		margin-bottom -40px
+		left 50%
+		display block
+		margin-left:-3px;
+		z-index -1
+	}
+	&:after {
+		width 20px
+		height 20px
+		background fuiwetasphalt
+		border-radius (100%)
+		position absolute
+		left 50%
+		margin-left -10px
+		bottom 0
+		content "\f111"
+		font-family FontAwesome
+		font-weight normal
+		margin-bottom -10px
+		line-height 20px
+		text-align center
+		font-size 12px
+		float left
+		color white
+	}
+}
+.birimOlayContainer {
+	margin-bottom 100px
+	//padding-top 20px
+	.birimOlay {
+		position relative
+		padding-top 40px
+		&:before {
+			position absolute
+			content ""
+			width 6px
+			// border-width 0 1px 0
+			// border-style solid
+			// border-color rgba(0,0,0,0.05)
+			height 100%
+			background fuiwetasphalt
+			top 0
+			left 50%
+			display block
+			margin-left:-3px;
+			z-index -1
+		}
+		&:after {
+			width 20px
+			height 20px
+			background fuiwetasphalt
+			// border-width 1px
+			// border-style solid
+			// border-color rgba(0,0,0,0.05)
+			border-radius (100%)
+			position absolute
+			left 50%
+			margin-left -10px
+			top 30%
+			content "\f111"
+			font-family FontAwesome
+			font-weight normal
+			margin-top -10px
+			line-height 20px
+			text-align center
+			font-size 12px
+			float left
+			color white
+		}
+		.tarihContainer {
+			position absolute
+			top 30%
+			left 50%
+			height 80px
+			margin-left 20px
+			margin-top -40px
+			.tarih{ //yılı ifade ediyor
+				padding 0 10px
+				line-height 80px
+				font-size 60px
+				font-weight 400
+				float left
+				color fuiwetasphalt
+				background none
+				border 1px dashed fuisilver
+				width 160px
+				font-family ff1
+				margin-right 16px
+ 			}
+			.aygun {
+				margin 18px 0 0 0
+				color fuiwetasphalt
+				width 80px
+				float right
+				.ay {
+					display block
+					font-size: 16px;
+					line-height 18px
+					padding 0
+					width 100%
+					font-family ff1
+					color fuiwetasphalt
+				}
+				select.month, select.day {
+					display block
+					font-size 13px
+					margin 0
+					font-family ff1
+					width 100%
+				}
+				select.day { 
+					margin-top 4px
+				}
+				.gun {
+					display block
+					line-height: 32px;
+					height 32px
+					font-size: 30px;
+					font-weight 800
+					text-align center
+					width 100%
+					color fuiwetasphalt
+				}
+			}
+		}
+
+		.olay {
+			width 480px
+			float left
+			padding 20px
+			text-align left
+			position relative
+			h3, textarea {
+				font-size 25px
+				line-height 29px
+				margin 0px 0px 0px
+				padding 5px 0px
+				font-family ff1
+				font-weight 700
+				letter-spacing -1px
+			}
+			textarea {
+				border 1px dashed fuipreclouds
+				width 100%
+				padding 5px 10px
+				resize vertical
+				display block
+				&:focus {
+					border-color fuiconcrete
+				}
+			}
+			span.counterManset, span.counterDesc  {
+				position absolute
+				bottom 5px
+				right 20px
+				color fuiconcrete
+				font-weight 400
+				display none
+				font-size 13px
+			}
+			p, textarea.desc {
+				font-size 15px
+				line-height 25px
+				padding 0 0px
+				font-family ff1
+				margin 0 0px 10px
+				font-weight normal
+			}
+			textarea.desc {
+				padding 5px 10px
+				letter-spacing 0
+			}
+			.imageContainer {
+				text-align center
+				margin-bottom 5px
+				img, i {
+					width 100%
+					height auto
+					border-radius(2px 2px 0 0)
+					display block
+				}
+				i {
+					font-size 100px
+					height 200px
+					line-height 200px
+					background fuipreclouds
+					position relative
+					.gorselYukle {
+						position absolute
+						background fuibelizehole
+						color white
+						top 150px
+						width 110px
+						font-size 14px
+						height 30px
+						line-height 30px
+						border-radius(3px)
+						left 50%
+						margin-left -55px
+						font-weight 600
+						font-family ff1
+						&:hover {
+							background fuipeterriver
+							cursor pointer
+							color white
+						}
+					}
+				}
+			}
+			[contentEditable=true]{
+				padding 10px
+				border 1px dashed #ccc
+			}
+			&:after {
+				content "\f0da"
+				position absolute
+				font-family FontAwesome
+				font-weight normal
+				color white
+				font-size 60px
+				margin-top -30px
+				height 60px
+				top 30%
+				right -10px
+			}
+		}
+		.mudurBlock {
+			position absolute
+			top 50%
+			margin-top -60px
+			margin-left 80px
+			height 120px
+			left 50%
+			i {
+				font-size 70px
+				margin-top 20px
+				line-height 80px
+				margin-right 20px
+				height 80px
+				color fuisilver
+				&:hover {
+					color fuiemerald
+					cursor pointer
+				}
+				&:first-child:hover {
+					color fuipeterriver
+				}
+				&:last-child:hover {
+					color fuializarin
+				}
+			}
+		}
+		&:nth-child(2n) {
+			.tarihContainer {
+				left auto
+				right 50%
+				margin-right 20px
+				.tarih {
+					float right
+					margin-right 0
+				}
+				.aygun {
+					float left
+					margin-right 16px
+				}
+			}
+			.olay {
+				float right
+				&:after {
+					content "\f0d9"
+					right auto
+					left -10px
+				}
+			}
+			.mudurBlock {
+				margin-left -310px
+				direction rtl
+			}
+		}
+		&:nth-child(2n+1) {
+			.olay {
+			}
+		}		
+		&:first-child {
+			.olay {
+				
+			}
+		}
+	}
+}
+#entryCall {
+	background url(/img/bg2.png) repeat
+	border-bottom 1px solid white
+	border-top 1px solid white
+	box-shadow(inset 0 0px 5px black)
+	padding 20px
+	text-align center
+	margin-bottom 20px
+	#inner {
+		margin auto
+		display block
+		width 1000px
+		text-align center
+		color white
+	}
+}
+.unit {
+	margin 0 0 10px
+	line-height 30px
+	label {
+		color white
+		width 170px
+		float left
+	}
+	input {
+		width 600px
+		float left
+		border-width 0
+		padding 5px 10px
+		line-height 20px
+	}
+}

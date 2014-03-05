@@ -1,0 +1,44 @@
+<template name="timeline">
+	{{#if timeline}}
+		<div class="clear"></div>
+		<div class="baslikOlay">
+			<h2>{{timeline.title}}</h2>
+		</div>
+		<div class="birimOlayContainer float100" >
+			{{#each timeline.milestones}}
+				<div class="birimOlay float100">
+					<div class="tarihContainer">
+						<div class=" tarih">
+							{{year}}
+						</div>
+						{{#if month}} <!-- EN SON BURDA KALDIM -->
+						<div class="aygun">
+							<div class="ay">
+								{{month}}
+							</div>
+							<div class="gun">
+								20
+							</div>
+						</div>
+						{{/if}}
+					</div>
+					{{#if mudurOn}}
+						{{> mudurBlock}}
+					{{/if}}
+					<div class="standartCerceve olay">
+						<div class="imageContainer">
+							<img src="/img/content/{{img}}">
+						</div>
+						<h3>{{tagline}}</h3>
+						<p  {{#if mudurOn}}contenteditable="true" {{/if}}>{{desc}}</p>
+						{{#if mudurOn}}
+							<button>Vazgeç</button>
+							<button>Kaydet</button>
+						{{/if}}
+					</div>
+
+				</div>
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

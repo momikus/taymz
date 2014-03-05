@@ -1,0 +1,79 @@
+db.timeline.insert(
+	{
+		title: "Google'ın Hikayesi",
+		created: new Date(),
+		tid:1,
+		milestones: [
+			{
+				tagline: "2 Dahi Nasıl Tanıştı?",
+				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
+				img: "google-larry-page-sergey-brin-tanisirlar.jpg",
+				year: 1995
+			},
+			{
+				tagline: "Bir Efsanenin Temelleri Atılıyor...",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "google-backrub.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Google.com Boş mu Aga?",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "google-google.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+)
+
+db.timeline.insert(
+	{
+		title: "Türkiye'nin Genel Seçimleri",
+		created: new Date(),
+		tid:2,
+		milestones: [
+			{
+				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
+				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
+				img: "google-larry-page-sergey-brin-tanisirlar.jpg",
+				year: 2011
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "google-backrub.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "google-google.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "dsp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "google-google.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Refah kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "google-google.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+)
