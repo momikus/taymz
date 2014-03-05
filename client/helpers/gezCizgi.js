@@ -41,6 +41,8 @@ Template.gezCizgi.helpers({
 });
 
 Template.gezCizgi.rendered = function () {
+
+	// get total timeline count for pagination
 	Meteor.call('totalTimelineCount', function (err, result) {
 		Session.set('totalTimelineCount', result);
 	});

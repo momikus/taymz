@@ -82,13 +82,9 @@ Router.map(function () {
 		data: {
 			// skip last timeline in carousel
 			timelineCarousel: function () {
-				
-					if (Timeline.find().count() !== 4)
-						return Timeline.find({'tid': {$ne:Session.get('singleTimeline')}}, {limit:4, sort: {created: -1}});
-					else 
-						return Timeline.find({}, {limit:4, sort: {created: -1}});
-				
+				return Timeline.find({'tid': {$ne:Session.get('singleTimeline')}}, {limit:4, sort: {created: -1}});
 			},
+
 			// set the main timeline according to url 
 			timelineMain: function () {
 				return Timeline.find({'tid': Session.get('singleTimeline')});

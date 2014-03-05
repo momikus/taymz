@@ -5,6 +5,11 @@ Template.timeline.rendered = function () {
 			next();
 		});
 	});
+
+	// lazy load images
+	$("img.lazy").lazyload({
+		effect : "fadeIn"
+	});
 };
 
 Template.timeline.helpers({
