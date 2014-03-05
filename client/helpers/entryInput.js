@@ -2,6 +2,9 @@ Template.entryInput.helpers ({
 	localTimelineNode:function() {
 		return LocalTimeline.findOne().milestones;	
 	},
+	localTimelineTitle:function() {
+		return LocalTimeline.findOne().title;	
+	},
 });
 Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
 	if ( month>0 && month < 13 && (month!=2 || year%4 ==0)) {
@@ -60,8 +63,12 @@ Template.entryInput.events ({
 		else {
 			titleUpdater();
 			milestonesUpdater();
-			var LocalTimelineToBeSent = LocalTimeline.findOne();
-			Timeline.insert(LocalTimelineToBeSent);
+			var milestones = LocalTimeline.findOne().milestones;
+			var title = LocalTimeline.findOne().title;
+			Timeline.insert({
+				title:title, created: new Date(), milestones: milestones
+			});
+
 		}
 	},
 	'change select.month':function(e) { // Ay seçildiği an gün seçeneklerinin ona göre güncellenmesi
