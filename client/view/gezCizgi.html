@@ -1,82 +1,22 @@
 <template name="gezCizgi">	
 	<div class="gezCizgi">
-		<i class="cannotbeselected fa fa-chevron-circle-left"></i><!--
+		<i class="cannotbeselected fa fa-chevron-circle-left {{leftHide}}"></i><!--
 		--><div class="inner">
 			<div class="carousel">
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://localhost:3000/img/content/larry-page-sergey-brin.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://radikal.cubecdn.net/Turkiye/Thumbnail/v3/cmylmz_26022014_1104_wmp4.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://cdn.css-tricks.com/wp-content/uploads/2014/02/label-in-middle.svg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://localhost:3000/img/content/larry-page-sergey-brin.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://radikal.cubecdn.net/Turkiye/Thumbnail/v3/cmylmz_26022014_1104_wmp4.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://cdn.css-tricks.com/wp-content/uploads/2014/02/label-in-middle.svg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://localhost:3000/img/content/larry-page-sergey-brin.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://radikal.cubecdn.net/Turkiye/Thumbnail/v3/cmylmz_26022014_1104_wmp4.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://cdn.css-tricks.com/wp-content/uploads/2014/02/label-in-middle.svg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://localhost:3000/img/content/larry-page-sergey-brin.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://radikal.cubecdn.net/Turkiye/Thumbnail/v3/cmylmz_26022014_1104_wmp4.jpg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
-				<a class="standartCerceve">
-					<div class="imgContainer">
-						<img src="http://cdn.css-tricks.com/wp-content/uploads/2014/02/label-in-middle.svg">
-					</div>
-					<h4>Geçekten Neo Osmanlıcılarmış! Ustalıkla dönemiyle </h4>
-				</a>
+				{{#if timelineCarouselLoaded}}
+					{{#each timelineCarousel}}
+					<a class="standartCerceve" href="/t/{{tid}}">
+						<div class="imgContainer">
+							<img src="{{img}}">
+						</div>
+						<h4>{{title}}</h4>
+					</a>
+					{{/each}}
+				{{else}}
+					<i class="fa fa-refresh fa-spin"></i>
+				{{/if}}
 			</div>
 		</div><!--
-		--><i class="cannotbeselected fa fa-chevron-circle-right"></i>
+		--><i class="cannotbeselected fa fa-chevron-circle-right {{rightHide}}"></i>
 	</div>
 </template>

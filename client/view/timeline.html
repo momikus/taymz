@@ -1,5 +1,5 @@
 <template name="timeline">
-	{{#if timeline}}
+	{{#with timelineMain}}
 		<div class="clear"></div>
 		<div class="baslikOlay">
 			<h2>{{timeline.title}}</h2>
@@ -27,7 +27,7 @@
 					{{/if}}
 					<div class="standartCerceve olay">
 						<div class="imageContainer">
-							<img src="/img/content/{{img}}">
+							<img src="{{img}}">
 						</div>
 						<h3>{{tagline}}</h3>
 						<p  {{#if mudurOn}}contenteditable="true" {{/if}}>{{desc}}</p>
@@ -40,5 +40,5 @@
 				</div>
 			{{/each}}
 		</div>
-	{{/if}}
+	{{/with}}
 </template>
