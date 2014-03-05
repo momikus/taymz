@@ -103,7 +103,7 @@ hr {
 input, select {
     vertical-align:middle;
 }
-textarea, input, select {
+textarea, input, select, button {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */

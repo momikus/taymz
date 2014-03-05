@@ -3,24 +3,24 @@ if(Meteor.isClient) {
 	Meteor.startup(function () {
 		LocalTimeline.insert(	{
 			title: "",
-			milestone: [
+			milestones: [
 				{	
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: "",
 					desc: "",
-					img: "",
+					img: "resim2.jpg",
 				},
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: "",
 					desc: "",
-					img: "",
+					img: "resim.jpg",
 				},
 				{	
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: "",
 					desc: "",
-					img: "",
+					img: "resim2.jpg",
 				}
 			]
 		})

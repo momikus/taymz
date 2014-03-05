@@ -1,4 +1,3 @@
-//ff1					= 'Alegreya Sans', sans-serif;
 ff1 				= 'Open Sans', sans-serif
 ff2					= Times New Roman, 'Black Ops One', cursive;
 fuipreclouds 		= #eff0f2
@@ -263,6 +262,9 @@ button, a.senDeYap {
 	textarea {
 		border 1px dashed #ccc
 		resize vertical
+		&:focus {
+			border-color fuiconcrete !important
+		}
 	}
 	span#counterTitle {
 		position absolute
@@ -566,8 +568,23 @@ button, a.senDeYap {
 	}
 }
 
-#entryButtonsContainer {
-	i.addOlay {
+.entryButtonsContainer {
+	font-family ff1
+	position relative
+	padding 40px 0 0
+	&:before {
+		position absolute
+		content ""
+		width 6px
+		height 100%
+		background fuiwetasphalt
+		top 0
+		left 50%
+		display block
+		margin-left:-3px;
+		z-index -1
+	}
+	i#addOlay {
 		width 60px
 		height 60px
 		line-height 64px
@@ -575,9 +592,24 @@ button, a.senDeYap {
 		font-size 40px
 		background fuiemerald
 		border-radius 100%
+		margin-top -20px
 		&:hover {
 			cursor pointer
 			background fuinephritis
+		}
+	}
+	button#yayinla {
+		line-height: 46px;
+		height: 46px;
+		padding: 0 18px;
+		background: fuiwetasphalt
+		color: #fff;
+		font-size: 24px;
+		font-weight: 700;
+		font-family ff1
+		&:hover {
+			cursor pointer
+			background fuializarin
 		}
 	}
 }

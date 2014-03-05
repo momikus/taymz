@@ -1,6 +1,6 @@
 Template.entryInput.helpers ({
 	localTimelineNode:function() {
-		return LocalTimeline.findOne().milestone;	
+		return LocalTimeline.findOne().milestones;	
 	},
 });
 Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
@@ -12,7 +12,6 @@ Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
 				gunArr.push('<option value="31">31</option>');
 			}
 		}
-		console.log(gunArr)
 		return new Handlebars.SafeString (gunArr)
 	}
 });
@@ -37,60 +36,36 @@ Template.entryInput.events ({
 	'blur textarea.desc':function(e) { //desc yazma alanına blur olunca counter kapanır
 		$(e.currentTarget).parent().find('span.counterDesc').hide();
 	},
-	'click .addOlay':function() {
-		$('.birimOlay').each(function() {
-			if (!$(this).find('textarea.manset').val()) {
-				$(this).find('textarea.manset').addClass('warning');
-			}
-			else {
-				$(this).find('textarea.manset').removeClass('warning');
-			}
-			if (!$(this).find('input.tarih').val()) {
-				$(this).find('input.tarih').addClass('warning');
-			}
-			else {
-				$(this).find('input.tarih').removeClass('warning');
-			}
-		});
-		var isValidYil; // Girilmiş olması gereken tüm yıllar valid mi
-		$("input.tarih").each(function() {
-		   var element = $(this);
-		   if (element.val() == "") {
-		       isValidYil = false;
-		   }
-		});
-		var isValidManset; // Girilmiş olması gereken tüm manşetler valid mi
-		$("textarea.manset").each(function() {
-		   var element = $(this);
-		   if (element.val() == "") {
-		       isValidManset = false;
-		   }
-		});
-		if (isValidYil == false || isValidManset == false ) { // Yeni olay açabilir miyim?
+	'click #addOlay':function() {
+		if (inputValidate() == false ) { // Yeni olay açabilir miyim?
 			console.log("yenisini açamam")
 		}
 		else {
-			$('.birimOlay').each(function() {
-				var id = $(this).attr('id');
-				var tagline = $(this).find('textarea.manset').val();
-				var desc = $(this).find('textarea.desc').val();
-				var img = "resim2.jpg";
-				var year = $(this).find('input.tarih').val();
-				var month = $(this).find('select.month').val();
-				var day = $(this).find('select.day').val();
-				LocalTimeline.update({"milestone._id":id },{$set: {
-					"milestone.$.tagline": tagline,
-					"milestone.$.desc":desc,
-					"milestone.$.img":"resim2.jpg",
-					"milestone.$.year":year,
-					"milestone.$.month":month,
-					"milestone.$.day":day
-				}});
-			});
+			titleUpdater();
+			milestonesUpdater();
+			LocalTimeline.update({},{$push:{milestones: 
+				{	
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: "",
+					desc: "",
+					img: "",
+				},
+			} })
+		}
+	},
+	'click #yayinla':function() {
+		if (inputValidate() == false || titleValidate() == false ) {
+			console.log("yayinlanamaz")
+		}
+		else {
+			titleUpdater();
+			milestonesUpdater();
+			var LocalTimelineToBeSent = LocalTimeline.findOne();
+			Timeline.insert(LocalTimelineToBeSent);
 		}
 	},
 	'change select.month':function(e) { // Ay seçildiği an gün seçeneklerinin ona göre güncellenmesi
-		var yil = parseFloat($(e.currentTarget).parent().parent().find('input.tarih').val())
+		var yil = parseInt($(e.currentTarget).parent().parent().find('input.tarih').val())
 			if( yil%4 == 0 )
 				Session.set("subatHali", 29)
 			else 
@@ -98,7 +73,13 @@ Template.entryInput.events ({
 		var ay = $(e.currentTarget).find('option:selected').val();
 		var ayOptionHtml = ayVerGunAl(ay); // Ayların kaç çektiğine göre gün sayısını belirliyoruz.
 		$(e.currentTarget).parent().find('select.day').html(ayOptionHtml);
-		$(e.currentTarget).parent().find('select.day').prop("disabled", false)
+		if(parseInt($(e.currentTarget).val()) > 0 && parseInt($(e.currentTarget).val()) <= 12 ) {
+			$(e.currentTarget).parent().find('select.day').prop("disabled", false)
+		}
+		else {
+			$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled")
+		}
+		$(e.currentTarget).parent().find('select.day').val("0");
 	},
 	'keyup input.tarih':function(e) {
 		// Yıl değiştirirse ay-günü disable ediyoruz
@@ -106,7 +87,7 @@ Template.entryInput.events ({
 		$(e.currentTarget).parent().find('select.month').val(0)
 		$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled");
 		$(e.currentTarget).parent().find('select.day').val(0)
-		var yil = parseFloat($(e.currentTarget).val());
+		var yil = parseInt($(e.currentTarget).val());
 		if(!isNaN(yil)) {
 			$(e.currentTarget).parent().find('select.month').prop("disabled", false)
 			$(e.currentTarget).parent().find('select.month').val(0);
