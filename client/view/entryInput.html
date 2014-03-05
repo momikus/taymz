@@ -1,23 +1,4 @@
 <template name="entryInput">
-<!-- 			<div class="unit float100">
-				<label>Başlık</label><input class="baslik">
-			</div>
-			<div class="unit float100">
-				<label>Ozet</label><input class="ozet">
-			</div>
-			<div class="unit float100" >
-				<label>Resim Adı (Uzantılı)</label><input class="resim">
-			</div>
-			<div class="unit float100">
-				<label>Yıl</label><input class="yil">
-			</div>
-			<div class="unit float100" >
-				<label>Ay</label><input class="ay">
-			</div>
-			<div class="unit float100">
-				<label>Gün</label><input class="gun">
-			</div>
-			<button class="submit">Yolla</button> -->
 	<div class="clear"></div>
 	<div class="baslikOlay">
 		<textarea 	rows="1" maxlength="80" id="title" class="noLineBreak" 
@@ -25,83 +6,11 @@
 		<span id="counterTitle"></span>
 	</div>
 	<div class="birimOlayContainer float100" >
-			<div class="birimOlay float100">
-				<div class="tarihContainer">
-					<input maxlength="4" onkeypress='validate(event)' value="" class="tarih" placeholder="Yıl">
-					<div class="aygun">
-						<select disabled class="month" name="monthlist" form="monthform">
-							<option value="0">Ay</option>
-							<option value="1">Ocak</option>
-							<option value="2">Şubat</option>
-							<option value="3">Mart</option>
-							<option value="4">Nisan</option>
-							<option value="5">Mayıs</option>
-							<option value="6">Haziran</option>
-							<option value="7">Temmuz</option>
-							<option value="8">Ağustos</option>
-							<option value="9">Eylül</option>
-							<option value="10">Ekim</option>
-							<option value="11">Kasım</option>
-							<option value="12">Aralık</option>
-						</select>
-						<select disabled class="day" name="daylist" form="dayform">
-							<option>Gün</option>
-						</select>
-					</div>
-				</div>
-				<div class="standartCerceve olay">
-					<div class="imageContainer">
-						<i class="fa fa-camera">
-							<div class="gorselYukle">Görsel Yükle</div>
-						</i>
-					</div>
-					<div class="clear"></div>
-					<textarea rows="1" maxlength="100" class="noLineBreak manset" placeholder="Buraya Olay Manşetini Yazın"></textarea>
-					<span class="counterManset"></span>
-					<textarea rows="1" maxlength="500" class="desc" placeholder="Buraya Kısa Özet Yazın"></textarea>
-					<span class="counterDesc"></span>
-				</div>
-
-			</div>
-			<div class="birimOlay float100">
-				<div class="tarihContainer">
-					<input maxlength="4" onkeypress='validate(event)' value="" class="tarih" placeholder="Yıl">
-					<div class="aygun">
-						<select disabled class="month" name="monthlist" form="monthform">
-							<option value="0">Ay</option>
-							<option value="1">Ocak</option>
-							<option value="2">Şubat</option>
-							<option value="3">Mart</option>
-							<option value="4">Nisan</option>
-							<option value="5">Mayıs</option>
-							<option value="6">Haziran</option>
-							<option value="7">Temmuz</option>
-							<option value="8">Ağustos</option>
-							<option value="9">Eylül</option>
-							<option value="10">Ekim</option>
-							<option value="11">Kasım</option>
-							<option value="12">Aralık</option>
-						</select>
-						<select disabled class="day" name="daylist" form="dayform">
-							<option>Gün</option>
-						</select>
-					</div>
-				</div>
-				<div class="standartCerceve olay">
-					<div class="imageContainer">
-						<i class="fa fa-camera">
-							<div class="gorselYukle">Görsel Yükle</div>
-						</i>
-					</div>
-					<div class="clear"></div>
-					<textarea rows="1" maxlength="100" class="noLineBreak manset" placeholder="Buraya Olay Manşetini Yazın"></textarea>
-					<span class="counterManset"></span>
-					<textarea rows="1" maxlength="500" class="desc" placeholder="Buraya Kısa Özet Yazın"></textarea>
-					<span class="counterDesc"></span>
-				</div>
-
-			</div>
-
-
+		{{#each localTimelineNode}}
+			{{> birimOlayInput}} {{monthDay}}
+		{{/each}}
 	</div>	
+	<div class="float100" id="entryButtonsContainer">
+		<i class="cannotbeselected addOlay fa fa-plus"></i>
+	</div>
 </template>
