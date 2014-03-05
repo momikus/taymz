@@ -1,19 +1,19 @@
 db.timeline.insert(
 	{
-		title: "Google'ın Hikayesi",
+		title: "1- Google'ın Hikayesi",
 		created: new Date(),
 		tid:1,
 		milestones: [
 			{
 				tagline: "2 Dahi Nasıl Tanıştı?",
 				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
-				img: "google-larry-page-sergey-brin-tanisirlar.jpg",
+				img: "http://graphics8.nytimes.com/images/2013/02/27/technology/27bits-glass/27bits-glass-tmagArticle.jpg",
 				year: 1995
 			},
 			{
 				tagline: "Bir Efsanenin Temelleri Atılıyor...",
 				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
-				img: "google-backrub.jpg",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/28/1362072631789/Google-co-founders-Sergey-010.jpg",
 				year: 1995,
 				month: 5,
 				day: 20
@@ -21,31 +21,31 @@ db.timeline.insert(
 			{
 				tagline: "Google.com Boş mu Aga?",
 				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
-				img: "google-google.jpg",
+				img: "http://images.seroundtable.com/sergey-google-suit-1339156419.jpg",
 				year: 1995,
 				month: 5,
 				day: 20
 			}
 		]
 	}
-)
+);
 
 db.timeline.insert(
 	{
-		title: "Türkiye'nin Genel Seçimleri",
+		title: "2- Türkiye'nin Genel Seçimleri",
 		created: new Date(),
 		tid:2,
 		milestones: [
 			{
 				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
 				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
-				img: "google-larry-page-sergey-brin-tanisirlar.jpg",
+				img: "http://www.abc.net.au/news/image/4094634-3x2-940x627.jpg",
 				year: 2011
 			},
 			{
 				tagline: "akp kazandı",
 				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
-				img: "google-backrub.jpg",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/10/13/1350139803711/Recep-Tayyip-Erdogan-010.jpg",
 				year: 1995,
 				month: 5,
 				day: 20
@@ -53,27 +53,267 @@ db.timeline.insert(
 			{
 				tagline: "akp kazandı",
 				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
-				img: "google-google.jpg",
-				year: 1995,
-				month: 5,
-				day: 20
-			},
-			{
-				tagline: "dsp kazandı",
-				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
-				img: "google-google.jpg",
-				year: 1995,
-				month: 5,
-				day: 20
-			},
-			{
-				tagline: "Refah kazandı",
-				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
-				img: "google-google.jpg",
+				img: "http://s4.reutersmedia.net/resources/r/?m=02&d=20090129&t=2&i=8051745&w=580&fh=&fw=&ll=&pl=&r=2009-01-29T205925Z_01_BTRE50S1MB600_RTROPTP_0_DAVOS",
 				year: 1995,
 				month: 5,
 				day: 20
 			}
 		]
 	}
-)
+);
+
+db.timeline.insert(
+	{
+		title: "3- Google'ın Hikayesi",
+		created: new Date(),
+		tid:3,
+		milestones: [
+			{
+				tagline: "2 Dahi Nasıl Tanıştı?",
+				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
+				img: "http://graphics8.nytimes.com/images/2013/02/27/technology/27bits-glass/27bits-glass-tmagArticle.jpg",
+				year: 1995
+			},
+			{
+				tagline: "Bir Efsanenin Temelleri Atılıyor...",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/28/1362072631789/Google-co-founders-Sergey-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Google.com Boş mu Aga?",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://images.seroundtable.com/sergey-google-suit-1339156419.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "4- Türkiye'nin Genel Seçimleri",
+		created: new Date(),
+		tid:4,
+		milestones: [
+			{
+				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
+				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
+				img: "http://www.abc.net.au/news/image/4094634-3x2-940x627.jpg",
+				year: 2011
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/10/13/1350139803711/Recep-Tayyip-Erdogan-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://s4.reutersmedia.net/resources/r/?m=02&d=20090129&t=2&i=8051745&w=580&fh=&fw=&ll=&pl=&r=2009-01-29T205925Z_01_BTRE50S1MB600_RTROPTP_0_DAVOS",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "5- Google'ın Hikayesi",
+		created: new Date(),
+		tid:5,
+		milestones: [
+			{
+				tagline: "2 Dahi Nasıl Tanıştı?",
+				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
+				img: "http://graphics8.nytimes.com/images/2013/02/27/technology/27bits-glass/27bits-glass-tmagArticle.jpg",
+				year: 1995
+			},
+			{
+				tagline: "Bir Efsanenin Temelleri Atılıyor...",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/28/1362072631789/Google-co-founders-Sergey-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Google.com Boş mu Aga?",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://images.seroundtable.com/sergey-google-suit-1339156419.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "6- Türkiye'nin Genel Seçimleri",
+		created: new Date(),
+		tid:6,
+		milestones: [
+			{
+				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
+				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
+				img: "http://www.abc.net.au/news/image/4094634-3x2-940x627.jpg",
+				year: 2011
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/10/13/1350139803711/Recep-Tayyip-Erdogan-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://s4.reutersmedia.net/resources/r/?m=02&d=20090129&t=2&i=8051745&w=580&fh=&fw=&ll=&pl=&r=2009-01-29T205925Z_01_BTRE50S1MB600_RTROPTP_0_DAVOS",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "7- Google'ın Hikayesi",
+		created: new Date(),
+		tid:7,
+		milestones: [
+			{
+				tagline: "2 Dahi Nasıl Tanıştı?",
+				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
+				img: "http://graphics8.nytimes.com/images/2013/02/27/technology/27bits-glass/27bits-glass-tmagArticle.jpg",
+				year: 1995
+			},
+			{
+				tagline: "Bir Efsanenin Temelleri Atılıyor...",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/28/1362072631789/Google-co-founders-Sergey-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Google.com Boş mu Aga?",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://images.seroundtable.com/sergey-google-suit-1339156419.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "8- Türkiye'nin Genel Seçimleri",
+		created: new Date(),
+		tid:8,
+		milestones: [
+			{
+				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
+				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
+				img: "http://www.abc.net.au/news/image/4094634-3x2-940x627.jpg",
+				year: 2011
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/10/13/1350139803711/Recep-Tayyip-Erdogan-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://s4.reutersmedia.net/resources/r/?m=02&d=20090129&t=2&i=8051745&w=580&fh=&fw=&ll=&pl=&r=2009-01-29T205925Z_01_BTRE50S1MB600_RTROPTP_0_DAVOS",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "9- Google'ın Hikayesi",
+		created: new Date(),
+		tid:9,
+		milestones: [
+			{
+				tagline: "2 Dahi Nasıl Tanıştı?",
+				desc: "Larry Page (22) ve Sergey Brin(21), 1995 yılında Stanford Üniversitesi'nde, Sergey'in Larry'ye okulu gezdirip tanıtmakla görevlendirilmesiyle tanışırlar.",
+				img: "http://graphics8.nytimes.com/images/2013/02/27/technology/27bits-glass/27bits-glass-tmagArticle.jpg",
+				year: 1995
+			},
+			{
+				tagline: "Bir Efsanenin Temelleri Atılıyor...",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2013/2/28/1362072631789/Google-co-founders-Sergey-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "Google.com Boş mu Aga?",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://images.seroundtable.com/sergey-google-suit-1339156419.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
+
+db.timeline.insert(
+	{
+		title: "10- Türkiye'nin Genel Seçimleri",
+		created: new Date(),
+		tid:10,
+		milestones: [
+			{
+				tagline: "Adalaet ve Kalkınma Partisi %49.83 oy oranıyla kazandı.",
+				desc: "Burada daha geniş bilgiye yer veriliyor. ikinci partis vs.",
+				img: "http://www.abc.net.au/news/image/4094634-3x2-940x627.jpg",
+				year: 2011
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Larry ve Sergey 'BackRub' adını verdikleri bir arama motoru üzerinde çalışmaya başlarlar. Stanford suncuları üzerinde 1 seneden fazla süre çalışan BackRub çok fazla bant genişliği harcamaktadır.",
+				img: "http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2012/10/13/1350139803711/Recep-Tayyip-Erdogan-010.jpg",
+				year: 1995,
+				month: 5,
+				day: 20
+			},
+			{
+				tagline: "akp kazandı",
+				desc: "Google.com alan adı satın alınır. Google ismi, '1' sayısının yanına 100 tane '0' konularak elde edilen googol sayısından esinlenilerek yaratılmıştır.",
+				img: "http://s4.reutersmedia.net/resources/r/?m=02&d=20090129&t=2&i=8051745&w=580&fh=&fw=&ll=&pl=&r=2009-01-29T205925Z_01_BTRE50S1MB600_RTROPTP_0_DAVOS",
+				year: 1995,
+				month: 5,
+				day: 20
+			}
+		]
+	}
+);
