@@ -1,6 +1,7 @@
 {
   "packages": {
     "stylus-latest": {},
-    "iron-router": {}
+    "iron-router": {},
+    "filepicker": {}
   }
 }

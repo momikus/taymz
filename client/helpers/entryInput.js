@@ -182,7 +182,7 @@ Template.entryInput.events ({
 		$(e.currentTarget).parent().hide();
 		var id = $(e.currentTarget).parent().parent().attr("id");
 		console.log(deleteValidate());
-		if( deleteValidate == true) {
+		if( deleteValidate() == true) {
 			LocalTimeline.update({},{$pull:{"milestones":{"_id":id}}});
 		}
 		else {
