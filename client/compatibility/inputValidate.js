@@ -52,7 +52,7 @@ function milestonesUpdater() {
 		var year = parseInt($(this).find('input.tarih').val());
 		var month = parseInt($(this).find('select.month').val());
 		var day = parseInt($(this).find('select.day').val());
-		LocalTimeline.update({"milestones._id":id },{$set: {
+		LocalTimeline.update({"milestones._id":id},{$set: {
 			"milestones.$.tagline": tagline,
 			"milestones.$.desc":desc,
 			"milestones.$.img":"resim2.jpg",
@@ -68,4 +68,12 @@ function titleUpdater() {
 	LocalTimeline.update({},{$set:{
 		title:title
 	}});
+}
+
+function deleteValidate() {
+	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length < 4" }).count()
+	if (taymLenAbove3 > 0)
+		return false;
+	else 
+		return true;
 }

@@ -145,6 +145,23 @@ Template.entryInput.events ({
 			$(e.currentTarget).parent().find('select.month').prop("disabled", "disabled");
 			$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled");
 		}	
+	},
+	'click i.silici':function(e) {
+		$(e.currentTarget).parent().find('.siliciPopover').show();
+	},
+	'click .siliciPopover .vazgectim':function(e) {
+		$(e.currentTarget).parent().hide();
+	},
+	'click .siliciPopover .sil':function(e) {
+		$(e.currentTarget).parent().hide();
+		var id = $(e.currentTarget).parent().parent().attr("id");
+		console.log(deleteValidate());
+		if( deleteValidate == true) {
+			LocalTimeline.update({},{$pull:{"milestones":{"_id":id}}});
+		}
+		else {
+			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.')
+		}
 	}
 });
 
@@ -165,20 +182,17 @@ Template.entryInput.rendered = function() {
 		counter: '.counterDesc', // A jQuery selector to match the 'counter' element.
 		maxCount:	500, // The maximum character (or word) count of the text input or textarea. 
 	});
-	// bitti
 
 	// Textareanın otomatik olarak dikey büyümesi için. Compatibilityde kütüphanesi var.
 	$('#title').autosize();
 	$('.manset').autosize();
 	$('.desc').autosize();
-	// bitti
 
 	// Tarihte yıl alanına paste yapılmasını engelliyoruz. 
 	// Şimdilik sadece 0 ila 2014 arası tarihleri kabul edeceğiz.
 	$('input.tarih').on('paste', function(e) {
 		e.preventDefault();
 	});
-	// bitti
 
 	// Bu fonksiyon başlık ve manşette kullanıcıların line break (enter - paragraf) yapamamasını sağlıyor.
 	// Multiple events olduğu için (paste'i de engellemek gerek) events kısmında yazılamadı
@@ -186,5 +200,4 @@ Template.entryInput.rendered = function() {
 		var msg = $(this).val().replace(/\n/g, "");
 		$(this).val(msg);
 	});
-	// bitti
 };
