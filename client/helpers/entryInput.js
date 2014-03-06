@@ -66,7 +66,7 @@ Template.entryInput.events ({
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
 			Timeline.insert({
-				title:title, created: new Date(), milestones: milestones
+				tid:11, title:title, created: new Date(), milestones: milestones
 			});
 
 		}
