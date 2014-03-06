@@ -12,6 +12,7 @@ fuiamethyst 		= #9b59b6
 fuiwisteria 		= #8e44ad
 fuiwetasphalt 		= #34495e
 fuimidnightblue 	= #2c3e50
+fuidarkmidnight		= #1D2731
 fuisunflower 		= #f1c40f
 fuiorange 			= #f39c12
 fuicarrot 			= #e67e22
@@ -189,9 +190,7 @@ button, a.senDeYap {
 		height 175px
 		overflow hidden
 		.carousel {
-			position absolute
-			top 0 
-			left 0
+			width 100%
 			height 100%
 			a {
 				margin 0  20px 0 0
@@ -221,6 +220,21 @@ button, a.senDeYap {
 				&:hover {
 					background white
 					color fuializarin
+				}
+				&:last-child {
+					margin 0
+				}
+			}
+			.loading {
+				margin 13px auto
+				height 148px
+				width 148px
+				padding 10px
+				background fuimidnightblue
+				border-radius 4px
+				box-shadow(inset 0 0 10px rgba(0,0,0,0.2))
+				img {
+
 				}
 			}
 		}

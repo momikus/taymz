@@ -24,14 +24,18 @@ Template.gezCizgi.helpers({
 	// if on first page
 	leftHide: function () {
 		if (Session.equals('skip', 0))
-			return 'hide';
+			return 'hidden';
+		else 
+			return 'visible';
 	},
 
 	// give class to hide right arrow 
 	// if on last page
 	rightHide: function () {
 		if (Session.get('skip') + 4 > Session.get('totalTimelineCount'))
-			return 'hide';
+			return 'hidden';
+		else 
+			return 'visible';
 	},
 
 	// handler to display a loading spinner
@@ -46,6 +50,12 @@ Template.gezCizgi.rendered = function () {
 	Meteor.call('totalTimelineCount', function (err, result) {
 		Session.set('totalTimelineCount', result);
 	});
+	$('.carousel a').hide();
+	$('.carousel a').each(function(i) {
+		$(this).delay(i*100).fadeIn(200);
+	});
+	
+
 };
 
 

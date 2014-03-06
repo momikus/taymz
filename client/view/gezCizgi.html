@@ -1,6 +1,6 @@
 <template name="gezCizgi">	
 	<div class="gezCizgi">
-		<i class="cannotbeselected fa fa-chevron-circle-left {{leftHide}}"></i><!--
+		<i style="visibility:{{leftHide}};" class="cannotbeselected fa fa-chevron-circle-left"></i><!--
 		--><div class="inner">
 			<div class="carousel">
 				{{#if timelineCarouselLoaded}}
@@ -13,10 +13,10 @@
 					</a>
 					{{/each}}
 				{{else}}
-					<i class="fa fa-refresh fa-spin"></i>
+					<div class="loading"><img src="/img/loading.gif"></div>
 				{{/if}}
 			</div>
 		</div><!--
-		--><i class="cannotbeselected fa fa-chevron-circle-right {{rightHide}}"></i>
+		--><i style="visibility:{{rightHide}};" class="cannotbeselected fa fa-chevron-circle-right"></i>
 	</div>
 </template>
