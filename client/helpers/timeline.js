@@ -12,18 +12,3 @@ Template.timeline.rendered = function () {
 		effect : 'fadeIn'
 	});
 };
-
-Template.timeline.helpers({
-	timeline: function () {
-		if (Router.current().route.name === 'home')
-			return Timeline.findOne({}, {sort: {created: -1}});
-		else if (Router.current().route.name === 'timeline') {
-      var id = parseFloat(Session.get('singleTimeline'));
-			return Timeline.findOne({tid: id});
-		}
-	},
-	mudurOn: function () {
-		if (Session.equals('mudurMod', true))
-			return true;
-	}
-});

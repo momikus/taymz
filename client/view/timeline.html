@@ -2,16 +2,16 @@
 	{{#with timelineMain}}
 		<div class="clear"></div>
 		<div class="baslikOlay">
-			<h2>{{timeline.title}}</h2>
+			<h2>{{title}}</h2>
 		</div>
 		<div class="birimOlayContainer float100" >
-			{{#each timeline.milestones}}
+			{{#each milestones}}
 				<div class="birimOlay float100">
 					<div class="tarihContainer">
 						<div class=" tarih">
 							{{year}}
 						</div>
-						{{#if month}} <!-- EN SON BURDA KALDIM -->
+						{{#if month}}
 						<div class="aygun">
 							<div class="ay">
 								{{month}}
@@ -22,21 +22,13 @@
 						</div>
 						{{/if}}
 					</div>
-					{{#if mudurOn}}
-						{{> mudurBlock}}
-					{{/if}}
 					<div class="standartCerceve olay">
 						<div class="imageContainer">
 							<img class="lazy" data-original="{{img}}" 
 						</div>
 						<h3>{{tagline}}</h3>
-						<p  {{#if mudurOn}}contenteditable="true" {{/if}}>{{desc}}</p>
-						{{#if mudurOn}}
-							<button>Vazgeç</button>
-							<button>Kaydet</button>
-						{{/if}}
+						<p>{{desc}}</p>
 					</div>
-
 				</div>
 			{{/each}}
 		</div>

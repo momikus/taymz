@@ -39,7 +39,7 @@ Router.map(function () {
 
 			// get the last timeline as main 
 			timelineMain: function () {
-				return Timeline.find({}, {limit: 1, sort: {created: -1}});
+				return Timeline.findOne({}, {limit: 1, sort: {created: -1}});
 			}
 		}
 	});
@@ -90,7 +90,7 @@ Router.map(function () {
 
 			// set the main timeline according to url 
 			timelineMain: function () {
-				return Timeline.find({'tid': Session.get('singleTimeline')});
+				return Timeline.findOne({'tid': Session.get('singleTimeline')});
 			}
 		}
 	});
