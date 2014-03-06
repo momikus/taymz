@@ -1,21 +1,22 @@
-Template.entryInput.helpers ({
-	localTimelineNode:function() {
-		return LocalTimeline.findOne().milestones;	
+Template.entryInput.helpers({
+	localTimelineNode: function () {
+		return LocalTimeline.findOne().milestones;
 	},
-	localTimelineTitle:function() {
-		return LocalTimeline.findOne().title;	
+	localTimelineTitle: function () {
+		return LocalTimeline.findOne().title;
 	},
 });
+
 Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
-	if ( month>0 && month < 13 && (month!=2 || year%4 ==0)) {
-		var gunArr = ['<option value="29">29</option>']
+	if ( month > 0 && month < 13 && (month !== 2 || year % 4 === 0)) {
+		var gunArr = ['<option value="29">29</option>'];
 		if (month != 2) {
 			gunArr.push('<option value="30">30</option>');
 			if (month==1||month==3||month==5||month==7||month==8||month==10||month==12) {
 				gunArr.push('<option value="31">31</option>');
 			}
 		}
-		return new Handlebars.SafeString (gunArr)
+		return new Handlebars.SafeString (gunArr);
 	}
 });
 Template.entryInput.events ({
@@ -40,10 +41,9 @@ Template.entryInput.events ({
 		$(e.currentTarget).parent().find('span.counterDesc').hide();
 	},
 	'click #addOlay':function() {
-		if (inputValidate() == false ) { // Yeni olay açabilir miyim?
-			console.log("yenisini açamam")
-		}
-		else {
+		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
+			console.log("yenisini açamam");
+		} else {
 			titleUpdater();
 			milestonesUpdater();
 			LocalTimeline.update({},{$push:{milestones: 
@@ -53,50 +53,80 @@ Template.entryInput.events ({
 					desc: "",
 					img: "",
 				},
-			} })
+			}});
 		}
 	},
-	'click #yayinla':function() {
-		if (inputValidate() == false || titleValidate() == false ) {
-			console.log("yayinlanamaz")
-		}
-		else {
+
+	// validates inputs and insert into db
+	'click #yayinla': function () {
+		if (inputValidate() === false || titleValidate() === false ) {
+			console.log("yayinlanamaz");
+		} else {
+
+			// update local title 
 			titleUpdater();
+
+			// update local milestones
 			milestonesUpdater();
+
+			// get the milestones and the title
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
-			Timeline.insert({
-				title:title, created: new Date(), milestones: milestones
-			});
 
+			// insert to db
+			Meteor.call('timelineInsert', title, milestones);
+
+			// route to main page
+			Router.go('/');
+
+			// empty local collection
+			LocalTimeline.update({}, {$set:{title:'', milestones: [
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				},
+				{	
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				}
+			]}});
 		}
 	},
 	'change select.month':function(e) { // Ay seçildiği an gün seçeneklerinin ona göre güncellenmesi
-		var yil = parseInt($(e.currentTarget).parent().parent().find('input.tarih').val())
-			if( yil%4 == 0 )
-				Session.set("subatHali", 29)
+		var yil = parseInt($(e.currentTarget).parent().parent().find('input.tarih').val());
+			if ( yil % 4 === 0 )
+				Session.set("subatHali", 29);
 			else 
-				Session.set("subatHali", 28)
+				Session.set("subatHali", 28);
 		var ay = $(e.currentTarget).find('option:selected').val();
 		var ayOptionHtml = ayVerGunAl(ay); // Ayların kaç çektiğine göre gün sayısını belirliyoruz.
 		$(e.currentTarget).parent().find('select.day').html(ayOptionHtml);
-		if(parseInt($(e.currentTarget).val()) > 0 && parseInt($(e.currentTarget).val()) <= 12 ) {
-			$(e.currentTarget).parent().find('select.day').prop("disabled", false)
-		}
-		else {
-			$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled")
+		if (parseInt($(e.currentTarget).val()) > 0 && parseInt($(e.currentTarget).val()) <= 12 ) {
+			$(e.currentTarget).parent().find('select.day').prop("disabled", false);
+		} else {
+			$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled");
 		}
 		$(e.currentTarget).parent().find('select.day').val("0");
 	},
 	'keyup input.tarih':function(e) {
 		// Yıl değiştirirse ay-günü disable ediyoruz
 		$(e.currentTarget).parent().find('select.month').prop("disabled", "disabled");
-		$(e.currentTarget).parent().find('select.month').val(0)
+		$(e.currentTarget).parent().find('select.month').val(0);
 		$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled");
-		$(e.currentTarget).parent().find('select.day').val(0)
+		$(e.currentTarget).parent().find('select.day').val(0);
 		var yil = parseInt($(e.currentTarget).val());
 		if(!isNaN(yil)) {
-			$(e.currentTarget).parent().find('select.month').prop("disabled", false)
+			$(e.currentTarget).parent().find('select.month').prop("disabled", false);
 			$(e.currentTarget).parent().find('select.month').val(0);
 			if( yil > 2014) {
 				$(e.currentTarget).val(2014);
@@ -122,17 +152,17 @@ Template.entryInput.rendered = function() {
 	
 	// compatibility de hazır bir kütüphane ile başlığa sınır konuyor + counter ile kullanıcıya gösteriliyor
 	$('#title').simplyCountable({
-		counter: 	'#counterTitle', // A jQuery selector to match the 'counter' element.
+		counter: '#counterTitle', // A jQuery selector to match the 'counter' element.
 		maxCount:	80, // The maximum character (or word) count of the text input or textarea. 
 	});
 
 	$('.manset').simplyCountable({
-		counter: 	'.counterManset', // A jQuery selector to match the 'counter' element.
+		counter: '.counterManset', // A jQuery selector to match the 'counter' element.
 		maxCount:	100, // The maximum character (or word) count of the text input or textarea. 
 	});
 
 	$('.desc').simplyCountable({
-		counter: 	'.counterDesc', // A jQuery selector to match the 'counter' element.
+		counter: '.counterDesc', // A jQuery selector to match the 'counter' element.
 		maxCount:	500, // The maximum character (or word) count of the text input or textarea. 
 	});
 	// bitti

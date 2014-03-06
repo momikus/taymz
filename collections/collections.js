@@ -1,28 +1,28 @@
 Timeline = new Meteor.Collection('timeline');
-if(Meteor.isClient) {
+if (Meteor.isClient) {
 	Meteor.startup(function () {
-		LocalTimeline.insert(	{
-			title: "",
+		LocalTimeline.insert({
+			title: '',
 			milestones: [
-				{	
+				{
 					_id: new Meteor.Collection.ObjectID()._str,
-					tagline: "",
-					desc: "",
-					img: "resim2.jpg",
+					tagline: '',
+					desc: '',
+					img: '' 
 				},
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
-					tagline: "",
-					desc: "",
-					img: "resim.jpg",
+					tagline: '',
+					desc: '',
+					img: '' 
 				},
 				{	
 					_id: new Meteor.Collection.ObjectID()._str,
-					tagline: "",
-					desc: "",
-					img: "resim2.jpg",
+					tagline: '',
+					desc: '',
+					img: '' 
 				}
 			]
-		})
+		});
 	});
 }
