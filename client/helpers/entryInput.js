@@ -40,6 +40,32 @@ Template.entryInput.events ({
 	'blur textarea.desc':function(e) { //desc yazma alanına blur olunca counter kapanır
 		$(e.currentTarget).parent().find('span.counterDesc').hide();
 	},
+
+	// upload image
+	'click div.gorselYukle': function () {
+		var milestoneId = this._id;
+		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
+		filepicker.pickAndStore({
+				mimetypes: ['image/*'],
+					container: 'modal',
+					services :['COMPUTER', 'URL', 'IMAGE_SEARCH']
+			},
+			{
+				location: 'S3',
+				path    : '/',
+				access  : 'public'
+			},
+			function(InkBlob){
+				milestonesUpdater();
+				LocalTimeline.update({'milestones._id': milestoneId}, {$set: {
+					'milestones.$.img': InkBlob[0].key
+				}});
+			},
+			function(FPError){
+				//do nothing
+			}
+		);
+	},
 	'click #addOlay':function() {
 		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
 			console.log("yenisini açamam");
