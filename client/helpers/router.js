@@ -2,6 +2,17 @@ Router.configure({
 	layoutTemplate: 'layout'
 });
 
+var requireAdmin = function() {  
+ if (!Session.equals('varoAdmin', true)) {   
+   Router.go('home');
+     this.stop();  
+   }
+};
+
+Router.before(requireAdmin, 
+  {except: ['home', 'timeline']
+});
+
 // route definitions
 Router.map(function () {
 

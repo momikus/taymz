@@ -48,14 +48,12 @@ function milestonesUpdater() {
 		var id = $(this).attr('id');
 		var tagline = $(this).find('textarea.manset').val();
 		var desc = $(this).find('textarea.desc').val();
-		var img = "resim2.jpg";
 		var year = parseInt($(this).find('input.tarih').val());
 		var month = parseInt($(this).find('select.month').val());
 		var day = parseInt($(this).find('select.day').val());
 		LocalTimeline.update({"milestones._id":id},{$set: {
 			"milestones.$.tagline": tagline,
 			"milestones.$.desc":desc,
-			"milestones.$.img":"resim2.jpg",
 			"milestones.$.year":year,
 			"milestones.$.month":month,
 			"milestones.$.day":day

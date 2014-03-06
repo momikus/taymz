@@ -6,5 +6,5 @@ Meteor.publish('timelineMain', function (route, id) {
 });
 
 Meteor.publish('timelineCarousel', function (skip) {
-	return Timeline.find({}, {limit: 4, skip: skip, sort: {created: -1}});
+	return Timeline.find({}, {limit: 5, skip: skip, sort: {created: -1}});
 });
