@@ -26,19 +26,22 @@ Router.map(function () {
 			'gezCizgi': {to: 'gezCizgi'}
 		},
 		waitOn: function () {
+
 			Deps.autorun(function () {
-        Meteor.subscribe('timelineMain', 'main');
-      });
-     
-      Deps.autorun(function () {
-        var skip = Session.get('skip');
-        Meteor.subscribe('timelineCarousel', skip, function () {
+				Meteor.subscribe('timelineMain', 'main');
+			});
+
+
+			Deps.autorun(function () {
+				var skip = Session.get('skip');
+				Meteor.subscribe('timelineCarousel', skip, function () {
 					Meteor.setTimeout(function () {
 						Session.set('timelineCarouselLoaded', true);
 					}, 500);
-        });
-      });
+				});
+			});
 		},
+
 		data: {
 			// skip last timeline in carousel
 			timelineCarousel: function () {
@@ -52,16 +55,74 @@ Router.map(function () {
 			timelineMain: function () {
 				return Timeline.findOne({}, {limit: 1, sort: {created: -1}});
 			}
-		}
+		},
 	});
 
 	this.route('add', {
-		path: '/cizgi-olustur',
+		path: '/taym-olustur',
 		template: 'entryInput',
-		layoutTemplate: 'add',
+		layoutTemplate: 'add-edit',
 		yieldTemplates: {
 			'header': {to: 'header'},
 			'entryCall': {to: 'entryCall'}
+		},
+		before: function () {
+			Meteor.call('removeLocalTimeline');
+			LocalTimeline.insert({
+				title: '',
+				milestones: [
+					{
+						_id: new Meteor.Collection.ObjectID()._str,
+						tagline: '',
+						desc: '',
+						img: '' 
+					},
+					{
+						_id: new Meteor.Collection.ObjectID()._str,
+						tagline: '',
+						desc: '',
+						img: '' 
+					},
+					{	
+						_id: new Meteor.Collection.ObjectID()._str,
+						tagline: '',
+						desc: '',
+						img: '' 
+					}
+				]
+			});
+		}
+	});
+
+	this.route('edit', {
+		path: '/taym-duzenle',
+		template: 'entryInput',
+		layoutTemplate: 'add-edit',
+		yieldTemplates: {
+			'header': {to: 'header'},
+			'entryCall': {to: 'entryCall'}
+		},
+		waitOn: function () {
+			Deps.autorun(function () {
+				var tid = Session.get('singleTimeline');
+				Meteor.subscribe('timelineMain', 'edit', tid);
+			});
+		},
+		before: function () {
+			Meteor.call('removeLocalTimeline');
+			if(Timeline.findOne({tid:Session.get('singleTimeline')})!=undefined) {
+				var tid = Session.get('singleTimeline');
+				var title = Timeline.findOne({tid:tid}).title;
+				var milestones = Timeline.findOne({tid:tid}).milestones;
+				LocalTimeline.insert({
+					tid 		:tid,
+					title 		:title,
+					milestones 	:milestones
+				});
+			}
+
+		},
+		after: function() {
 		}
 	});
 
@@ -76,6 +137,7 @@ Router.map(function () {
 		before: function () {
 			Session.set('singleTimeline', parseFloat(this.params._id));
 		},
+
 		waitOn: function () {
 			Deps.autorun(function () {
 				var id = Session.get('singleTimeline');

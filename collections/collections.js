@@ -24,5 +24,11 @@ if (Meteor.isClient) {
 				}
 			]
 		});
+		return Meteor.methods({
+			  // remove local collection
+		      removeLocalTimeline: function() {
+		        return LocalTimeline.remove({});
+		      }
+		})
 	});
 }

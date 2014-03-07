@@ -1,10 +1,18 @@
 Template.entryInput.helpers({
 	localTimelineNode: function () {
-		return LocalTimeline.findOne().milestones;
+		if(LocalTimeline.findOne()!=undefined)
+		return LocalTimeline.findOne().milestones;			 
 	},
 	localTimelineTitle: function () {
+		if(LocalTimeline.findOne()!=undefined)
 		return LocalTimeline.findOne().title;
 	},
+	submit: function() {
+		if (Router.current().route.name == 'add')
+			return new Handlebars.SafeString ('<button id="yayinla" class="noSelection">Yayınla</button>');
+		else if (Router.current().route.name == 'edit')
+			return new Handlebars.SafeString ('<button id="guncelle" class="noSelection">Güncelle</button>');
+	}
 });
 
 Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
@@ -104,6 +112,51 @@ Template.entryInput.events ({
 
 			// route to main page
 			Router.go('/');
+
+			// empty local collection
+			LocalTimeline.update({}, {$set:{title:'', milestones: [
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				},
+				{	
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: '' 
+				}
+			]}});
+		}
+	},
+	'click #guncelle': function () {
+		if (inputValidate() === false || titleValidate() === false ) {
+			console.log("güncellenemez");
+		} else {
+
+			// update local title 
+			titleUpdater();
+
+			// update local milestones
+			milestonesUpdater();
+
+			// get the tid, the milestones and the title
+			var tid = LocalTimeline.findOne().tid;
+			var milestones = LocalTimeline.findOne().milestones;
+			var title = LocalTimeline.findOne().title;
+
+			// insert to db
+			Meteor.call('timelineUpdate', tid, title, milestones);
+
+			// route to main page
+			Router.go('/t/'+tid);
 
 			// empty local collection
 			LocalTimeline.update({}, {$set:{title:'', milestones: [

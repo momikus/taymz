@@ -75,3 +75,14 @@ function deleteValidate() {
 	else 
 		return true;
 }
+
+// function editlenecekBilgiyiAktar() {
+// 	var taym 			= Timeline.findOne({'tid': Session.get('singleTimeline')});
+// 	LocalTimeline.insert({"milestones._id":id},{$set: {
+// 		"milestones.$.tagline": tagline,
+// 		"milestones.$.desc":desc,
+// 		"milestones.$.year":year,
+// 		"milestones.$.month":month,
+// 		"milestones.$.day":day
+	// }});	
+// }

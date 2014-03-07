@@ -27,5 +27,21 @@ Meteor.methods({
       else
         console.log('New timeline inserted with id of: ' + result);
     });
+  },
+  timelineUpdate: function (tid, title, milestones) {
+
+    // update taym
+    Timeline.update({tid:tid},{
+      $set:{
+        title: title,
+        milestones: milestones,
+        updated: new Date()
+      }
+    }, function (err, result) {
+      if (err)
+        console.log('An error has occured: ' + err);
+      else
+        console.log('New timeline inserted with id of: ' + result);
+    });
   }
 });

@@ -33,6 +33,12 @@ Template.timeline.rendered = function () {
 		});
 	});
 
+	if (Router.current().route.name == 'home') {
+		if (Timeline.findOne({}, {limit: 1, sort: {created: -1}}) != undefined) {
+			var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
+			Session.set('singleTimeline', tid);
+		}
+	}
 	// lazy load images
 	// with fadeIn effect
 	$('img.lazy').lazyload({
