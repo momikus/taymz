@@ -383,34 +383,43 @@ button, a.buttonSq {
 			height 80px
 			margin-left 20px
 			margin-top -40px
+			text-align left
 			.tarih{ //yılı ifade ediyor
 				padding 0 10px
 				line-height 80px
-				font-size 60px
-				font-weight 300
-				float left
+				font-size 90px
+				font-weight 800
+				display inline-block
 				color fuiwetasphalt
 				background none
-				width 160px
 				font-family ff1
-				margin-right 16px
+				margin-right 0
+				height 80px
+				vertical-align middle
  			}
  			input.tarih {
  				border 1px dashed fuisilver
+ 				width 145px
+ 				font-size 50px
  			}
 			.aygun {
-				margin 18px 0 0 0
-				color fuiwetasphalt
+				text-align center
+				margin 0px 0 0 0
+				background fuiwetasphalt
 				width 80px
-				float right
+				height 80px
+				display inline-block
+				color white
+				vertical-align middle
+				padding-top 15px
+				border-radius(100%)
 				.ay {
 					display block
-					font-size: 16px;
+					font-size: 15px;
 					line-height 18px
 					padding 0
 					width 100%
 					font-family ff1
-					color fuiwetasphalt
 				}
 				select.month, select.day {
 					display block
@@ -430,7 +439,6 @@ button, a.buttonSq {
 					font-weight 800
 					text-align center
 					width 100%
-					color fuiwetasphalt
 				}
 			}
 		}
@@ -581,13 +589,13 @@ button, a.buttonSq {
 				left auto
 				right 50%
 				margin-right 20px
+				direction: rtl;
 				.tarih {
-					float right
-					margin-right 0
+
+
 				}
 				.aygun {
-					float left
-					margin-right 16px
+
 				}
 			}
 			.olay {

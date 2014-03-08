@@ -1,9 +1,9 @@
 <template name="birimOlayInput">
 	<div class="birimOlay float100" id="{{_id}}">
-		<div class="tarihContainer">
+		<div class="tarihContainer" style="direction:ltr;">
 			<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
 				{{#if year}}value="{{year}}"{{/if}}>
-			<div class="aygun">
+			<div class="aygun" style="background:none;">
 				<select class="month" name="monthlist" form="monthform"
 					{{#if year}}value="{{month}}"{{else}}disabled{{/if}}>
 					<option value="0">Ay</option>
@@ -20,7 +20,11 @@
 					<option value="11">Kasım</option>
 					<option value="12">Aralık</option>
 				</select>
-				<select class="day" name="daylist" form="dayform" {{#if day}}value="{{day}}"{{/if}} {{#if month}} {{else}}disabled{{/if}}>
+				<select class="day" name="daylist" form="dayform" 
+					{{#if day}}value="{{day}}"{{/if}} 
+					{{#if month}}
+					{{else}}disabled
+					{{/if}}>
 					<option value="0">Gün</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
