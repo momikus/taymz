@@ -50,12 +50,11 @@ Template.gezCizgi.rendered = function () {
 	Meteor.call('totalTimelineCount', function (err, result) {
 		Session.set('totalTimelineCount', result);
 	});
+
 	$('.carousel a').hide();
 	$('.carousel a').each(function(i) {
 		$(this).delay(i*100).fadeIn(200);
 	});
-	
-
 };
 
 

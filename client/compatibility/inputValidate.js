@@ -29,8 +29,7 @@ function inputValidate() {
 	});
 	if (isValidYil == false || isValidManset == false ) { // Yeni olay açabilir miyim?
 		return false;
-	}
-	else
+	} else
 		return true;
 }
 
@@ -38,8 +37,7 @@ function titleValidate() {
 	if (!$.trim($("textarea#title").val())) {
 		$("textarea#title").addClass('warning');
 		return false
-	}
-	else 
+	} else 
 		return true;
 }
 
@@ -69,20 +67,6 @@ function titleUpdater() {
 }
 
 function deleteValidate() {
-	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length < 4" }).count()
-	if (taymLenAbove3 > 0)
-		return false;
-	else 
-		return true;
+	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length < 4" }).count();
+	return taymLenAbove3; // returns 1 or 0 which is true or false respectively
 }
-
-// function editlenecekBilgiyiAktar() {
-// 	var taym 			= Timeline.findOne({'tid': Session.get('singleTimeline')});
-// 	LocalTimeline.insert({"milestones._id":id},{$set: {
-// 		"milestones.$.tagline": tagline,
-// 		"milestones.$.desc":desc,
-// 		"milestones.$.year":year,
-// 		"milestones.$.month":month,
-// 		"milestones.$.day":day
-	// }});	
-// }
