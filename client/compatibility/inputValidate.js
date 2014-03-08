@@ -67,6 +67,6 @@ function titleUpdater() {
 }
 
 function deleteValidate() {
-	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length < 4" }).count();
+	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length > 3" }).count();
 	return taymLenAbove3; // returns 1 or 0 which is true or false respectively
 }

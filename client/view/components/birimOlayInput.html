@@ -3,7 +3,7 @@
 		<div class="tarihContainer" style="direction:ltr;">
 			<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
 				{{#if year}}value="{{year}}"{{/if}}>
-			<div class="aygun" style="background:none;">
+			<div class="aygun" style="background:none !important;">
 				<select class="month" name="monthlist" form="monthform"
 					{{#if year}}value="{{month}}"{{else}}disabled{{/if}}>
 					<option value="0">Ay</option>
