@@ -105,24 +105,21 @@ Router.map(function () {
 		waitOn: function () {
 			Deps.autorun(function () {
 				var tid = Session.get('singleTimeline');
-				Meteor.subscribe('timelineMain', 'edit', tid);
+				Meteor.subscribe('timelineMain', 'single', tid);
 			});
 		},
 		before: function () {
 			Meteor.call('removeLocalTimeline');
-			if(Timeline.findOne({tid:Session.get('singleTimeline')})!=undefined) {
+			if (Timeline.findOne() !== undefined) {
 				var tid = Session.get('singleTimeline');
 				var title = Timeline.findOne({tid:tid}).title;
 				var milestones = Timeline.findOne({tid:tid}).milestones;
 				LocalTimeline.insert({
-					tid 		:tid,
-					title 		:title,
-					milestones 	:milestones
+					tid: tid,
+					title: title,
+					milestones: milestones
 				});
 			}
-
-		},
-		after: function() {
 		}
 	});
 

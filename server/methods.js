@@ -12,7 +12,7 @@ Meteor.methods({
     // get latest tid
     var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
 
-    // parset to int and add one
+    // parse to int and add one
     tid = parseInt(tid) + 1;
 
     // insert into db
@@ -31,7 +31,7 @@ Meteor.methods({
   timelineUpdate: function (tid, title, milestones) {
 
     // update taym
-    Timeline.update({tid:tid},{
+    Timeline.update({tid: tid},{
       $set:{
         title: title,
         milestones: milestones,

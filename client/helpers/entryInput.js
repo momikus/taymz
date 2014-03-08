@@ -1,11 +1,11 @@
 Template.entryInput.helpers({
 	localTimelineNode: function () {
-		if(LocalTimeline.findOne()!=undefined)
-		return LocalTimeline.findOne().milestones;			 
+		if (LocalTimeline.findOne() !== undefined)
+			return LocalTimeline.findOne().milestones;			 
 	},
 	localTimelineTitle: function () {
-		if(LocalTimeline.findOne()!=undefined)
-		return LocalTimeline.findOne().title;
+		if (LocalTimeline.findOne() !== undefined)
+			return LocalTimeline.findOne().title;
 	},
 	submit: function() {
 		if (Router.current().route.name == 'add')
@@ -235,11 +235,11 @@ Template.entryInput.events ({
 		$(e.currentTarget).parent().hide();
 		var id = $(e.currentTarget).parent().parent().attr("id");
 		console.log(deleteValidate());
-		if( deleteValidate() == true) {
+		if( deleteValidate() === true) {
 			LocalTimeline.update({},{$pull:{"milestones":{"_id":id}}});
 		}
 		else {
-			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.')
+			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
 		}
 	}
 });
