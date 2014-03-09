@@ -238,7 +238,8 @@ Template.entryInput.events ({
 		var id = $(e.currentTarget).parent().parent().attr("id");
 		console.log(deleteValidate());
 		if( deleteValidate() === 1) {
-			LocalTimeline.update({},{$pull:{"milestones":{"_id":id}}});
+			LocalTimeline.update({},{$pull:{milestones:{_id:id}}});
+			console.log("if e girdim")
 		}
 		else {
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
