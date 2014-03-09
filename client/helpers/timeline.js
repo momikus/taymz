@@ -25,7 +25,7 @@ Handlebars.registerHelper('ayIsmi', function(month) {
 		var result = "Aralık";
 	return result;
 });
-   
+
 Template.timeline.rendered = function () {
 	$('p').on('paste', function () {
 		$('p').delay(50).queue(function (next) {

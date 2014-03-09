@@ -1,7 +1,9 @@
 Template.entryInput.helpers({
 	localTimelineNode: function () {
 		if (LocalTimeline.findOne() !== undefined)
-			return LocalTimeline.findOne().milestones;			 
+			var milestone = LocalTimeline.findOne().milestones;
+			return _.sortBy(milestone, function(milestones){ return milestones.year; });
+			//return LocalTimeline.findOne().milestones;
 	},
 	localTimelineTitle: function () {
 		if (LocalTimeline.findOne() !== undefined)

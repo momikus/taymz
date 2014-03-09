@@ -161,7 +161,8 @@ Router.map(function () {
 			// set the main timeline according to url 
 			timelineMain: function () {
 				return Timeline.findOne({'tid': Session.get('singleTimeline')});
-			}
+			},
+			
 		}
 	});
 });
