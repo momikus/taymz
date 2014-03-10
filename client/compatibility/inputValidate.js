@@ -15,19 +15,19 @@ function inputValidate() {
 	});
 	var isValidYil; // Girilmiş olması gereken tüm yıllar valid mi
 	$("input.tarih").each(function() {
-	   var element = $(this);
-	   if (element.val() == "") {
-	       isValidYil = false;
-	   }
+			var element = $(this);
+			if (element.val() === "") {
+				isValidYil = false;
+			}
 	});
 	var isValidManset; // Girilmiş olması gereken tüm manşetler valid mi
 	$("textarea.manset").each(function() {
-	   var element = $(this);
-	   if (element.val() == "") {
-	       isValidManset = false;
-	   }
+		var element = $(this);
+		if (element.val() === "") {
+			isValidManset = false;
+		}
 	});
-	if (isValidYil == false || isValidManset == false ) { // Yeni olay açabilir miyim?
+	if (isValidYil === false || isValidManset === false ) { // Yeni olay açabilir miyim?
 		return false;
 	} else
 		return true;
@@ -36,7 +36,7 @@ function inputValidate() {
 function titleValidate() {
 	if (!$.trim($("textarea#title").val())) {
 		$("textarea#title").addClass('warning');
-		return false
+		return false;
 	} else 
 		return true;
 }

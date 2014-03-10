@@ -10,7 +10,7 @@ var requireAdmin = function() {
 };
 
 Router.before(requireAdmin, 
-  {except: ['home', 'timeline']
+  {except: ['home', 'timeline', 'edit']
 });
 
 // route definitions
@@ -28,7 +28,10 @@ Router.map(function () {
 		waitOn: function () {
 
 			Deps.autorun(function () {
-				Meteor.subscribe('timelineMain', 'main');
+				Meteor.subscribe('timelineMain', 'main', function () {
+					var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
+					Session.set('singleTimeline', tid);
+				});
 			});
 
 
@@ -161,8 +164,7 @@ Router.map(function () {
 			// set the main timeline according to url 
 			timelineMain: function () {
 				return Timeline.findOne({'tid': Session.get('singleTimeline')});
-			},
-			
+			}
 		}
 	});
 });

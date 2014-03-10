@@ -1,9 +1,15 @@
 Template.entryInput.helpers({
 	localTimelineNode: function () {
-		if (LocalTimeline.findOne() !== undefined)
-			var milestone = LocalTimeline.findOne().milestones;
-			return _.sortBy(milestone, function(milestones){ return milestones.year; });
-			//return LocalTimeline.findOne().milestones;
+		if (LocalTimeline.findOne() !== undefined) {
+			var milestones = LocalTimeline.findOne().milestones;
+			return _(_(_(milestones).sortBy(function (milestones) {
+				return milestones.day;
+			})).sortBy(function (milestones) {
+				return milestones.month;
+			})).sortBy(function (milestones) {
+				return milestones.year;
+			});
+		}
 	},
 	localTimelineTitle: function () {
 		if (LocalTimeline.findOne() !== undefined)
