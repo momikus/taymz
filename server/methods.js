@@ -28,9 +28,9 @@ Meteor.methods({
         console.log('New timeline inserted with id of: ' + result);
     });
   },
-  timelineUpdate: function (tid, title, milestones) {
 
-    // update taym
+  // update taym
+  timelineUpdate: function (tid, title, milestones) {
     Timeline.update({tid: tid},{
       $set:{
         title: title,

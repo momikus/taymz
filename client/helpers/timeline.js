@@ -1,29 +1,45 @@
-Handlebars.registerHelper('ayIsmi', function(month) {
+Handlebars.registerHelper('ayIsmi', function (month) {
 	if (month == 1)
-		var result = "Ocak";
+		return "Ocak";
 	else if (month == 2)
-		var	result = "Şubat";
+		return "Şubat";
 	else if (month == 3)
-		var result = "Mart";
+		return "Mart";
 	else if (month == 4)
-		var result = "Nisan";
+		return "Nisan";
 	else if (month == 5)
-		var result = "Mayıs";
+		return "Mayıs";
 	else if (month == 6)
-		var result = "Haziran";
+		return "Haziran";
 	else if (month == 7)
-		var result = "Temmuz";
+		return "Temmuz";
 	else if (month == 8)
-		var result = "Ağustos";
+		return "Ağustos";
 	else if (month == 9)
-		var result = "Eylül";
+		return "Eylül";
 	else if (month == 10)
-		var result = "Ekim";
+		return "Ekim";
 	else if (month == 11)
-		var result = "Kasım";
+		return "Kasım";
 	else if (month == 12)
-		var result = "Aralık";
-	return result;
+		return "Aralık";
+});
+
+Template.timeline.helpers({
+	milestones: function () {
+
+		// get the milestones of the main timeline
+		var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
+
+		// return milestone sorted by year, month, day
+		return _(_(_(milestones).sortBy(function (milestones) {
+			return milestones.day;
+		})).sortBy(function (milestones) {
+			return milestones.month;
+		})).sortBy(function (milestones) {
+			return milestones.year;
+		});
+	}
 });
 
 Template.timeline.rendered = function () {
@@ -34,12 +50,6 @@ Template.timeline.rendered = function () {
 		});
 	});
 
-	if (Router.current().route.name == 'home') {
-		if (Timeline.findOne({}, {limit: 1, sort: {created: -1}}) != undefined) {
-			var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
-			Session.set('singleTimeline', tid);
-		}
-	}
 	// lazy load images
 	// with fadeIn effect
 	$('img.lazy').lazyload({
