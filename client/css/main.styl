@@ -363,11 +363,15 @@ button, a.buttonSq {
 		font-size 12px
 		float left
 		color white
+		z-index 1
 	}
 }
 .birimOlayContainer {
 	position relative
 	padding-top 40px
+	margin-bottom: -140px;
+	padding-bottom: 140px;
+	overflow hidden
 	&:before {
 		border-radius(10px)
 		position absolute
@@ -382,9 +386,21 @@ button, a.buttonSq {
 		margin-left:-8px;
 		z-index -1
 	}
+	&:after {
+		background fuiwetasphalt
+		position absolute
+		width 6px
+		content ""
+		height 100%
+		top 5px
+		left 50%
+		margin-left -3px
+		z-index 0
+	}
 	.birimOlay {
 		position relative
 		margin-bottom 40px
+		z-index 1
 		&:after {
 			width 10px
 			height 10px
