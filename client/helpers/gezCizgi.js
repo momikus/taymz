@@ -16,8 +16,16 @@ Template.gezCizgi.helpers({
 	// get the image of first milestone
 	// to show as main img of timeline
 	img: function () {
-		if (Timeline.findOne({_id: this._id}) !== undefined)
-			return Timeline.findOne({'_id': this._id}).milestones[0].img;
+		if (Timeline.findOne({_id: this._id}) !== undefined) {
+			var milestones = Timeline.findOne({_id: this._id}).milestones;
+			return _(_(_(milestones).sortBy(function (milestones) {
+				return milestones.day;
+			})).sortBy(function (milestones) {
+				return milestones.month;
+			})).sortBy(function (milestones) {
+				return milestones.year;
+			})[0].img;
+		}
 	},
 
 	// give class to hide left arrow 
