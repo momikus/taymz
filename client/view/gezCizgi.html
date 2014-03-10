@@ -5,11 +5,13 @@
 			<div class="carousel">
 				{{#if timelineCarouselLoaded}}
 					{{#each timelineCarousel}}
-					<a class="standartCerceve" href="/t/{{tid}}">
+					<a href="/t/{{tid}}">
 						<div class="imgContainer">
-							<img src="http://s3-eu-west-1.amazonaws.com/taymz/{{img}}">
+							<span class="helper"></span><img src="http://s3-eu-west-1.amazonaws.com/taymz/{{img}}">
 						</div>
-						<h4>{{title}}</h4>
+						<div class="baslikContainer">
+							<h4>{{title}}</h4>
+						</div>
 					</a>
 					{{/each}}
 				{{else}}

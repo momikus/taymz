@@ -67,7 +67,7 @@ a {
 body {
 	font-family ff1
 	margin 0
-	background url(/img/bg.png) repeat
+	background fuimidnightblue url(/img/bg5.png) repeat
 }
 button, a.buttonSq {
 	height 36px
@@ -133,8 +133,8 @@ button, a.buttonSq {
 }
 .standartCerceve {
 	background white
-	box-shadow(0 1px 2px rgba(0,0,0,0.07))
-	border-radius(3px)
+	box-shadow(0 1px 10px rgba(0,0,0,0.99))
+	border-radius(1px)
 }
 .warning {
 	border-color fuializarin !important
@@ -156,13 +156,13 @@ button, a.buttonSq {
 }
 #header {
 	position relative
-	background url(/img/bg.png)
+	background url(/img/bg5.png)
 	#inner {
 		width 1000px
 		margin auto
 		height 50px
 		h1 a {
-			color fuimidnightblue
+			color white
 			margin 0 auto 0
 			line-height 50px
 			font-size 30px
@@ -193,49 +193,87 @@ button, a.buttonSq {
 .gezCizgi {
 	padding 20px 0
 	text-align center
-	background url(/img/bg2.png) repeat
-	border-bottom 1px solid white
-	border-top 1px solid white
-	box-shadow(inset 0 0px 5px black)
+	background fuipreclouds
+	//border-bottom 1px solid fuimidnightblue
+	//border-top 1px solid white
+	box-shadow(inset 0 0px 5px rgba(0,0,0,0.7))
 	.inner {
 		width 860px
 		margin auto
 		text-align center
 		display inline-block
 		position relative
-		height 175px
+		height 185px
 		overflow hidden
 		.carousel {
 			width 100%
 			height 100%
+			padding 5px 0
 			a {
 				margin 0  20px 0 0
 				display inline-block
 				width 200px
 				height 100%
 				background white
-				padding 10px
 				float left
 				color fuiwetasphalt
+				position relative
+				border-radius(2px)
+				overflow hidden
 				.imgContainer {
-					width 100%
-					height 90px
+					position absolute
+					background white
+					width 180px
+					margin 10px
+					height 155px
 					overflow hidden
+					z-index 11
+					display table
+					text-align: center;
+					overflow hidden
+					span.helper {
+						display: inline-block;
+						height: 100%;
+						vertical-align: middle;						
+					}
 					img {
-						width 100%
-						height auto
+						width 180px
+						height 155px
+						//max-height auto
+						vertical-align middle
+						
 					}
 				}
-				h4 {
-					font-size 16px
-					font-weight 700
-					line-height 20px
-					text-align center
-					padding 7px 0
+				.baslikContainer {
+					position absolute
+					background rgba(255,255,255,0.9)
+					display table
+					vertical-align middle
+					height 100%
+					width 100%
+					padding 10px
+					z-index 11
+					opacity 0
+					-webkit-transition: opacity 250ms ease-out;
+					-moz-transition: opacity 250ms;
+					-o-transition: opacity 250ms;
+					transition: opacity 250ms;
+					h4 {
+						display table-cell
+						vertical-align middle
+						font-size 22px
+						letter-spacing -1px
+						font-weight 800
+						line-height 28px
+						text-align center
+					}
 				}
 				&:hover {
 					background white
-					color fuializarin
+					color fuimidnightblue
+					.baslikContainer {
+						opacity 1
+					}
 				}
 				&:last-child {
 					margin 0
@@ -263,10 +301,10 @@ button, a.buttonSq {
 		font-size 30px
 		width 50px
 		margin-right 20px
-		color fuiconcrete
+		color fuiwetasphalt
 		&:hover {
 			cursor pointer
-			color white
+			color fuiturquoise
 		}
 		&.fa-chevron-circle-right {
 			margin 0 0 0 20px
@@ -284,13 +322,14 @@ button, a.buttonSq {
 		line-height: 44px;
 		font-weight: 700;
 		padding: 20px;
-		color fuiwetasphalt
+		color white
 		background none
 		box-shadow(none)
 		text-align center
 		display block
 		width 100%
 		font-family ff1
+		margin 20px 0
 	}
 	textarea {
 		border 1px dashed #ccc
@@ -306,33 +345,20 @@ button, a.buttonSq {
 		color fuiconcrete
 		font-weight 700
 	}
-	&:before {
-		position absolute
-		content ""
-		width 6px
-		height 40px
-		background fuiwetasphalt
-		bottom 0
-		margin-bottom -40px
-		left 50%
-		display block
-		margin-left:-3px;
-		z-index -1
-	}
 	&:after {
-		width 20px
-		height 20px
-		background fuiwetasphalt
+		width 10px
+		height 10px
+		background white
 		border-radius (100%)
 		position absolute
 		left 50%
-		margin-left -10px
+		margin-left -5px
 		bottom 0
-		content "\f111"
+		content ""
 		font-family FontAwesome
 		font-weight normal
-		margin-bottom -10px
-		line-height 20px
+		margin-bottom -33px
+		line-height 10px
 		text-align center
 		font-size 12px
 		float left
@@ -343,38 +369,40 @@ button, a.buttonSq {
 	position relative
 	padding-top 40px
 	&:before {
+		border-radius(10px)
 		position absolute
 		content ""
-		width 6px
+		width 16px
 		height 100%
 		background fuiwetasphalt
+		box-shadow(inset 0 0 20px rgba(0,0,0,0.9))
 		top 0
 		left 50%
 		display block
-		margin-left:-3px;
+		margin-left:-8px;
 		z-index -1
 	}
 	.birimOlay {
 		position relative
 		margin-bottom 40px
 		&:after {
-			width 20px
-			height 20px
-			background fuiwetasphalt
+			width 10px
+			height 10px
+			background white
 			border-radius (100%)
 			position absolute
 			left 50%
-			margin-left -10px
+			margin-left -5px
 			top 30%
-			content "\f111"
+			content ""
 			font-family FontAwesome
 			font-weight normal
-			margin-top -10px
-			line-height 20px
+			margin-top -5px
+			line-height 38px
 			text-align center
-			font-size 12px
+			font-size 18px
 			float left
-			color white
+			color fuiwetasphalt
 		}
 		.tarihContainer {
 			position absolute
@@ -390,12 +418,13 @@ button, a.buttonSq {
 				font-size 90px
 				font-weight 800
 				display inline-block
-				color fuiwetasphalt
+				color fuipreclouds
 				background none
 				font-family ff1
 				margin-right 0
 				height 80px
 				vertical-align middle
+				text-shadow 0 -1px rgba(0,0,0,0.9)
  			}
  			input.tarih {
  				border 1px dashed fuisilver
@@ -440,11 +469,14 @@ button, a.buttonSq {
 					text-align center
 					width 100%
 				}
+				&.boxShadow {
+					box-shadow(inset 0 0 5px rgba(0,0,0,0.7))					
+				}
 			}
 		}
 
 		.olay {
-			width 480px
+			width 460px
 			float left
 			padding 20px
 			text-align left
@@ -494,6 +526,17 @@ button, a.buttonSq {
 			.imageContainer {
 				text-align center
 				margin-bottom 10px
+				position relative
+				&:before {
+					position absolute
+					width 100%
+					height 100%
+					top 0
+					left 0
+					z-index 12
+					content ""
+					box-shadow(inset 0px 0px 3px rgba(0,0,0,0.65))
+				}				
 				img, i {
 					width 100%
 					height auto
@@ -538,11 +581,11 @@ button, a.buttonSq {
 				font-family FontAwesome
 				font-weight normal
 				color white
-				font-size 60px
-				margin-top -30px
+				font-size 100px
+				margin-top -50px
 				height 60px
 				top 30%
-				right -10px
+				right -30px
 			}
 		}
 		i.silici, .siliciPopover {
@@ -604,7 +647,7 @@ button, a.buttonSq {
 				&:after {
 					content "\f0d9"
 					right auto
-					left -10px
+					left -30px
 				}
 			}
 			i.silici, .siliciPopover {
@@ -671,9 +714,7 @@ button, a.buttonSq {
 }
 #entryCall {
 	background url(/img/bg2.png) repeat
-	border-bottom 1px solid white
-	border-top 1px solid white
-	box-shadow(inset 0 0px 5px black)
+	box-shadow(inset 0 0px 5px rgba(0,0,0,0.7))
 	padding 20px
 	text-align center
 	margin-bottom 20px
