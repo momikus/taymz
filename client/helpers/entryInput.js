@@ -64,8 +64,9 @@ Template.entryInput.events({
 	},
 
 	// upload image
-	'click div.gorselYukle': function () {
+	'click div.gorselYukle': function (e) {
 		var milestoneId = this._id;
+		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr("id");
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
 		filepicker.pickAndStore({
 			mimetypes: ['image/*'],
@@ -82,6 +83,8 @@ Template.entryInput.events({
 				LocalTimeline.update({'milestones._id': milestoneId}, {$set: {
 					'milestones.$.img': InkBlob[0].key
 				}});
+				// Resim upload işlemi bitince related olaya git (kal)
+				$("html, body").animate({ scrollTop: $("#"+idAnchor).offset().top }, 1000);
 			},
 			function (FPError) {
 				console.log('error in uploading ' + FPError);
@@ -91,6 +94,7 @@ Template.entryInput.events({
 
 	'click #addOlay': function () {
 		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
+			//açamazsın
 		} else {
 			titleUpdater();
 			milestonesUpdater();
@@ -102,8 +106,8 @@ Template.entryInput.events({
 					img: '',
 				}
 			}});
+			$("html, body").animate({ scrollTop: $(document).height() }, "fast");
 		}
-		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 	},
 
 	// validates inputs and insert into db
