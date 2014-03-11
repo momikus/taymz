@@ -40,7 +40,7 @@ Template.gezCizgi.helpers({
 	leftHide: function () {
 		if (Session.equals('skip', 0))
 			return 'hidden';
-		else 
+		else
 			return 'visible';
 	},
 
@@ -49,7 +49,7 @@ Template.gezCizgi.helpers({
 	rightHide: function () {
 		if (Session.get('skip') + 4 > Session.get('totalTimelineCount'))
 			return 'hidden';
-		else 
+		else
 			return 'visible';
 	},
 
@@ -67,8 +67,8 @@ Template.gezCizgi.rendered = function () {
 	});
 
 	$('.carousel a').hide();
-	$('.carousel a').each(function(i) {
-		$(this).delay(i*100).fadeIn(200);
+	$('.carousel a').each(function (i) {
+		$(this).delay(i * 100).fadeIn(200);
 	});
 };
 
