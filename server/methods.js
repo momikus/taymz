@@ -31,8 +31,8 @@ Meteor.methods({
 
   // update taym
   timelineUpdate: function (tid, title, milestones) {
-    Timeline.update({tid: tid},{
-      $set:{
+    Timeline.update({tid: tid}, {
+      $set: {
         title: title,
         milestones: milestones,
         updated: new Date()

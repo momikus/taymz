@@ -1,72 +1,79 @@
 function inputValidate() {
-	$('.birimOlay').each(function() { // Gereken yerlere warning yapılıyor
+
+	// Gereken yerlere warning yapılıyor
+	$('.birimOlay').each(function () {
 		if (!$(this).find('textarea.manset').val()) {
 			$(this).find('textarea.manset').addClass('warning');
-		}
-		else {
+		} else {
 			$(this).find('textarea.manset').removeClass('warning');
 		}
 		if (!$(this).find('input.tarih').val()) {
 			$(this).find('input.tarih').addClass('warning');
-		}
-		else {
+		} else {
 			$(this).find('input.tarih').removeClass('warning');
 		}
 	});
-	var isValidYil; // Girilmiş olması gereken tüm yıllar valid mi
-	$("input.tarih").each(function() {
+
+	// Girilmiş olması gereken tüm yıllar valid mi
+	var isValidYil;
+	$('input.tarih').each(function () {
 			var element = $(this);
-			if (element.val() === "") {
+			if (element.val() === '')
 				isValidYil = false;
-			}
-	});
-	var isValidManset; // Girilmiş olması gereken tüm manşetler valid mi
-	$("textarea.manset").each(function() {
-		var element = $(this);
-		if (element.val() === "") {
-			isValidManset = false;
 		}
+	);
+
+	// Girilmiş olması gereken tüm manşetler valid mi
+	var isValidManset;
+	$('textarea.manset').each(function () {
+		var element = $(this);
+		if (element.val() === '')
+			isValidManset = false;
 	});
-	if (isValidYil === false || isValidManset === false ) { // Yeni olay açabilir miyim?
+
+	// Yeni olay açabilir miyim?
+	if (isValidYil === false || isValidManset === false) {
 		return false;
 	} else
 		return true;
 }
 
 function titleValidate() {
-	if (!$.trim($("textarea#title").val())) {
-		$("textarea#title").addClass('warning');
+	if (!$.trim($('textarea#title').val())) {
+		$('textarea#title').addClass('warning');
 		return false;
-	} else 
+	} else
 		return true;
 }
 
 function milestonesUpdater() {
-	$('.birimOlay').each(function() {
+	$('.birimOlay').each(function () {
 		var id = $(this).attr('id');
 		var tagline = $(this).find('textarea.manset').val();
 		var desc = $(this).find('textarea.desc').val();
 		var year = parseInt($(this).find('input.tarih').val());
 		var month = parseInt($(this).find('select.month').val());
 		var day = parseInt($(this).find('select.day').val());
-		LocalTimeline.update({"milestones._id":id},{$set: {
-			"milestones.$.tagline": tagline,
-			"milestones.$.desc":desc,
-			"milestones.$.year":year,
-			"milestones.$.month":month,
-			"milestones.$.day":day
+		LocalTimeline.update({'milestones._id': id}, {$set: {
+			'milestones.$.tagline': tagline,
+			'milestones.$.desc': desc,
+			'milestones.$.year': year,
+			'milestones.$.month': month,
+			'milestones.$.day': day
 		}});
 	});
 }
 
 function titleUpdater() {
-	var title = $("textarea#title").val();
-	LocalTimeline.update({},{$set:{
-		title:title
+	var title = $('textarea#title').val();
+	LocalTimeline.update({}, {$set: {
+		title: title
 	}});
 }
 
 function deleteValidate() {
-	var taymLenAbove3 = LocalTimeline.find({ $where: "this.milestones.length > 3" }).count();
+	var taymLenAbove3 = LocalTimeline.find({
+		$where: 'this.milestones.length > 3'
+	}).count();
 	return taymLenAbove3; // returns 1 or 0 which is true or false respectively
 }
