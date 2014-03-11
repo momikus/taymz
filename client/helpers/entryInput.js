@@ -15,6 +15,11 @@ Template.entryInput.helpers({
 		else if (Router.current().route.name === 'edit')
 			return new Handlebars.SafeString('<button id="guncelle"' +
 				'class="noSelection">Güncelle</button>');
+	},
+	mainImage: function() {
+		if (LocalTimeline.findOne() !== undefined) {
+			
+		}
 	}
 });
 
@@ -64,7 +69,7 @@ Template.entryInput.events({
 	},
 
 	// upload image
-	'click div.gorselYukle': function (e) {
+	'click .gorselYukleButonu': function (e) {
 		var milestoneId = this._id;
 		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr("id");
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
@@ -268,6 +273,18 @@ Template.entryInput.events({
 		else {
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
 		}
+	},
+	'click .anaResimYap':function(e) {
+		$(e.currentTarget).addClass('active');
+		
+		var id = $(e.currentTarget).parent().parent().parent().attr("id");
+		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
+		LocalTimeline.update({"milestones._id": {$exists: true}}, {$unset: {"milestones.$.mainimg":true}}, {multi:true})
+		
+		// ilgili olayın mainimg fieldını true yap
+		LocalTimeline.update({'milestones._id': id}, {$set: {
+			'milestones.$.mainimg': true
+		}});
 	}
 });
 
