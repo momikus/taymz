@@ -94,7 +94,7 @@ Template.entryInput.events ({
 					tagline: "",
 					desc: "",
 					img: "",
-				},
+				}
 			}});
 		}
 	},
