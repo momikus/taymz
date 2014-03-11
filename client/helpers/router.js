@@ -2,14 +2,14 @@ Router.configure({
 	layoutTemplate: 'layout'
 });
 
-var requireAdmin = function() {  
- if (!Session.equals('varoAdmin', true)) {   
-   Router.go('home');
-     this.stop();  
-   }
+var requireAdmin = function () {
+	if (!Session.equals('varoAdmin', true)) {
+		Router.go('home');
+		this.stop();
+	}
 };
 
-Router.before(requireAdmin, 
+Router.before(requireAdmin,
   {except: ['home', 'timeline', 'edit']
 });
 
@@ -78,19 +78,19 @@ Router.map(function () {
 						_id: new Meteor.Collection.ObjectID()._str,
 						tagline: '',
 						desc: '',
-						img: '' 
+						img: ''
 					},
 					{
 						_id: new Meteor.Collection.ObjectID()._str,
 						tagline: '',
 						desc: '',
-						img: '' 
+						img: ''
 					},
-					{	
+					{
 						_id: new Meteor.Collection.ObjectID()._str,
 						tagline: '',
 						desc: '',
-						img: '' 
+						img: ''
 					}
 				]
 			});
@@ -115,8 +115,8 @@ Router.map(function () {
 			Meteor.call('removeLocalTimeline');
 			if (Timeline.findOne() !== undefined) {
 				var tid = Session.get('singleTimeline');
-				var title = Timeline.findOne({tid:tid}).title;
-				var milestones = Timeline.findOne({tid:tid}).milestones;
+				var title = Timeline.findOne({tid: tid}).title;
+				var milestones = Timeline.findOne({tid: tid}).milestones;
 				LocalTimeline.insert({
 					tid: tid,
 					title: title,
@@ -154,6 +154,7 @@ Router.map(function () {
       });
 		},
 		data: {
+			
 			// skip last timeline in carousel
 			timelineCarousel: function () {
 				return Timeline.find({

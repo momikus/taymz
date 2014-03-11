@@ -2,58 +2,64 @@ Template.entryInput.helpers({
 	localTimelineNode: function () {
 		if (LocalTimeline.findOne() !== undefined) {
 			return LocalTimeline.findOne().milestones;
-			// return _(_(_(milestones).sortBy(function (milestones) {
-			// 	return milestones.day;
-			// })).sortBy(function (milestones) {
-			// 	return milestones.month;
-			// })).sortBy(function (milestones) {
-			// 	return milestones.year;
-			// });
 		}
 	},
 	localTimelineTitle: function () {
 		if (LocalTimeline.findOne() !== undefined)
 			return LocalTimeline.findOne().title;
 	},
-	submit: function() {
-		if (Router.current().route.name == 'add')
-			return new Handlebars.SafeString ('<button id="yayinla" class="noSelection">Yayınla</button>');
-		else if (Router.current().route.name == 'edit')
-			return new Handlebars.SafeString ('<button id="guncelle" class="noSelection">Güncelle</button>');
+	submit: function () {
+		if (Router.current().route.name === 'add')
+			return new Handlebars.SafeString('<button id="yayinla"' +
+				'class="noSelection">Yayınla</button>');
+		else if (Router.current().route.name === 'edit')
+			return new Handlebars.SafeString('<button id="guncelle"' +
+				'class="noSelection">Güncelle</button>');
 	}
 });
 
-Handlebars.registerHelper('ayaYilaGoreGun', function(month, year) {
-	if ( month > 0 && month < 13 && (month !== 2 || year % 4 === 0)) {
+Handlebars.registerHelper('ayaYilaGoreGun', function (month, year) {
+	if (month > 0 && month < 13 && (month !== 2 || year % 4 === 0)) {
 		var gunArr = ['<option value="29">29</option>'];
-		if (month != 2) {
+		if (month !== 2) {
 			gunArr.push('<option value="30">30</option>');
-			if (month==1||month==3||month==5||month==7||month==8||month==10||month==12) {
+			if (month === 1 || month === 3 || month === 5 ||
+					month === 7 || month === 8 || month === 10 || month === 12) {
 				gunArr.push('<option value="31">31</option>');
 			}
 		}
-		return new Handlebars.SafeString (gunArr);
+		return new Handlebars.SafeString(gunArr);
 	}
 });
-Template.entryInput.events ({
-	'blur .birimOlayContainer textarea.manset, blur input.tarih':function(e) { // zorunlu alanlara yazmadan blur olunca uyar
-		if(!$(e.currentTarget).val()) {
+
+Template.entryInput.events({
+
+	// zorunlu alanlara yazmadan blur olunca uyar
+	'blur .birimOlayContainer textarea.manset, blur input.tarih': function (e) {
+		if (!$(e.currentTarget).val()) {
 			$(e.currentTarget).addClass('warning');
-		}
-		else {
+		} else {
 			$(e.currentTarget).removeClass('warning');
 		}
 	},
-	'focus textarea.manset':function(e) { //manşet yazma alanına focus olunca counter açılır
+
+	//manşet yazma alanına focus olunca counter açılır
+	'focus textarea.manset': function (e) {
 		$(e.currentTarget).parent().find('span.counterManset').show();
 	},
-	'blur textarea.manset':function(e) { //manşet yazma alanına blur olunca counter kapanır
+
+	//manşet yazma alanına blur olunca counter kapanır
+	'blur textarea.manset': function (e) {
 		$(e.currentTarget).parent().find('span.counterManset').hide();
 	},
-	'focus textarea.desc':function(e) { //desc yazma alanına focus olunca counter açılır
+
+	//desc yazma alanına focus olunca counter açılır
+	'focus textarea.desc': function (e) {
 		$(e.currentTarget).parent().find('span.counterDesc').show();
 	},
-	'blur textarea.desc':function(e) { //desc yazma alanına blur olunca counter kapanır
+
+	//desc yazma alanına blur olunca counter kapanır
+	'blur textarea.desc': function (e) {
 		$(e.currentTarget).parent().find('span.counterDesc').hide();
 	},
 
@@ -63,16 +69,16 @@ Template.entryInput.events ({
 		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr("id");
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
 		filepicker.pickAndStore({
-				mimetypes: ['image/*'],
-					container: 'modal',
-					services :['COMPUTER', 'URL', 'IMAGE_SEARCH']
-			},
+			mimetypes: ['image/*'],
+			container: 'modal',
+			services : ['COMPUTER', 'URL', 'IMAGE_SEARCH']
+		},
 			{
 				location: 'S3',
 				path    : '/',
 				access  : 'public'
 			},
-			function(InkBlob){
+			function (InkBlob) {
 				milestonesUpdater();
 				LocalTimeline.update({'milestones._id': milestoneId}, {$set: {
 					'milestones.$.img': InkBlob[0].key
@@ -80,24 +86,25 @@ Template.entryInput.events ({
 				// Resim upload işlemi bitince related olaya git (kal)
 				$("html, body").animate({ scrollTop: $("#"+idAnchor).offset().top }, 1000);
 			},
-			function(FPError){
-				//do nothing
+			function (FPError) {
+				console.log('error in uploading ' + FPError);
 			}
 		);
 	},
-	'click #addOlay':function() {
+
+	'click #addOlay': function () {
 		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
 			//açamazsın
 		} else {
 			titleUpdater();
 			milestonesUpdater();
-			LocalTimeline.update({},{$push:{milestones: 
-				{	
+			LocalTimeline.update({}, {$push: {milestones:
+				{
 					_id: new Meteor.Collection.ObjectID()._str,
-					tagline: "",
-					desc: "",
-					img: "",
-				},
+					tagline: '',
+					desc: '',
+					img: '',
+				}
 			}});
 			$("html, body").animate({ scrollTop: $(document).height() }, "fast");
 		}
@@ -126,24 +133,24 @@ Template.entryInput.events ({
 			Router.go('/');
 
 			// empty local collection
-			LocalTimeline.update({}, {$set:{title:'', milestones: [
+			LocalTimeline.update({}, {$set: {title: '', milestones: [
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				},
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				},
-				{	
+				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				}
 			]}});
 		}
@@ -168,37 +175,39 @@ Template.entryInput.events ({
 			Meteor.call('timelineUpdate', tid, title, milestones);
 
 			// route to main page
-			Router.go('/t/'+tid);
+			Router.go('/t/' + tid);
 
 			// empty local collection
-			LocalTimeline.update({}, {$set:{title:'', milestones: [
+			LocalTimeline.update({}, {$set: {title: '', milestones: [
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				},
 				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				},
-				{	
+				{
 					_id: new Meteor.Collection.ObjectID()._str,
 					tagline: '',
 					desc: '',
-					img: '' 
+					img: ''
 				}
 			]}});
 		}
 	},
-	'change select.month':function(e) { // Ay seçildiği an gün seçeneklerinin ona göre güncellenmesi
+
+	// Ay seçildiği an gün seçeneklerinin ona göre güncellenmesi
+	'change select.month': function (e) {
 		var yil = parseInt($(e.currentTarget).parent().parent().find('input.tarih').val());
-			if ( yil % 4 === 0 )
-				Session.set("subatHali", 29);
-			else 
-				Session.set("subatHali", 28);
+		if (yil % 4 === 0)
+			Session.set('subatHali', 29);
+		else 
+			Session.set('subatHali', 28);
 		var ay = $(e.currentTarget).find('option:selected').val();
 		var ayOptionHtml = ayVerGunAl(ay); // Ayların kaç çektiğine göre gün sayısını belirliyoruz.
 		$(e.currentTarget).parent().find('select.day').html(ayOptionHtml);
@@ -280,19 +289,22 @@ Template.entryInput.rendered = function() {
 		maxCount:	500, // The maximum character (or word) count of the text input or textarea. 
 	});
 
-	// Textareanın otomatik olarak dikey büyümesi için. Compatibilityde kütüphanesi var.
+	// Textareanın otomatik olarak dikey büyümesi 
+	// için. Compatibilityde kütüphanesi var.
 	$('#title').autosize();
 	$('.manset').autosize();
 	$('.desc').autosize();
 
 	// Tarihte yıl alanına paste yapılmasını engelliyoruz. 
 	// Şimdilik sadece 0 ila 2014 arası tarihleri kabul edeceğiz.
-	$('input.tarih').on('paste', function(e) {
+	$('input.tarih').on('paste', function (e) {
 		e.preventDefault();
 	});
 
-	// Bu fonksiyon başlık ve manşette kullanıcıların line break (enter - paragraf) yapamamasını sağlıyor.
-	// Multiple events olduğu için (paste'i de engellemek gerek) events kısmında yazılamadı
+	// Bu fonksiyon başlık ve manşette kullanıcıların line 
+	// break (enter - paragraf) yapamamasını sağlıyor.
+	// Multiple events olduğu için (paste'i de engellemek 
+	// gerek) events kısmında yazılamadı
 	$('.noLineBreak').on('keyup paste focus blur', function() {
 		var msg = $(this).val().replace(/\n/g, "");
 		$(this).val(msg);
