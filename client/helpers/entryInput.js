@@ -108,13 +108,8 @@ Template.entryInput.events({
 
 	// validates inputs and insert into db
 	'click #yayinla': function () {
-<<<<<<< HEAD
-		if (inputValidate() === false || titleValidate() === false) {
-			console.log('yayinlanamaz');
-=======
 		if (inputValidate() === false || titleValidate() === false ) {
 			//do nothing
->>>>>>> 2e5af9e755a4c38679619d65a2c75028e7715abc
 		} else {
 
 			// update local title 
@@ -157,13 +152,8 @@ Template.entryInput.events({
 		}
 	},
 	'click #guncelle': function () {
-<<<<<<< HEAD
-		if (inputValidate() === false || titleValidate() === false) {
-			console.log('güncellenemez');
-=======
 		if (inputValidate() === false || titleValidate() === false ) {
 			// do nothing
->>>>>>> 2e5af9e755a4c38679619d65a2c75028e7715abc
 		} else {
 
 			// update local title 
@@ -261,9 +251,6 @@ Template.entryInput.events({
 	'click .siliciPopover .sil':function(e) {
 		$(e.currentTarget).parent().hide();
 		var id = $(e.currentTarget).parent().parent().attr("id");
-<<<<<<< HEAD
-		if (deleteValidate() === 1) {
-=======
 		if( deleteValidate() === 1) {
 			// update local title 
 			titleUpdater();
@@ -272,7 +259,6 @@ Template.entryInput.events({
 			milestonesUpdater();
 
 			// delete related olay
->>>>>>> 2e5af9e755a4c38679619d65a2c75028e7715abc
 			LocalTimeline.update({},{$pull:{milestones:{_id:id}}});
 		}
 		else {
