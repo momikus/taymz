@@ -66,7 +66,7 @@ Template.entryInput.events({
 	// upload image
 	'click div.gorselYukle': function (e) {
 		var milestoneId = this._id;
-		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr("id");
+		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr('id');
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
 		filepicker.pickAndStore({
 			mimetypes: ['image/*'],
@@ -84,7 +84,7 @@ Template.entryInput.events({
 					'milestones.$.img': InkBlob[0].key
 				}});
 				// Resim upload işlemi bitince related olaya git (kal)
-				$("html, body").animate({ scrollTop: $("#"+idAnchor).offset().top }, 1000);
+				$('html, body').animate({ scrollTop: $('#' + idAnchor).offset().top }, 1000);
 			},
 			function (FPError) {
 				console.log('error in uploading ' + FPError);
@@ -93,9 +93,7 @@ Template.entryInput.events({
 	},
 
 	'click #addOlay': function () {
-		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
-			//açamazsın
-		} else {
+		if (inputValidate() === true) { // Yeni olay açabilir miyim?
 			titleUpdater();
 			milestonesUpdater();
 			LocalTimeline.update({}, {$push: {milestones:
@@ -106,15 +104,13 @@ Template.entryInput.events({
 					img: '',
 				}
 			}});
-			$("html, body").animate({ scrollTop: $(document).height() }, "fast");
+			$('html, body').animate({ scrollTop: $(document).height() }, 'fast');
 		}
 	},
 
 	// validates inputs and insert into db
 	'click #yayinla': function () {
-		if (inputValidate() === false || titleValidate() === false ) {
-			//do nothing
-		} else {
+		if (inputValidate() === true && titleValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -156,9 +152,7 @@ Template.entryInput.events({
 		}
 	},
 	'click #guncelle': function () {
-		if (inputValidate() === false || titleValidate() === false ) {
-			// do nothing
-		} else {
+		if (inputValidate() === true && titleValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -263,7 +257,7 @@ Template.entryInput.events({
 			milestonesUpdater();
 
 			// delete related olay
-			LocalTimeline.update({},{$pull:{milestones:{_id:id}}});
+			LocalTimeline.update({}, {$pull: {milestones: {_id: id}}});
 		}
 		else {
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
@@ -271,9 +265,10 @@ Template.entryInput.events({
 	}
 });
 
-Template.entryInput.rendered = function() {
+Template.entryInput.rendered = function () {
 	
-	// compatibility de hazır bir kütüphane ile başlığa sınır konuyor + counter ile kullanıcıya gösteriliyor
+	// compatibility de hazır bir kütüphane ile başlığa 
+	// sınır konuyor + counter ile kullanıcıya gösteriliyor
 	$('#title').simplyCountable({
 		counter: '#counterTitle', // A jQuery selector to match the 'counter' element.
 		maxCount:	80, // The maximum character (or word) count of the text input or textarea. 
