@@ -84,7 +84,6 @@ Template.entryInput.events ({
 	},
 	'click #addOlay':function() {
 		if (inputValidate() === false ) { // Yeni olay açabilir miyim?
-			console.log("yenisini açamam");
 		} else {
 			titleUpdater();
 			milestonesUpdater();
@@ -97,12 +96,13 @@ Template.entryInput.events ({
 				},
 			}});
 		}
+		$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 	},
 
 	// validates inputs and insert into db
 	'click #yayinla': function () {
 		if (inputValidate() === false || titleValidate() === false ) {
-			console.log("yayinlanamaz");
+			//do nothing
 		} else {
 
 			// update local title 
@@ -146,7 +146,7 @@ Template.entryInput.events ({
 	},
 	'click #guncelle': function () {
 		if (inputValidate() === false || titleValidate() === false ) {
-			console.log("güncellenemez");
+			// do nothing
 		} else {
 
 			// update local title 
@@ -242,10 +242,15 @@ Template.entryInput.events ({
 	'click .siliciPopover .sil':function(e) {
 		$(e.currentTarget).parent().hide();
 		var id = $(e.currentTarget).parent().parent().attr("id");
-		console.log(deleteValidate());
 		if( deleteValidate() === 1) {
+			// update local title 
+			titleUpdater();
+
+			// update local milestones
+			milestonesUpdater();
+
+			// delete related olay
 			LocalTimeline.update({},{$pull:{milestones:{_id:id}}});
-			console.log("if e girdim")
 		}
 		else {
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
