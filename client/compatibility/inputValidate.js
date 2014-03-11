@@ -27,7 +27,16 @@ function inputValidate() {
 			isValidManset = false;
 		}
 	});
-	if (isValidYil === false || isValidManset === false ) { // Yeni olay açabilir miyim?
+	var isValidImg;
+	for(var i=0;i<LocalTimeline.findOne().milestones.length;i++) {
+		if (LocalTimeline.findOne().milestones[i].img === "") {
+			isValidImg = false;
+			alert("Her olayın bir görseli olmalı.");
+		}
+
+	};
+
+	if (isValidYil === false || isValidManset === false || isValidImg === false) { // Yeni olay açabilir miyim?
 		return false;
 	} else
 		return true;
@@ -39,6 +48,13 @@ function titleValidate() {
 		return false;
 	} else 
 		return true;
+}
+
+function titleUpdater() {
+	var title = $("textarea#title").val();
+	LocalTimeline.update({},{$set:{
+		title:title
+	}});
 }
 
 function milestonesUpdater() {
@@ -57,13 +73,6 @@ function milestonesUpdater() {
 			"milestones.$.day":day
 		}});
 	});
-}
-
-function titleUpdater() {
-	var title = $("textarea#title").val();
-	LocalTimeline.update({},{$set:{
-		title:title
-	}});
 }
 
 function deleteValidate() {
