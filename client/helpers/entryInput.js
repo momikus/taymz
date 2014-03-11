@@ -15,11 +15,6 @@ Template.entryInput.helpers({
 		else if (Router.current().route.name === 'edit')
 			return new Handlebars.SafeString('<button id="guncelle"' +
 				'class="noSelection">Güncelle</button>');
-	},
-	mainImage: function() {
-		if (LocalTimeline.findOne() !== undefined) {
-			
-		}
 	}
 });
 
@@ -241,20 +236,20 @@ Template.entryInput.events({
 		}
 		else {
 			$(e.currentTarget).val(null);
-			$(e.currentTarget).parent().find('select.month').prop("disabled", "disabled");
-			$(e.currentTarget).parent().find('select.day').prop("disabled", "disabled");
-		}	
+			$(e.currentTarget).parent().find('select.month').prop('disabled', 'disabled');
+			$(e.currentTarget).parent().find('select.day').prop('disabled', 'disabled');
+		}
 	},
-	'click i.silici':function(e) {
+	'click i.silici': function (e) {
 		$(e.currentTarget).parent().find('.siliciPopover').show();
 	},
-	'click .siliciPopover .vazgectim':function(e) {
+	'click .siliciPopover .vazgectim': function (e) {
 		$(e.currentTarget).parent().hide();
 	},
-	'click .siliciPopover .sil':function(e) {
+	'click .siliciPopover .sil': function (e) {
 		$(e.currentTarget).parent().hide();
-		var id = $(e.currentTarget).parent().parent().attr("id");
-		if( deleteValidate() === 1) {
+		var id = $(e.currentTarget).parent().parent().attr('id');
+		if(deleteValidate() === 1) {
 			// update local title 
 			titleUpdater();
 
@@ -268,12 +263,12 @@ Template.entryInput.events({
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
 		}
 	},
-	'click .anaResimYap':function(e) {
+	'click .anaResimYap': function (e) {
 		$(e.currentTarget).addClass('active');
 		
-		var id = $(e.currentTarget).parent().parent().parent().attr("id");
+		var id = $(e.currentTarget).parent().parent().parent().attr('id');
 		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
-		LocalTimeline.update({"milestones._id": {$exists: true}}, {$unset: {"milestones.$.mainimg":true}}, {multi:true})
+		LocalTimeline.update({'milestones._id': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}}, {multi:true})
 		
 		// ilgili olayın mainimg fieldını true yap
 		LocalTimeline.update({'milestones._id': id}, {$set: {
@@ -317,7 +312,7 @@ Template.entryInput.rendered = function () {
 	// break (enter - paragraf) yapamamasını sağlıyor.
 	// Multiple events olduğu için (paste'i de engellemek 
 	// gerek) events kısmında yazılamadı
-	$('.noLineBreak').on('keyup paste focus blur', function() {
+	$('.noLineBreak').on('keyup paste focus blur', function () {
 		var msg = $(this).val().replace(/\n/g, "");
 		$(this).val(msg);
 	});
