@@ -68,6 +68,7 @@ body {
 	font-family ff1
 	margin 0
 	background fuimidnightblue url(/img/bg5.png) repeat
+	padding-top 50px
 }
 button, a.buttonSq {
 	height 36px
@@ -155,22 +156,31 @@ button, a.buttonSq {
 	}
 }
 #header {
-	position relative
-	background url(/img/bg5.png)
+	position fixed
+	background white
+	z-index 1000
+	width 100%
+	top 0
+	box-shadow(0 0 10px rgba(0,0,0,0.4))
 	#inner {
 		width 1000px
 		margin auto
 		height 50px
 		h1 a {
-			color white
+			color fuiwetasphalt
 			margin 0 auto 0
 			line-height 50px
 			font-size 30px
 			padding 0 0
-			font-weight 700
+			font-weight 800
+			letter-spacing -1px
 			width 200px
 			float left
 			position relative
+			i {
+				margin-right -3px
+				font-size 27px
+			}
 		}
 		p {
 			color fuiconcrete
@@ -213,7 +223,8 @@ button, a.buttonSq {
 				margin 0  20px 0 0
 				display inline-block
 				width 200px
-				height 100%
+				height 175px
+				padding 10px
 				background white
 				float left
 				color fuiwetasphalt
@@ -224,12 +235,11 @@ button, a.buttonSq {
 					position absolute
 					background white
 					width 180px
-					margin 10px
+					margin 0px
 					height 155px
 					overflow hidden
 					z-index 11
-					display table
-					text-align: center;
+					text-align center
 					overflow hidden
 					span.helper {
 						display: inline-block;
@@ -237,8 +247,8 @@ button, a.buttonSq {
 						vertical-align: middle;						
 					}
 					img {
-						width 180px
-						height 155px
+						width 175px
+						height auto
 						//max-height auto
 						vertical-align middle
 						
@@ -396,6 +406,10 @@ button, a.buttonSq {
 		left 50%
 		margin-left -3px
 		z-index 0
+	}
+	&.taymEnd {
+		padding-bottom 0
+		margin-bottom 0
 	}
 	.birimOlay {
 		position relative
@@ -709,6 +723,19 @@ button, a.buttonSq {
 			.olay {
 				
 			}
+		}
+	}
+	i.basaDon {
+		position fixed
+		bottom 10px
+		right 10px
+		color white
+		display none
+		font-size 50px
+		text-shadow 0 0 5px rgba(0,0,0,0.5)
+		&:hover {
+			cursor pointer
+			color fuipeterriver
 		}
 	}
 }

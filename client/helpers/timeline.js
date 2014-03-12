@@ -55,4 +55,21 @@ Template.timeline.rendered = function () {
 	$('img.lazy').lazyload({
 		effect : 'fadeIn'
 	});
+
+	//Go to top butonunun çıkıp çıkmaması fonksiyonu
+	$( window ).scroll(function() {
+		if ($(window).scrollTop() > 1600) {
+			$('.basaDon').fadeIn(300);
+		}
+		else {
+			$('.basaDon').fadeOut(300);
+		}
+	});
+
 };
+
+Template.timeline.events({
+	'click .basaDon':function() {
+		$('html,body').animate({ scrollTop: 0 }, 'slow');
+	}
+})

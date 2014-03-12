@@ -4,7 +4,7 @@
 		<div class="baslikOlay">
 			<h2>{{title}}</h2>
 		</div>
-		<div class="birimOlayContainer float100" >
+		<div class="birimOlayContainer float100 taymEnd" >
 			{{#each milestones}}
 				<div class="birimOlay float100">
 					<div class="tarihContainer">
@@ -30,9 +30,10 @@
 						</div>
 						<h3>{{tagline}}</h3>
 						{{#markdown}}{{desc}}{{/markdown}}
-					</
+					</div>
 				</div>
 			{{/each}}
+			<i class="basaDon fa fa-chevron-circle-up"></i>
 		</div>
 	{{/with}}
 </template>
