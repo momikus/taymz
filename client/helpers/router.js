@@ -37,11 +37,7 @@ Router.map(function () {
 
 			Deps.autorun(function () {
 				var skip = Session.get('skip');
-				Meteor.subscribe('timelineCarousel', skip, function () {
-					Meteor.setTimeout(function () {
-						Session.set('timelineCarouselLoaded', true);
-					}, 500);
-				});
+				Meteor.subscribe('timelineCarousel', skip);
 			});
 		},
 
@@ -141,18 +137,15 @@ Router.map(function () {
 		waitOn: function () {
 			Deps.autorun(function () {
 				var id = Session.get('singleTimeline');
-        Meteor.subscribe('timelineMain', 'single', id);
-      });
+				Meteor.subscribe('timelineMain', 'single', id);
+			});
 
-      Deps.autorun(function () {
-        var skip = Session.get('skip');
-        Meteor.subscribe('timelineCarousel', skip, function () {
-					Meteor.setTimeout(function () {
-						Session.set('timelineCarouselLoaded', true);
-					}, 500);
-        });
-      });
+			Deps.autorun(function () {
+				var skip = Session.get('skip');
+				Meteor.subscribe('timelineCarousel', skip);
+			});
 		},
+
 		data: {
 			
 			// skip last timeline in carousel

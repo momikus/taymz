@@ -7,7 +7,6 @@ Template.gezCizgi.events({
 		} else if (x.hasClass('fa-chevron-circle-left')) { // left
 			Session.set('skip', Session.get('skip') - 4);
 		}
-		Session.set('timelineCarouselLoaded', false);
 	}
 });
 
@@ -51,11 +50,6 @@ Template.gezCizgi.helpers({
 			return 'hidden';
 		else
 			return 'visible';
-	},
-
-	// handler to display a loading spinner
-	timelineCarouselLoaded: function () {
-		return Session.get('timelineCarouselLoaded');
 	},
 
 	//olay count alıyp carouselde göstermek

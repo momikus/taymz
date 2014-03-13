@@ -316,4 +316,8 @@ Template.entryInput.rendered = function () {
 		var msg = $(this).val().replace(/\n/g, "");
 		$(this).val(msg);
 	});
+
+	// html title'ın görüntüsü
+	document.title = 'taymz - ' + 'öyle güzel taymla ki tarihe geçsin';
+
 };
