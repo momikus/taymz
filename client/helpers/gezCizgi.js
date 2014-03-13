@@ -56,6 +56,14 @@ Template.gezCizgi.helpers({
 	// handler to display a loading spinner
 	timelineCarouselLoaded: function () {
 		return Session.get('timelineCarouselLoaded');
+	},
+
+	//olay count alıyp carouselde göstermek
+	olayCount: function() {
+		if (Timeline.findOne({_id: this._id}) !== undefined) {
+			var milestones = Timeline.findOne({_id: this._id}).milestones;
+			return milestones.length; 
+		}
 	}
 });
 
@@ -71,5 +79,3 @@ Template.gezCizgi.rendered = function () {
 		$(this).delay(i * 100).fadeIn(200);
 	});
 };
-
-
