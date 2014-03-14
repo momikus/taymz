@@ -268,8 +268,9 @@ Template.entryInput.events({
 		
 		var id = $(e.currentTarget).parent().parent().parent().attr('id');
 		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
-		LocalTimeline.update({'milestones._id': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}}, {multi:true})
-		
+		//Meteor.setTimeout(function () {
+		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}}, {multi:true})
+		//}, 200);		
 		// ilgili olayın mainimg fieldını true yap
 		LocalTimeline.update({'milestones._id': id}, {$set: {
 			'milestones.$.mainimg': true
