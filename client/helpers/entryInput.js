@@ -21,7 +21,7 @@ Template.entryInput.helpers({
 			return new Handlebars.SafeString('<button id="saveAsDraft"' +
 				'class="noSelection">Taslak Olarak Kaydet</button>');
 		else if (Router.current().route.name === 'edit')
-			return new Handlebars.SafeString('<button id="saveAsDraft"' +
+			return new Handlebars.SafeString('<button id="updateAndSaveAsDraft"' +
 				'class="noSelection">Güncelle ve Taslak Olarak Kaydet</button>');
 	}
 });
@@ -74,11 +74,11 @@ Template.entryInput.events({
 	// upload image
 	'click .gorselYukle': function (e) {
 		var milestoneId = this._id;
-		if($(e.currentTarget).hasClass('degistir')) {
-			var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr('id');
-		}
-		else {
-			var idAnchor = $(e.currentTarget).parent().parent().parent().parent().parent().attr('id');
+		var idAnchor;
+		if ($(e.currentTarget).hasClass('degistir')) {
+			idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr('id');
+		} else {
+			idAnchor = $(e.currentTarget).parent().parent().parent().parent().parent().attr('id');
 		}
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
 		filepicker.pickAndStore({
@@ -136,7 +136,50 @@ Template.entryInput.events({
 			var title = LocalTimeline.findOne().title;
 
 			// insert to db
-			Meteor.call('timelineInsert', title, milestones);
+				Meteor.call('timelineInsert', title, milestones, 'published');
+
+			// route to main page
+			Router.go('/');
+
+			// empty local collection
+			LocalTimeline.update({}, {$set: {title: '', milestones: [
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				}
+			]}});
+		}
+	},
+	// validates inputs and insert into db
+	'click #saveAsDraft': function () {
+		if (inputValidate() === true && titleValidate() === true) {
+
+			// update local title 
+			titleUpdater();
+
+			// update local milestones
+			milestonesUpdater();
+
+			// get the milestones and the title
+			var milestones = LocalTimeline.findOne().milestones;
+			var title = LocalTimeline.findOne().title;
+
+			// insert to db as draft
+			Meteor.call('timelineInsert', title, milestones, 'draft');
 
 			// route to main page
 			Router.go('/');
@@ -179,7 +222,50 @@ Template.entryInput.events({
 			var title = LocalTimeline.findOne().title;
 
 			// insert to db
-			Meteor.call('timelineUpdate', tid, title, milestones);
+			Meteor.call('timelineUpdate', tid, title, milestones, 'published');
+
+			// route to main page
+			Router.go('/t/' + tid);
+
+			// empty local collection
+			LocalTimeline.update({}, {$set: {title: '', milestones: [
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				},
+				{
+					_id: new Meteor.Collection.ObjectID()._str,
+					tagline: '',
+					desc: '',
+					img: ''
+				}
+			]}});
+		}
+	},
+	'click #updateAndSaveAsDraft': function () {
+		if (inputValidate() === true && titleValidate() === true) {
+
+			// update local title 
+			titleUpdater();
+
+			// update local milestones
+			milestonesUpdater();
+
+			// get the tid, the milestones and the title
+			var tid = LocalTimeline.findOne().tid;
+			var milestones = LocalTimeline.findOne().milestones;
+			var title = LocalTimeline.findOne().title;
+
+			// insert to db
+			Meteor.call('timelineUpdate', tid, title, milestones, 'draft');
 
 			// route to main page
 			Router.go('/t/' + tid);
@@ -278,12 +364,12 @@ Template.entryInput.events({
 	},
 	'click .anaResimYap': function (e) {
 		$(e.currentTarget).addClass('active');
-		
 		var id = $(e.currentTarget).parent().parent().parent().parent().attr('id');
+
 		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
-		//Meteor.setTimeout(function () {
-		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}})
-		//}, 200);		
+		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {
+			'milestones.$.mainimg':true}});
+
 		// ilgili olayın mainimg fieldını true yap
 		LocalTimeline.update({'milestones._id': id}, {$set: {
 			'milestones.$.mainimg': true

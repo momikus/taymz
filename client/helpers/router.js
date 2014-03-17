@@ -25,19 +25,23 @@ Router.map(function () {
 			'header': {to: 'header'},
 			'gezCizgi': {to: 'gezCizgi'}
 		},
-		waitOn: function () {
+		waitOn: function () {	
 
 			Deps.autorun(function () {
 				Meteor.subscribe('timelineMain', 'main', function () {
-					var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
+					var tid = Timeline.findOne({'status': 'published'}, {limit: 1, sort: {created: -1}}).tid;
 					Session.set('singleTimeline', tid);
 				});
 			});
 
-
 			Deps.autorun(function () {
 				var skip = Session.get('skip');
-				Meteor.subscribe('timelineCarousel', skip, function () {
+				var admin;
+				if (Session.equals('varoAdmin', true))
+					admin = true;
+				else
+					admin = false;
+				Meteor.subscribe('timelineCarousel', skip, admin, function () {
 					Meteor.setTimeout(function () {
 						Session.set('timelineCarouselLoaded', true);
 					}, 500);
@@ -141,18 +145,27 @@ Router.map(function () {
 		waitOn: function () {
 			Deps.autorun(function () {
 				var id = Session.get('singleTimeline');
-				Meteor.subscribe('timelineMain', 'single', id);
+				if (Session.equals('varoAdmin', true))
+					admin = true;
+				else
+					admin = false;
+				Meteor.subscribe('timelineMain', 'single', id, 'admin');
 			});
 
 			Deps.autorun(function () {
 				var skip = Session.get('skip');
-				Meteor.subscribe('timelineCarousel', skip, function () {
+				if (Session.equals('varoAdmin', true))
+					admin = true;
+				else
+					admin = false;
+				Meteor.subscribe('timelineCarousel', skip, admin, function () {
 					Meteor.setTimeout(function () {
 						Session.set('timelineCarouselLoaded', true);
 					}, 500);
 				});
 			});
 		},
+
 		data: {
 			
 			// skip last timeline in carousel

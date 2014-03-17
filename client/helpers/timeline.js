@@ -27,39 +27,22 @@ Handlebars.registerHelper('ayIsmi', function (month) {
 
 Template.timeline.helpers({
 	milestones: function () {
+		if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined) {
+			
+			// get the milestones of the main timeline
+			var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
 
-		// get the milestones of the main timeline
-		var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
-
-		// return milestone sorted by year, month, day
-		return _(_(_(milestones).sortBy(function (milestones) {
-			return milestones.day;
-		})).sortBy(function (milestones) {
-			return milestones.month;
-		})).sortBy(function (milestones) {
-			return milestones.year;
-		});
-	},
-	mainimg: function () {
-
-		if (Timeline.findOne({_id: this._id}) !== undefined) {
-			var milestones = Timeline.findOne({tid: Session.get('singleTimeline')}).milestones;
-
-			// main image is not set so take the first img
-			if (_.findWhere(milestones, {'mainimg': true}) === undefined)
-				return _(_(_(milestones).sortBy(function (milestones) {
-					return milestones.day;
-				})).sortBy(function (milestones) {
-					return milestones.month;
-				})).sortBy(function (milestones) {
-					return milestones.year;
-				})[0].img;
-
-			// main image is set so take that
-			else
-				return _.findWhere(milestones, {'mainimg': true}).img;
+			// return milestone sorted by year, month, day
+			return _(_(_(milestones).sortBy(function (milestones) {
+				return milestones.day;
+			})).sortBy(function (milestones) {
+				return milestones.month;
+			})).sortBy(function (milestones) {
+				return milestones.year;
+			});
 		}
-	},
+	}
+
 });
 
 Template.timeline.rendered = function () {
