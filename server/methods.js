@@ -2,12 +2,15 @@ Meteor.methods({
 
   // returns total timeline count
   // for pagination limits
-  totalTimelineCount: function () {
-    return Timeline.find({}).count();
+  totalTimelineCount: function (admin) {
+    if (admin === true)
+      return Timeline.find({}).count();
+    else
+      return Timeline.find({'status': 'published'}).count();
   },
 
   // inserts new timeline to the db
-  timelineInsert: function (title, milestones) {
+  timelineInsert: function (title, milestones, draftOrPublish) {
 
     // get latest tid
     var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
@@ -20,7 +23,8 @@ Meteor.methods({
       tid: tid,
       title: title,
       created: new Date(),
-      milestones: milestones
+      milestones: milestones,
+      status: draftOrPublish
     }, function (err, result) {
       if (err)
         console.log('An error has occured: ' + err);
@@ -30,12 +34,13 @@ Meteor.methods({
   },
 
   // update taym
-  timelineUpdate: function (tid, title, milestones) {
+  timelineUpdate: function (tid, title, milestones, draftOrPublish) {
     Timeline.update({tid: tid}, {
       $set: {
         title: title,
         milestones: milestones,
-        updated: new Date()
+        status: draftOrPublish,
+        updated: new Date(),
       }
     }, function (err, result) {
       if (err)

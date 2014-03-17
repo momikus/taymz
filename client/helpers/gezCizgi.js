@@ -59,18 +59,29 @@ Template.gezCizgi.helpers({
 	},
 
 	//olay count alıyp carouselde göstermek
-	olayCount: function() {
+	olayCount: function () {
 		if (Timeline.findOne({_id: this._id}) !== undefined) {
 			var milestones = Timeline.findOne({_id: this._id}).milestones;
 			return milestones.length; 
 		}
+	},
+
+	// indicates if a taym is a draft
+	draft: function () {
+		if (Timeline.findOne({_id: this._id}) !== undefined)
+			if (Timeline.findOne({_id: this._id}).status === 'draft')
+				return 'draft';
 	}
 });
 
 Template.gezCizgi.rendered = function () {
 
 	// get total timeline count for pagination
-	Meteor.call('totalTimelineCount', function (err, result) {
+	if (Session.equals('varoAdmin', true))
+		admin = true;
+	else
+		admin = false;
+	Meteor.call('totalTimelineCount', admin, function (err, result) {
 		Session.set('totalTimelineCount', result);
 	});
 

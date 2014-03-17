@@ -27,18 +27,20 @@ Handlebars.registerHelper('ayIsmi', function (month) {
 
 Template.timeline.helpers({
 	milestones: function () {
+		if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined) {
+			
+			// get the milestones of the main timeline
+			var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
 
-		// get the milestones of the main timeline
-		var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
-
-		// return milestone sorted by year, month, day
-		return _(_(_(milestones).sortBy(function (milestones) {
-			return milestones.day;
-		})).sortBy(function (milestones) {
-			return milestones.month;
-		})).sortBy(function (milestones) {
-			return milestones.year;
-		});
+			// return milestone sorted by year, month, day
+			return _(_(_(milestones).sortBy(function (milestones) {
+				return milestones.day;
+			})).sortBy(function (milestones) {
+				return milestones.month;
+			})).sortBy(function (milestones) {
+				return milestones.year;
+			});
+		}
 	}
 });
 
