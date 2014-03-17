@@ -1,5 +1,6 @@
 ff1 				= 'Open Sans', sans-serif
 ff2					= Georgia, Times New Roman, Arial, sans-serif;
+ff3 				= 'Open Sans Condensed', 'Open Sans', Arial
 fuipreclouds 		= #eff0f2
 fuipreturquoise		= #48c9b0
 fuiturquoise 		= #1abc9c
@@ -205,10 +206,6 @@ button, a.buttonSq {
 	text-align center
 	width 1000px
 	margin auto
-	//background url(/img/bg.png)
-	//border-bottom 1px solid fuimidnightblue
-	//border-top 1px solid white
-	//box-shadow(inset 0 0px 5px rgba(0,0,0,0.7))
 	.inner {
 		width 86%
 		margin auto
@@ -258,7 +255,7 @@ button, a.buttonSq {
 					position absolute
 					top 5%
 					left 5%
-					background rgba(0,0,0,0.9)
+					background rgba(0,0,0,0.5)
 					display table
 					vertical-align middle
 					height 90%
@@ -267,20 +264,17 @@ button, a.buttonSq {
 					z-index 11
 					opacity 1
 					color white
-					// -webkit-transition: opacity 250ms ease-out;
-					// -moz-transition: opacity 250ms;
-					// -o-transition: opacity 250ms;
-					// transition: opacity 250ms;
 					h4 {
 						display table-cell
 						vertical-align middle
 						font-size 18px
 						letter-spacing 0px
-						font-weight 600
+						font-weight 700
 						line-height 1.2
 						text-align center
 						word-break: break-word;
-						text-shadow 0 0 2px black
+						text-shadow 1px 1px 4px black
+						font-family ff3
 					}
 					.olayCount {
 						position absolute
@@ -298,7 +292,7 @@ button, a.buttonSq {
 				}
 				&:hover {
 					.baslikContainer {
-						background rgba(0,0,0,0.4)
+						background rgba(0,0,0,0.9)
 					}
 				}
 				&:last-child {
@@ -339,20 +333,21 @@ button, a.buttonSq {
 .baslikOlay {
 	position relative
 	h1, textarea {
-		background url(/img/headerbg.png) repeat
-		color fuicream2
+		background white //url(/img/headerbg.png) repeat
+		color fuitextcolor
 		font-size: 45px;
 		letter-spacing 0px
 		line-height: 1.1
 		font-weight: 700;
-		padding: 15px 40px 15px 10px;
-		box-shadow(none)
+		padding: 15px 40px 15px 40px;
+		box-shadow(0 1px 2px rgba(0,0,0,0.07))
 		text-align center
 		display block
 		width 100%
-		font-family ff1
+		font-family ff3
 		margin 0px
-		border-left 30px solid rgba(0,0,0,0.3)
+		border-radius(4px)
+		//border-left 30px solid rgba(0,0,0,0.3)
 	}
 	textarea {
 		border 1px dashed #ccc
@@ -368,6 +363,48 @@ button, a.buttonSq {
 		right 5px
 		color fuiconcrete
 		font-weight 700
+	}
+}
+.gizliBaslik {
+	position fixed
+	height 40px
+	width 100%	
+	top 0
+	text-align left
+	background white
+	left 0
+	z-index 100
+	text-align center
+	.baslik {
+		display inline-block
+		font-weight 700
+		font-family ff3
+		color fuitextcolor
+		font-size 20px
+		line-height 40px
+		margin-right 10px
+	}
+	.facebook, .twitter {
+		background #2D609B
+		color white
+		padding 0px 10px
+		font-size 13px
+		font-family ff1
+		line-height 30px
+		vertical-align top
+		display inline-block
+		margin-right 1px
+		margin 5px 5px 0 0
+		border-radius(4px)
+		i {
+			color white
+			vertical-align top
+			font-size 18px
+			margin 7px 4px 0 0
+		}
+	}
+	.twitter {
+		background #00C3F3
 	}
 }
 .birimOlayContainer {
@@ -406,18 +443,6 @@ button, a.buttonSq {
 			margin 0 0 20px -30px
 			position relative
 			box-shadow(0 1px 2px rgba(0,0,0,0.07))
-			// &:before {
-			// 	position absolute
-			// 	left 0px
-			// 	top 50%
-			// 	z-index 10
-			// 	content ""
-			// 	width 16px
-			// 	height 16px
-			// 	background white
-			// 	margin -8px 0 0 -8px
-			// 	border-radius(100%)
-			// }	
 			.tarih{ //yılı ifade ediyor
 				padding 0px 0
 				line-height 1.1
@@ -474,10 +499,10 @@ button, a.buttonSq {
 			position relative
 			margin-right 6%
 			//-webkit-perspective: 1000;
-			//-webkit-backface-visibility: hidden;
-			// -ms-transform: rotate(2deg); /* IE 9 */
-			// -webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
-			// transform: rotate(2deg);
+			-webkit-backface-visibility: hidden;
+			-ms-transform: rotate(2deg); /* IE 9 */
+			-webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
+			transform: rotate(2deg);
 			//margin-bottom 40px
 			.innerOlay {
 				background white //url(/img/polaroid.png) repeat
@@ -585,7 +610,7 @@ button, a.buttonSq {
 				line-height 1.2
 				margin 0px 0px 10px
 				padding 0px
-				font-family ff1
+				font-family ff3
 				font-weight 800
 				letter-spacing -1px
 				position relative
@@ -685,13 +710,13 @@ button, a.buttonSq {
 				color #444
 			}
 		}
-		// &:nth-child(2n) {
-		// 	.olay {
-		// 		-ms-transform: rotate(-2deg); /* IE 9 */
-		// 		-webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
-		// 		transform: rotate(-2deg);				
-		// 	}
-		// }
+		&:nth-child(2n) {
+			.olay {
+				-ms-transform: rotate(-2deg); /* IE 9 */
+				-webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
+				transform: rotate(-2deg);				
+			}
+		}
 	}
 	i.basaDon {
 		position fixed
@@ -917,6 +942,7 @@ button, a.buttonSq {
 			.carousel {
 				a {
 					.baslikContainer {
+						background rgba(0,0,0,0.9)
 						h4 {
 							font-size 11px
 							font-weight 300
