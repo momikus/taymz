@@ -286,14 +286,14 @@ button, a.buttonSq {
 						position absolute
 						right 8px
 						bottom 6px
-						font-size 13px
+						font-size 12px
 						height 20px
 						line-height 20px
-						width 30px
-						font-weight 700
-						color fuitextcolor
+						font-weight 300
+						color white
 						border-radius(4px)
-						background fuicream2
+						background black
+						padding 0 5px
 					}
 				}
 				&:hover {
@@ -716,43 +716,46 @@ button, a.buttonSq {
 	&:before {
 		position absolute
 		content ""
-		width 10px
+		width 6px
 		height 100%
 		background url(/img/bg10.png)
 		top 0
 		left 50%
 		display block
-		margin-left:-5px;
+		margin-left:-3px;
 		z-index -1
 	}
 	i#addOlay {
 		width 60px
 		height 60px
 		line-height 51px
-		color white
+		color fuitextcolor
 		font-size 30px
-		background fuiwetasphalt
+		background fuicream
 		border-radius 100%
 		margin-top -20px
-		border 6px solid #1A252F
+		border 6px solid fuicream2
 		&:hover {
 			cursor pointer
 			background fuiemerald
+			color white
 		}
 	}
-	button#yayinla, button#guncelle {
+	button#yayinla, button#guncelle, button#saveAsDraft {
 		line-height: 38px;
 		height: 50px;
 		padding: 0 18px;
 		font-size: 20px;
 		font-weight: 600;
 		font-family ff1
-		background fuiwetasphalt
-		border 6px solid #1A252F
+		background fuicream
+		border 6px solid fuicream2
+		color fuitextcolor
 		border-radius(24px)
 		&:hover {
 			cursor pointer
 			background fuipeterriver
+			color white
 		}
 	}
 }

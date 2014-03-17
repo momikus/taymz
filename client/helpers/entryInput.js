@@ -14,7 +14,15 @@ Template.entryInput.helpers({
 				'class="noSelection">Yayınla</button>');
 		else if (Router.current().route.name === 'edit')
 			return new Handlebars.SafeString('<button id="guncelle"' +
-				'class="noSelection">Güncelle</button>');
+				'class="noSelection">Güncelle ve Yayınla</button>');
+	},
+	saveAsDraft: function () {
+		if (Router.current().route.name === 'add')
+			return new Handlebars.SafeString('<button id="saveAsDraft"' +
+				'class="noSelection">Taslak Olarak Kaydet</button>');
+		else if (Router.current().route.name === 'edit')
+			return new Handlebars.SafeString('<button id="saveAsDraft"' +
+				'class="noSelection">Güncelle ve Taslak Olarak Kaydet</button>');
 	}
 });
 
