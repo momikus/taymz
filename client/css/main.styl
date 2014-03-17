@@ -23,6 +23,10 @@ fuiclouds 			= #ecf0f1
 fuisilver 			= #bdc3c7
 fuiconcrete 		= #95a5a6
 fuiasbestos 		= #7f8c8d
+fuipolaroid			= #F7F8EC
+fuicream			= #F6ECBE
+fuicream2			= #D6C15A
+fuitextcolor		= #333332
 border-radius(n)
 	-webkit-border-radius n
 	-moz-border-radius n
@@ -67,8 +71,7 @@ a {
 body {
 	font-family ff1
 	margin 0
-	background fuimidnightblue url(/img/bg5.png) repeat
-	padding-top 50px
+	background white url(/img/bg8.png) repeat
 }
 button, a.buttonSq {
 	height 36px
@@ -98,7 +101,7 @@ button, a.buttonSq {
 	&.btnPeterriver {
 		background fuipeterriver
 		&:hover {
-			background fuipeterriver
+			background fuibelizehole
 		}
 	}
 	&.btnSqEmerald {
@@ -130,7 +133,7 @@ button, a.buttonSq {
 #mainContainer {
 	text-align center
 	width 1000px
-	margin 0 auto 40px
+	margin 0 auto
 }
 .standartCerceve {
 	background white
@@ -156,18 +159,15 @@ button, a.buttonSq {
 	}
 }
 #header {
-	position fixed
-	background white
-	z-index 1000
+	background url(/img/headerbg.png) repeat
 	width 100%
-	top 0
 	box-shadow(0 0 10px rgba(0,0,0,0.4))
 	#inner {
 		width 1000px
 		margin auto
 		height 50px
-		h1 a {
-			color fuiwetasphalt
+		.logo a {
+			color white
 			margin 0 auto 0
 			line-height 50px
 			font-size 30px
@@ -201,46 +201,43 @@ button, a.buttonSq {
 	}
 }
 .gezCizgi {
-	padding 20px 0
+	padding 40px 0
 	text-align center
-	background fuipreclouds
+	width 1000px
+	margin auto
+	//background url(/img/bg.png)
 	//border-bottom 1px solid fuimidnightblue
 	//border-top 1px solid white
-	box-shadow(inset 0 0px 5px rgba(0,0,0,0.7))
+	//box-shadow(inset 0 0px 5px rgba(0,0,0,0.7))
 	.inner {
-		width 860px
+		width 86%
 		margin auto
 		text-align center
 		display inline-block
 		position relative
-		height 185px
-		overflow hidden
+		height 175px
 		.carousel {
 			width 100%
 			height 100%
-			padding 5px 0
 			a {
-				margin 0  20px 0 0
+				margin 0  4% 0 0
 				display inline-block
-				width 200px
-				height 175px
-				padding 10px
+				width 22%
+				height 100%
+				padding 0
 				background white
 				float left
-				color fuiwetasphalt
 				position relative
 				border-radius(2px)
 				overflow hidden
+				box-shadow(0 0 2px fuiasbestos)
 				.imgContainer {
-					position absolute
-					background white
-					width 180px
-					margin 0px
-					height 155px
+					position relative
+					width 100%
+					height 100%
 					overflow hidden
-					z-index 11
 					text-align center
-					overflow hidden
+					z-index 11
 					// span.helper {
 					// 	display: inline-block;
 					// 	height: 100%;
@@ -248,56 +245,60 @@ button, a.buttonSq {
 					// }
 					.image {
 						position absolute
-						left 0
-						top 0
-						width 100%
-						height 100%
+						left 5%
+						top 5%
+						width 90%
+						height 90%
 						background-position top
 						background-size cover
 					}
 				}
 				.baslikContainer {
+					overflow hidden
 					position absolute
-					background rgba(255,255,255,0.9)
+					top 5%
+					left 5%
+					background rgba(0,0,0,0.9)
 					display table
 					vertical-align middle
-					height 100%
-					width 100%
+					height 90%
+					width 90%
 					padding 10px
 					z-index 11
-					opacity 0
-					-webkit-transition: opacity 250ms ease-out;
-					-moz-transition: opacity 250ms;
-					-o-transition: opacity 250ms;
-					transition: opacity 250ms;
+					opacity 1
+					color white
+					// -webkit-transition: opacity 250ms ease-out;
+					// -moz-transition: opacity 250ms;
+					// -o-transition: opacity 250ms;
+					// transition: opacity 250ms;
 					h4 {
 						display table-cell
 						vertical-align middle
-						font-size 22px
-						letter-spacing -1px
-						font-weight 800
-						line-height 28px
+						font-size 18px
+						letter-spacing 0px
+						font-weight 600
+						line-height 1.2
 						text-align center
 						word-break: break-word;
+						text-shadow 0 0 2px black
 					}
 					.olayCount {
 						position absolute
-						right 3px
-						bottom 3px
-						font-size 12px
-						background rgba(0,0,0,0.8)
-						font-weight 600
-						font-style italic
-						color white
-						border-radius(3px)
-						padding 3px 5px
+						right 8px
+						bottom 6px
+						font-size 13px
+						height 20px
+						line-height 20px
+						width 30px
+						font-weight 700
+						color fuitextcolor
+						border-radius(4px)
+						background fuicream2
 					}
 				}
 				&:hover {
-					background white
-					color fuimidnightblue
 					.baslikContainer {
-						opacity 1
+						background rgba(0,0,0,0.4)
 					}
 				}
 				&:last-child {
@@ -324,15 +325,11 @@ button, a.buttonSq {
 		line-height 175px
 		vertical-align top
 		font-size 30px
-		width 50px
-		margin-right 20px
-		color fuiwetasphalt
+		width 7%
+		color fuitextcolor
 		&:hover {
 			cursor pointer
-			color fuiturquoise
-		}
-		&.fa-chevron-circle-right {
-			margin 0 0 0 20px
+			color black
 		}
 		&.hide {
 			display none
@@ -341,24 +338,26 @@ button, a.buttonSq {
 }
 .baslikOlay {
 	position relative
-	h2, textarea {
-		font-size: 40px;
-		letter-spacing -1px
-		line-height: 44px;
+	h1, textarea {
+		background url(/img/headerbg.png) repeat
+		color fuicream2
+		font-size: 45px;
+		letter-spacing 0px
+		line-height: 1.1
 		font-weight: 700;
-		padding: 20px;
-		color white
-		background none
+		padding: 15px 40px 15px 10px;
 		box-shadow(none)
 		text-align center
 		display block
 		width 100%
 		font-family ff1
-		margin 20px 0
+		margin 0px
+		border-left 30px solid rgba(0,0,0,0.3)
 	}
 	textarea {
 		border 1px dashed #ccc
 		resize vertical
+		line-height 1.4
 		&:focus {
 			border-color fuiconcrete !important
 		}
@@ -370,57 +369,22 @@ button, a.buttonSq {
 		color fuiconcrete
 		font-weight 700
 	}
-	&:after {
-		width 10px
-		height 10px
-		background white
-		border-radius (100%)
-		position absolute
-		left 50%
-		margin-left -5px
-		bottom 0
-		content ""
-		font-family FontAwesome
-		font-weight normal
-		margin-bottom -33px
-		line-height 10px
-		text-align center
-		font-size 12px
-		float left
-		color white
-		z-index 1
-	}
 }
 .birimOlayContainer {
 	position relative
-	padding-top 40px
-	margin-bottom: -140px;
-	padding-bottom: 140px;
-	overflow hidden
+	padding-top 60px
+	text-align center
 	&:before {
-		border-radius(10px)
 		position absolute
 		content ""
-		width 16px
+		width 6px
 		height 100%
-		background fuiwetasphalt
-		box-shadow(inset 0 0 20px rgba(0,0,0,0.9))
+		background url(/img/bg10.png)
 		top 0
 		left 50%
 		display block
-		margin-left:-8px;
+		margin-left:-3px;
 		z-index -1
-	}
-	&:after {
-		background fuiwetasphalt
-		position absolute
-		width 6px
-		content ""
-		height 100%
-		top 5px
-		left 50%
-		margin-left -3px
-		z-index 0
 	}
 	&.taymEnd {
 		padding-bottom 0
@@ -428,238 +392,181 @@ button, a.buttonSq {
 	}
 	.birimOlay {
 		position relative
-		margin-bottom 40px
+		margin-bottom 60px
 		z-index 1
-		&:after {
-			width 10px
-			height 10px
-			background white
-			border-radius (100%)
-			position absolute
-			left 50%
-			margin-left -5px
-			top 30%
-			content ""
-			font-family FontAwesome
-			font-weight normal
-			margin-top -5px
-			line-height 38px
-			text-align center
-			font-size 18px
-			float left
-			color fuiwetasphalt
+		&:hover:after {
+			background fuializarin
 		}
 		.tarihContainer {
-			position absolute
-			top 30%
-			left 50%
-			height 80px
-			margin-left 20px
-			margin-top -40px
-			text-align left
+			display inline-block
+			background url(/img/bg10.png)
+			text-align center
+			border-radius(4px)
+			padding 10px 30px
+			margin 0 0 20px -30px
+			position relative
+			box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			// &:before {
+			// 	position absolute
+			// 	left 0px
+			// 	top 50%
+			// 	z-index 10
+			// 	content ""
+			// 	width 16px
+			// 	height 16px
+			// 	background white
+			// 	margin -8px 0 0 -8px
+			// 	border-radius(100%)
+			// }	
 			.tarih{ //yılı ifade ediyor
-				padding 0 10px
-				line-height 80px
-				font-size 90px
+				padding 0px 0
+				line-height 1.1
+				font-size 36px
 				font-weight 800
 				display inline-block
-				color fuipreclouds
+				color fuitextcolor
 				background none
 				font-family ff1
 				margin-right 0
-				height 80px
-				vertical-align middle
-				text-shadow 0 -1px rgba(0,0,0,0.9)
+				text-align center
+				position relative
+			
  			}
  			input.tarih {
- 				border 1px dashed fuisilver
- 				width 145px
- 				font-size 50px
+ 				border 1px dashed fuipreclouds
+ 				width 100%
+ 				margin-top 0px
+ 				line-height normal
+ 				&:focus {
+ 					border-color white
+ 				}
  			}
 			.aygun {
 				text-align center
-				margin 0px 0 0 0
-				background fuiwetasphalt
-				width 80px
-				height 80px
-				display inline-block
-				color white
-				vertical-align middle
-				padding-top 15px
-				border-radius(100%)
-				.ay {
-					display block
-					font-size: 15px;
-					line-height 18px
+				margin 0px 0 0 0px
+				display block
+				color fuitextcolor
+				padding 0px
+				vertical-align top
+				.ay, .gun {
+					display inline-block
 					padding 0
-					width 100%
 					font-family ff1
+					font-weight 300
+					line-height 18px
+					font-size 14px
 				}
 				select.month, select.day {
-					display block
+					display inline-block
 					font-size 13px
-					margin 0
+					margin 4px 0 0
 					font-family ff1
-					width 100%
-				}
-				select.day { 
-					margin-top 4px
-				}
-				.gun {
-					display block
-					line-height: 32px;
-					height 32px
-					font-size: 30px;
-					font-weight 800
-					text-align center
-					width 100%
 				}
 				&.boxShadow {
 					box-shadow(inset 0 0 5px rgba(0,0,0,0.7))					
 				}
 			}
 		}
-
 		.olay {
-			width 460px
+			width 47%
 			float left
-			padding 20px
 			text-align left
 			position relative
-			h3, textarea {
-				font-size 34px
-				line-height 40px
-				margin 0px 0px 0px
-				padding 5px 0px 10px
-				font-family ff1
-				font-weight 800
-				letter-spacing -2px
-			}
-			textarea {
-				border 1px dashed fuipreclouds
+			margin-right 6%
+			//-webkit-perspective: 1000;
+			//-webkit-backface-visibility: hidden;
+			// -ms-transform: rotate(2deg); /* IE 9 */
+			// -webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
+			// transform: rotate(2deg);
+			//margin-bottom 40px
+			.innerOlay {
+				background white //url(/img/polaroid.png) repeat
 				width 100%
-				padding 5px 10px
-				resize vertical
-				display block
-				&:focus {
-					border-color fuiconcrete !important
-				}
-			}
-			span.counterManset, span.counterDesc  {
-				position absolute
-				bottom 5px
-				right 20px
-				color fuiconcrete
-				font-weight 300
-				display none
-				font-size 13px
-			}
-			p, textarea.desc {
-				font-size 20px
-				line-height 32px
-				padding 0 0px
-				font-family ff2
-				margin 0 0px 10px
-				font-weight normal
-				color #333332
-			}
-			textarea.desc {
-				padding 5px 10px
-				letter-spacing 0
-				margin-top 4px
-			}
-			.imageContainer {
-				text-align center
-				margin-bottom 10px
-				position relative
-				&:before {
-					position absolute
-					width 100%
-					height 100%
-					top 0
-					left 0
-					z-index 12
-					content ""
-					box-shadow(inset 0px 0px 3px rgba(0,0,0,0.65))
-				}				
-				img, i.fa-camera {
-					width 100%
-					height auto
-					border-radius(2px 2px 0 0)
-					display block
-				}
-				i.fa-camera {
-					font-size 100px
-					height 200px
-					line-height 200px
-					background fuipreclouds
+				margin 0 0 0 0
+				float left
+				padding 20px 20px 40px
+				box-shadow(0 1px 2px rgba(0,0,0,0.07))
+				border-radius(3px)
+				.imageContainer {
+					text-align center
 					position relative
-					z-index 12
-					.gorselYukleButonu {
+					padding 0%
+					margin-bottom 20px
+					&:before {
 						position absolute
-						background fuibelizehole
-						color white
-						top 150px
-						width 110px
-						font-size 14px
-						height 30px
-						line-height 30px
-						border-radius(3px)
-						left 50%
-						margin-left -55px
-						font-weight 600
-						font-family ff1
-						&:hover {
-							background fuipeterriver
-							cursor pointer
+						width 100%
+						height 100%
+						top 0
+						left 0
+						z-index 12
+						content ""
+						box-shadow(inset 0px 0px 2px rgba(0,0,0,0.15))
+					}				
+					img, i.fa-camera {
+						width 100%
+						height auto
+						border-radius(2px 2px 0 0)
+						display block
+						background white
+					}
+					i.fa-camera {
+						font-size 100px
+						color fuiasbestos
+						height 240px
+						line-height 240px
+						background black
+						position relative
+						z-index 12
+						.gorselYukleButonu {
+							position absolute
+							background fuibelizehole
 							color white
+							top 180px
+							width 110px
+							font-size 14px
+							height 30px
+							line-height 30px
+							border-radius(3px)
+							left 50%
+							margin-left -55px
+							font-weight 600
+							font-family ff1
+							&:hover {
+								background fuipeterriver
+								cursor pointer
+								color white
+							}
+						}
+					}
+					.degistir, .anaResimYap {
+						position absolute
+						top 5px
+						left 5px
+						color white
+						z-index 13
+						height 24px
+						line-height 24px
+						font-size 13px
+						background rgba(0,0,0,0.6)
+						border-radius(3px)
+						text-align center
+						padding 0 8px
+						i {
+							font-size 14px
+						}
+						&:hover {
+							cursor pointer
+							background fuipeterriver
+						}
+					}
+					.anaResimYap {
+						left auto
+						right 5px
+						&.active {
+							background fuiemerald
 						}
 					}
 				}
-				.degistir, .anaResimYap {
-					position absolute
-					top 5px
-					left 5px
-					color white
-					z-index 13
-					height 24px
-					line-height 24px
-					font-size 13px
-					background rgba(0,0,0,0.6)
-					border-radius(3px)
-					text-align center
-					padding 0 8px
-					i {
-						font-size 14px
-					}
-					&:hover {
-						cursor pointer
-						background fuipeterriver
-					}
-				}
-				.anaResimYap {
-					left auto
-					right 5px
-					&.active {
-						background fuiemerald
-					}
-				}
-			}
-			[contentEditable=true]{
-				padding 10px
-				border 1px dashed #ccc
-			}
-			&:after {
-				content "\f0da"
-				position absolute
-				font-family FontAwesome
-				font-weight normal
-				color white
-				font-size 100px
-				margin-top -50px
-				height 60px
-				top 30%
-				right -30px
 			}
 			a {
 				color fuibelizehole
@@ -667,6 +574,75 @@ button, a.buttonSq {
 					text-decoration underline
 				}
 			}
+		}
+		.olayText {
+			float left
+			width 47%
+			text-align left
+			color fuipreclouds
+			h2, textarea.manset {
+				font-size 40px
+				line-height 1.2
+				margin 0px 0px 10px
+				padding 0px
+				font-family ff1
+				font-weight 800
+				letter-spacing -1px
+				position relative
+				background none
+				color fuitextcolor
+				float left
+				width 100%
+			}
+			textarea.manset {
+				border 1px dashed fuiasbestos
+				width 100%
+				line-height 1.4
+				padding 5px 10px
+				resize vertical
+				&:focus {
+					border-color fuitextcolor !important
+				}
+			}
+			span.counterManset, span.counterDesc  {
+				color fuitextcolor
+				font-weight 600
+				visibility hidden
+				display block
+				font-size 15px
+				line-height 19px
+				text-align right
+				border-radius(3px)
+				margin-top -10px
+				float left
+				width 100%
+			}
+			.textContainer {
+				float left
+				width 100%
+				p, textarea.desc {
+					font-size 20px
+					line-height 1.35
+					padding 0 0px
+					font-family ff2
+					margin 0 0px 10px
+					font-weight normal
+					background none
+					color fuitextcolor
+					float left
+					width 100%
+				}
+				textarea.desc {
+					border 1px dashed fuiasbestos
+					width 100%
+					padding 5px 10px
+					resize vertical
+					display block
+					&:focus {
+						border-color fuitextcolor !important
+					}
+				}
+			} 			
 		}
 		i.silici, .siliciPopover {
 			position absolute
@@ -709,42 +685,13 @@ button, a.buttonSq {
 				color #444
 			}
 		}
-		&:nth-child(2n) {
-			.tarihContainer {
-				left auto
-				right 50%
-				margin-right 20px
-				direction: rtl;
-				.tarih {
-
-
-				}
-				.aygun {
-
-				}
-			}
-			.olay {
-				float right
-				&:after {
-					content "\f0d9"
-					right auto
-					left -30px
-				}
-			}
-			i.silici, .siliciPopover {
-				right 1px
-				left auto
-			}
-		}
-		&:nth-child(2n+1) {
-			.olay {
-			}
-		}		
-		&:first-child {
-			.olay {
-				
-			}
-		}
+		// &:nth-child(2n) {
+		// 	.olay {
+		// 		-ms-transform: rotate(-2deg); /* IE 9 */
+		// 		-webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
+		// 		transform: rotate(-2deg);				
+		// 	}
+		// }
 	}
 	i.basaDon {
 		position fixed
@@ -753,10 +700,11 @@ button, a.buttonSq {
 		color white
 		display none
 		font-size 50px
-		text-shadow 0 0 5px rgba(0,0,0,0.5)
+		text-shadow 0 0 5px rgba(0,0,0,0.1)
+		z-index 20
 		&:hover {
 			cursor pointer
-			color fuipeterriver
+			color fuicream2
 		}
 	}
 }
@@ -764,45 +712,47 @@ button, a.buttonSq {
 .entryButtonsContainer {
 	font-family ff1
 	position relative
-	padding 40px 0 0
+	padding 0px 0 40px
 	&:before {
 		position absolute
 		content ""
-		width 6px
+		width 10px
 		height 100%
-		background fuiwetasphalt
+		background url(/img/bg10.png)
 		top 0
 		left 50%
 		display block
-		margin-left:-3px;
+		margin-left:-5px;
 		z-index -1
 	}
 	i#addOlay {
 		width 60px
 		height 60px
-		line-height 64px
+		line-height 51px
 		color white
-		font-size 40px
-		background fuiemerald
+		font-size 30px
+		background fuiwetasphalt
 		border-radius 100%
 		margin-top -20px
+		border 6px solid #1A252F
 		&:hover {
 			cursor pointer
-			background fuinephritis
+			background fuiemerald
 		}
 	}
 	button#yayinla, button#guncelle {
-		line-height: 46px;
-		height: 46px;
+		line-height: 38px;
+		height: 50px;
 		padding: 0 18px;
-		background: fuiwetasphalt
-		color: #fff;
-		font-size: 24px;
-		font-weight: 700;
+		font-size: 20px;
+		font-weight: 600;
 		font-family ff1
+		background fuiwetasphalt
+		border 6px solid #1A252F
+		border-radius(24px)
 		&:hover {
 			cursor pointer
-			background fuializarin
+			background fuipeterriver
 		}
 	}
 }
@@ -834,5 +784,150 @@ button, a.buttonSq {
 		border-width 0
 		padding 5px 10px
 		line-height 20px
+	}
+}
+@media (max-width: 999px) {
+	#mainContainer {
+		width 766px
+		.baslikOlay {
+			h1 {
+				font-size 40px
+			}
+		}
+		.birimOlayContainer {
+			padding-top 40px
+			.birimOlay {
+				&:after {
+					margin-top 70px
+				}
+				.tarihContainer {
+					margin-left -23px
+					.tarih {
+						font-size 30px
+					}
+				}
+				.olayText {
+					h2 {
+						font-size 30px
+					}
+					.textContainer {
+						p {
+							font-size 18px
+						}
+					}
+				}
+			}		
+		}
+	}	
+	#header { 
+		#inner {
+			width 766px
+		}
+	}
+	.gezCizgi {
+		width 766px
+		padding 20px 0
+		.inner {
+			height 140px
+			.carousel {
+				a {
+					.baslikContainer {
+						h4 {
+							font-size 15px
+						}
+					}
+				}
+			}
+		}
+		i {
+			height 140px
+			line-height 140px
+		}
+	}
+}
+@media (max-width: 768px) {
+	#mainContainer {
+		width 100%
+		.baslikOlay {
+			h1 {
+				font-size 24px
+			}
+		}
+		.birimOlayContainer {
+			padding-top 8px
+			.birimOlay {
+				padding 0 5px
+				&:after {
+					margin-top 70px
+				}
+				.olay {
+					width 100%
+					margin-right 0
+					margin-bottom 8px
+					.innerOlay {
+						padding 10px
+						.imageContainer {
+							margin-bottom 0
+						}
+					}
+				}
+				.olayText {
+					width 100%
+					.tarihContainer {
+						width 100%
+						margin-left 0
+						margin-bottom 8px
+						.tarih {
+							font-size 30px
+						}
+					}
+					h2 {
+						font-size 24px
+						background white
+						padding 10px
+						text-align center
+						border-radius(4px)
+						margin-bottom 8px
+					}
+					.textContainer {
+						background white
+						border-radius(4px)
+						p {
+							font-size 16px
+							padding 10px
+						}
+					}
+				}
+			}		
+		}
+	}	
+	#header { 
+		#inner {
+			width 100%
+		}
+	}
+	.gezCizgi {
+		width 100%
+		padding 20px 0
+		.inner {
+			height 100px
+			.carousel {
+				a {
+					.baslikContainer {
+						h4 {
+							font-size 11px
+							font-weight 300
+						}
+						.olayCount {
+							display none
+						}
+					}
+				}
+			}
+		}
+		i {
+			height 100px
+			line-height 100px
+		}
 	}
 }

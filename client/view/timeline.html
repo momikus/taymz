@@ -1,35 +1,43 @@
 <template name="timeline">
 	{{#with timelineMain}}
-		<div class="clear"></div>
 		<div class="baslikOlay">
-			<h2>{{title}}</h2>
+			<h1>{{title}}</h1>
 		</div>
 		<div class="birimOlayContainer float100 taymEnd" >
 			{{#each milestones}}
 				<div class="birimOlay float100">
-					<div class="tarihContainer">
-						<div class=" tarih">
-							{{year}}
-						</div>
-						{{#if month}}
-						<div class="aygun boxShadow">
-							<div class="ay" {{#if day}} {{else}}style="margin-top:15px;"{{/if}}>
-								{{ayIsmi month}}
+					<div class="olay">
+						<div class="innerOlay">
+							<div class="imageContainer">
+								<img class="lazy" data-original="http://s3-eu-west-1.amazonaws.com/taymz/{{img}}">
 							</div>
-							{{#if day}}
-								<div class="gun">
-									{{day}}
+						</div>
+					</div>
+					<div class="olayText">
+						<div class="tarihContainer">
+							<div class=" tarih">
+								{{year}}
+							</div>
+							{{#if month}}
+							<div class="aygun">
+								<div class="ay">
+									{{ayIsmi month}}
 								</div>
+								{{#if day}}
+									<div class="gun">
+										{{day}}
+									</div>
+								{{/if}}
+							</div>
 							{{/if}}
 						</div>
-						{{/if}}
-					</div>
-					<div class="standartCerceve olay">
-						<div class="imageContainer">
-							<img class="lazy" data-original="http://s3-eu-west-1.amazonaws.com/taymz/{{img}}">
-						</div>
-						<h3>{{tagline}}</h3>
+						<h2>
+						{{tagline}}
+						</h2>
+						<div class="textContainer">
+						
 						{{#markdown}}{{desc}}{{/markdown}}
+						</div>
 					</div>
 				</div>
 			{{/each}}

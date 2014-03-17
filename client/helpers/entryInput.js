@@ -45,28 +45,33 @@ Template.entryInput.events({
 
 	//manşet yazma alanına focus olunca counter açılır
 	'focus textarea.manset': function (e) {
-		$(e.currentTarget).parent().find('span.counterManset').show();
+		$(e.currentTarget).parent().find('span.counterManset').css("visibility", "visible");
 	},
 
 	//manşet yazma alanına blur olunca counter kapanır
 	'blur textarea.manset': function (e) {
-		$(e.currentTarget).parent().find('span.counterManset').hide();
+		$(e.currentTarget).parent().find('span.counterManset').css("visibility", "hidden");
 	},
 
 	//desc yazma alanına focus olunca counter açılır
 	'focus textarea.desc': function (e) {
-		$(e.currentTarget).parent().find('span.counterDesc').show();
+		$(e.currentTarget).parent().find('span.counterDesc').css("visibility", "visible");
 	},
 
 	//desc yazma alanına blur olunca counter kapanır
 	'blur textarea.desc': function (e) {
-		$(e.currentTarget).parent().find('span.counterDesc').hide();
+		$(e.currentTarget).parent().find('span.counterDesc').css("visibility", "hidden");
 	},
 
 	// upload image
-	'click .gorselYukleButonu': function (e) {
+	'click .gorselYukle': function (e) {
 		var milestoneId = this._id;
-		var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr('id');
+		if($(e.currentTarget).hasClass('degistir')) {
+			var idAnchor = $(e.currentTarget).parent().parent().parent().parent().attr('id');
+		}
+		else {
+			var idAnchor = $(e.currentTarget).parent().parent().parent().parent().parent().attr('id');
+		}
 		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
 		filepicker.pickAndStore({
 			mimetypes: ['image/*'],
@@ -266,10 +271,10 @@ Template.entryInput.events({
 	'click .anaResimYap': function (e) {
 		$(e.currentTarget).addClass('active');
 		
-		var id = $(e.currentTarget).parent().parent().parent().attr('id');
+		var id = $(e.currentTarget).parent().parent().parent().parent().attr('id');
 		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
 		//Meteor.setTimeout(function () {
-		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}}, {multi:true})
+		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {'milestones.$.mainimg':true}})
 		//}, 200);		
 		// ilgili olayın mainimg fieldını true yap
 		LocalTimeline.update({'milestones._id': id}, {$set: {

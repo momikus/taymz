@@ -2,9 +2,9 @@ Template.gezCizgi.events({
 	// Carouseli kaydırma olayları ileri&geri
 	'click i': function (event) {
 		var x = $(event.currentTarget);
-		if (x.hasClass('fa-chevron-circle-right')) { // right
+		if (x.hasClass('fa-chevron-right')) { // right
 			Session.set('skip', (Session.get('skip') + 4));
-		} else if (x.hasClass('fa-chevron-circle-left')) { // left
+		} else if (x.hasClass('fa-chevron-left')) { // left
 			Session.set('skip', Session.get('skip') - 4);
 		}
 		Session.set('timelineCarouselLoaded', false);
