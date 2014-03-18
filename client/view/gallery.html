@@ -1,0 +1,22 @@
+<template name="gallery">
+	<ul class="gallery innerContainer">
+		{{#each timelineAll}}
+		<li>
+			<a href="/t/{{tid}}">
+				<div class="imageContainer" style="background-image:url(http://s3-eu-west-1.amazonaws.com/taymz/{{img}})	">
+					<div class="olayCount">
+						<div class="inner">
+							<i class="fa fa-bell-o"></i>{{olayCount}} olay
+						</div>
+					</div>
+				</div>
+				<div class="baslik">
+					<span>{{title}}</span>
+				</div>
+			</a>
+		</li>
+		{{/each}}
+		<div class="clear"></div>
+	</ul>
+	<div class="clear"></div>
+</template>

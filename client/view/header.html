@@ -1,10 +1,11 @@
 <template name="header">
-	<div id="header" class="float100">
+	<div id="header">
 		<div id="inner">
 			<div class="logo"><a href="/">taymz <i class="fa fa-clock-o"></i></a></div>
 			{{#if varoAdmin}}<a class="buttonSq btnSqEmerald add" href={{pathFor 'add'}}><i class="fa fa-plus-square"></i></a>
 			<a class="buttonSq btnSqPeterriver edit" href={{pathFor 'edit'}}><i class="fa fa-pencil-square"></i></a>
 			{{/if}}
 		</div>
+		<div class="clear"></div>
 	</div>
 </template>

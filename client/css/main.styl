@@ -1,6 +1,8 @@
 ff1 				= 'Open Sans', sans-serif
 ff2					= Georgia, Times New Roman, Arial, sans-serif;
 ff3 				= 'Open Sans Condensed', 'Open Sans', Arial
+ff4 				= 'Play', sans-serif;
+ff5					= 'Autour One', cursive;
 fuipreclouds 		= #eff0f2
 fuipreturquoise		= #48c9b0
 fuiturquoise 		= #1abc9c
@@ -62,18 +64,6 @@ a {
 		cursor pointer
 	}
 }
-// [contentEditable=true]{
-// 	border 1px dashed #ccc
-// }
-// [data-placeholder]:empty:not(:focus):not([data-div-placeholder-content]):before {
-// 	content: attr(data-placeholder);
-// 	color: fuiconcrete;
-// }
-body {
-	font-family ff1
-	margin 0
-	background white url(/img/bg8.png) repeat
-}
 button, a.buttonSq {
 	height 36px
 	font-weight 700
@@ -131,11 +121,6 @@ button, a.buttonSq {
 		cursor pointer
 	}
 }
-#mainContainer {
-	text-align center
-	width 1000px
-	margin 0 auto
-}
 .standartCerceve {
 	background white
 	box-shadow(0 1px 10px rgba(0,0,0,0.99))
@@ -159,183 +144,335 @@ button, a.buttonSq {
 		content "**"
 	}
 }
-#header {
-	background url(/img/headerbg.png) repeat
-	width 100%
-	box-shadow(0 0 10px rgba(0,0,0,0.4))
-	#inner {
-		width 1000px
-		margin auto
-		height 50px
-		.logo a {
-			color white
-			margin 0 auto 0
-			line-height 50px
-			font-size 30px
-			padding 0 0
-			font-weight 800
-			letter-spacing -1px
-			width 200px
-			float left
-			position relative
-			i {
-				margin-right -3px
-				font-size 27px
-			}
-		}
-		p {
-			color fuiconcrete
-		}
-		.buttonSq {
-			width: 34px;
-			height 34px;
-			float: right;
-			margin: 9px 0 0 7px;
-			padding: 0px;
-			border-radius(10px)
-			background white
-			i {
-				margin -3px 0 0 
-				font-size 40px
-			}
-		}
-	}
-}
-.gezCizgi {
-	padding 40px 0
+body {
+	font-family ff1
+	margin 0
+	background white url(/img/bg8.png) repeat
+	font-size 20px
 	text-align center
-	width 1000px
-	margin auto
-	.inner {
-		width 86%
-		margin auto
+	#mainContainer {
 		text-align center
-		display inline-block
-		position relative
-		height 175px
-		.carousel {
-			width 100%
-			height 100%
-			a {
-				margin 0  4% 0 0
-				display inline-block
-				width 22%
-				height 100%
-				padding 0
-				background white
+		width 1000px
+		margin 0 auto
+	}
+	#header {
+		background url(/img/headerbg.png) repeat
+		width 100% !important
+		box-shadow(0 0 10px rgba(0,0,0,0.4))
+		margin-bottom 1em
+		#inner {
+			margin auto
+			text-align left
+			.logo a {
+				color white
+				margin 0 auto
+				line-height 2
+				padding 0 0
+				font-weight 700
+				letter-spacing -1px
+				width 6em
 				float left
 				position relative
-				border-radius(2px)
-				overflow hidden
-				box-shadow(0 0 2px fuiasbestos)
-				.imgContainer {
-					position relative
-					width 100%
-					height 100%
-					overflow hidden
-					text-align center
-					z-index 11
-					// span.helper {
-					// 	display: inline-block;
-					// 	height: 100%;
-					// 	vertical-align: middle;						
-					// }
-					.image {
-						position absolute
-						left 5%
-						top 5%
-						width 90%
-						height 90%
-						background-position top
-						background-size cover
-					}
-				}
-				.baslikContainer {
-					overflow hidden
-					position absolute
-					top 5%
-					left 5%
-					background rgba(0,0,0,0.5)
-					display table
-					vertical-align middle
-					height 90%
-					width 90%
-					padding 10px
-					z-index 11
-					opacity 1
-					color white
-					h4 {
-						display table-cell
-						vertical-align middle
-						font-size 18px
-						letter-spacing 0px
-						font-weight 700
-						line-height 1.2
-						text-align center
-						word-break: break-word;
-						text-shadow 1px 1px 4px black
-						font-family ff3
-					}
-					.olayCount {
-						position absolute
-						right 8px
-						bottom 6px
-						font-size 12px
-						height 20px
-						line-height 20px
-						font-weight 300
-						color white
-						border-radius(4px)
-						background black
-						padding 0 5px
-					}
-				}
-				&:hover {
-					.baslikContainer {
-						background rgba(0,0,0,0.9)
-					}
-				}
-				&:last-child {
-					margin 0
+				font-size 1.5em
+				i {
+					margin-left 0.1em
 				}
 			}
-			.loading {
-				margin 13px auto
-				height 148px
-				width 148px
-				padding 10px
-				background fuimidnightblue
-				border-radius 4px
-				box-shadow(inset 0 0 10px rgba(0,0,0,0.2))
-				img {
-
+			p {
+				color fuiconcrete
+			}
+			.buttonSq {
+				width: 34px;
+				height 34px;
+				float: right;
+				margin: 9px 0 0 7px;
+				padding: 0px;
+				border-radius(10px)
+				background white
+				i {
+					margin -3px 0 0 
+					font-size 40px
 				}
 			}
-		}
-	}
-	i {
-		display inline-block
-		height 175px
-		line-height 175px
-		vertical-align top
-		font-size 30px
-		width 7%
-		color fuitextcolor
-		&:hover {
-			cursor pointer
-			color black
-		}
-		&.hide {
-			display none
 		}
 	}
 }
+.innerContainer {
+	margin auto
+}
+ul.gallery {
+	li {
+		float left
+		list-style-type: none;
+		a {
+			box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			width 100%
+			display block
+			background white //url(/img/polaroid2.png)
+			padding 0.6em 0.6em 0.25em
+			border-radius(4px)
+			overflow hidden
+			.imageContainer {
+				width 100%
+				background-position top
+				background-size cover
+				position relative
+				box-shadow(inset 0 0px 2px rgba(0,0,0,0.4))
+				.olayCount {
+					position absolute
+					width 100%
+					height 100%
+					text-align center
+					line-height 1em
+					top 0
+					font-family ff2
+					font-weight normal
+					font-size 2em
+					display none
+					background rgba(0,0,0,0.5)
+					text-shadow 0 1px 2px black
+					.inner {
+						display table-cell
+						vertical-align middle
+						i {
+							display block
+						}		
+					}
+				}
+			}
+			.baslik {
+				display table
+				height 5.8em
+				width 100%
+				line-height 1.2em
+				font-size 1em
+				font-weight 600
+				font-family ff1
+				color fuitextcolor
+				padding 0.5em
+				text-align center
+				span {
+					vertical-align middle
+					display table-cell
+				}
+			}
+			&:hover {
+				.imageContainer {
+					color white
+					.olayCount {
+						display table
+					}
+				}
+				.baslik {
+					color fuipeterriver
+				}
+			}
+		}
+	}
+}
+
+
+@media only screen and (min-width:0) { /* smartphones, iPhone, portrait 480x320 phones */ 
+	body {
+		font-size 12px
+		#header {
+			#inner {
+				width 96%
+			}
+		}
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 140px
+					}
+				}
+				width 49%
+				margin 0 2% 2% 0
+				&:nth-child(2n) {
+					margin-right 0
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:641px) { /* smartphones, iPhone, portrait 480x320 phones */ 
+	body {
+		font-size 14px
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 140px
+					}
+				}
+				width 32%
+				margin 0 2% 2% 0
+				&:nth-child(2n) {
+					margin-right 2%
+				}
+				&:nth-child(3n) {
+					margin-right 0 !important
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+	body {
+		font-size 16px
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 150px
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+	body {
+		font-size 18px
+		#header {
+			#inner {
+				width 800px
+			}
+		}
+		.innerContainer {
+			width 800px
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 170px
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1281px) { /* hi-res laptops and desktops */ 
+	body {
+		font-size 20px
+		#header {
+			#inner {
+				width 1000px
+			}
+		}
+		.innerContainer {
+			width 1000px
+		}
+		ul.gallery {
+			li {
+				width 23.5%
+				margin 0 2% 2% 0
+				a {
+					.imageContainer {
+						height 180px
+					}
+				}
+				&:nth-child(2n) {
+					margin-right 2% !important
+				}
+				&:nth-child(3n) {
+					margin-right 2% !important
+				}
+				&:nth-child(4n) {
+					margin-right 0 !important
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1825px) { /* hi-res laptops and desktops */ 
+	body {
+		#header {
+			#inner {
+				width 1200px
+			}
+		}
+		.innerContainer {
+			width 1200px
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 200px
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .baslikOlay {
 	position relative
 	h1, textarea {
 		background white //url(/img/headerbg.png) repeat
 		color fuitextcolor
-		font-size: 45px;
+		font-size: 2.5em;
 		letter-spacing 0px
 		line-height: 1.1
 		font-weight: 700;
@@ -375,6 +512,7 @@ button, a.buttonSq {
 	left 0
 	z-index 100
 	text-align center
+	display none
 	.baslik {
 		display inline-block
 		font-weight 700
@@ -434,15 +572,42 @@ button, a.buttonSq {
 		&:hover:after {
 			background fuializarin
 		}
+		&:before {
+			position absolute
+			width 10px
+			height 10px
+			left 50%
+			top 50%
+		}
 		.tarihContainer {
 			display inline-block
-			background url(/img/bg10.png)
+			background white
 			text-align center
 			border-radius(4px)
 			padding 10px 30px
-			margin 0 0 20px -30px
+			margin 0 0 20px 0
 			position relative
+			height 76px
 			box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			i, .dot {
+				position absolute
+				left -20px
+				line-height 1
+				top 50%
+				margin-top -38px
+				color white
+				font-size 76px
+			}
+			.dot {
+				left -40px
+				width 20px
+				height 20px
+				background white
+				top 50%
+				margin-top -10px
+				border-radius(100%)
+				box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			}
 			.tarih{ //yılı ifade ediyor
 				padding 0px 0
 				line-height 1.1
@@ -453,6 +618,7 @@ button, a.buttonSq {
 				background none
 				font-family ff1
 				margin-right 0
+				margin-top 9px
 				text-align center
 				position relative
 			
@@ -478,7 +644,7 @@ button, a.buttonSq {
 					padding 0
 					font-family ff1
 					font-weight 300
-					line-height 18px
+					line-height 1.2
 					font-size 14px
 				}
 				select.month, select.day {
@@ -499,10 +665,10 @@ button, a.buttonSq {
 			position relative
 			margin-right 6%
 			//-webkit-perspective: 1000;
-			-webkit-backface-visibility: hidden;
-			-ms-transform: rotate(2deg); /* IE 9 */
-			-webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
-			transform: rotate(2deg);
+			// -webkit-backface-visibility: hidden;
+			// -ms-transform: rotate(2deg); /* IE 9 */
+			// -webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
+			// transform: rotate(2deg);
 			//margin-bottom 40px
 			.innerOlay {
 				background white //url(/img/polaroid.png) repeat
@@ -712,9 +878,9 @@ button, a.buttonSq {
 		}
 		&:nth-child(2n) {
 			.olay {
-				-ms-transform: rotate(-2deg); /* IE 9 */
-				-webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
-				transform: rotate(-2deg);				
+				// -ms-transform: rotate(-2deg); /* IE 9 */
+				// -webkit-transform: rotate(-2deg); /* Chrome, Safari, Opera */
+				// transform: rotate(-2deg);				
 			}
 		}
 	}
@@ -766,7 +932,7 @@ button, a.buttonSq {
 			color white
 		}
 	}
-	button#yayinla, button#guncelle, button#saveAsDraft {
+	button#yayinla, button#guncelle, button#updateAndSaveAsDraft {
 		line-height: 38px;
 		height: 50px;
 		padding: 0 18px;
@@ -812,151 +978,5 @@ button, a.buttonSq {
 		border-width 0
 		padding 5px 10px
 		line-height 20px
-	}
-}
-@media (max-width: 999px) {
-	#mainContainer {
-		width 766px
-		.baslikOlay {
-			h1 {
-				font-size 40px
-			}
-		}
-		.birimOlayContainer {
-			padding-top 40px
-			.birimOlay {
-				&:after {
-					margin-top 70px
-				}
-				.tarihContainer {
-					margin-left -23px
-					.tarih {
-						font-size 30px
-					}
-				}
-				.olayText {
-					h2 {
-						font-size 30px
-					}
-					.textContainer {
-						p {
-							font-size 18px
-						}
-					}
-				}
-			}		
-		}
-	}	
-	#header { 
-		#inner {
-			width 766px
-		}
-	}
-	.gezCizgi {
-		width 766px
-		padding 20px 0
-		.inner {
-			height 140px
-			.carousel {
-				a {
-					.baslikContainer {
-						h4 {
-							font-size 15px
-						}
-					}
-				}
-			}
-		}
-		i {
-			height 140px
-			line-height 140px
-		}
-	}
-}
-@media (max-width: 768px) {
-	#mainContainer {
-		width 100%
-		.baslikOlay {
-			h1 {
-				font-size 24px
-			}
-		}
-		.birimOlayContainer {
-			padding-top 8px
-			.birimOlay {
-				padding 0 5px
-				&:after {
-					margin-top 70px
-				}
-				.olay {
-					width 100%
-					margin-right 0
-					margin-bottom 8px
-					.innerOlay {
-						padding 10px
-						.imageContainer {
-							margin-bottom 0
-						}
-					}
-				}
-				.olayText {
-					width 100%
-					.tarihContainer {
-						width 100%
-						margin-left 0
-						margin-bottom 8px
-						.tarih {
-							font-size 30px
-						}
-					}
-					h2 {
-						font-size 24px
-						background white
-						padding 10px
-						text-align center
-						border-radius(4px)
-						margin-bottom 8px
-					}
-					.textContainer {
-						background white
-						border-radius(4px)
-						p {
-							font-size 16px
-							padding 10px
-						}
-					}
-				}
-			}		
-		}
-	}	
-	#header { 
-		#inner {
-			width 100%
-		}
-	}
-	.gezCizgi {
-		width 100%
-		padding 20px 0
-		.inner {
-			height 100px
-			.carousel {
-				a {
-					.baslikContainer {
-						background rgba(0,0,0,0.9)
-						h4 {
-							font-size 11px
-							font-weight 300
-						}
-						.olayCount {
-							display none
-						}
-					}
-				}
-			}
-		}
-		i {
-			height 100px
-			line-height 100px
-		}
 	}
 }
