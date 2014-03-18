@@ -19,11 +19,10 @@ Router.map(function () {
 	// home route
 	this.route('home', {
 		path: '/',
-		template: 'timeline',
+		template: 'gallery',
 		layoutTemplate: 'home',
 		yieldTemplates: {
 			'header': {to: 'header'},
-			'gallery': {to: 'gallery'}
 		},
 		waitOn: function () {	
 

@@ -270,218 +270,21 @@ ul.gallery {
 		}
 	}
 }
-
-
-@media only screen and (min-width:0) { /* smartphones, iPhone, portrait 480x320 phones */ 
-	body {
-		font-size 12px
-		#header {
-			#inner {
-				width 96%
-			}
-		}
-		.innerContainer {
-			width 96%
-		}
-		ul.gallery {
-			li {
-				a {
-					.imageContainer {
-						height 140px
-					}
-				}
-				width 49%
-				margin 0 2% 2% 0
-				&:nth-child(2n) {
-					margin-right 0
-				}
-			}
-		}
-	}
-}
-@media only screen and (min-width:641px) { /* smartphones, iPhone, portrait 480x320 phones */ 
-	body {
-		font-size 14px
-		.innerContainer {
-			width 96%
-		}
-		ul.gallery {
-			li {
-				a {
-					.imageContainer {
-						height 140px
-					}
-				}
-				width 32%
-				margin 0 2% 2% 0
-				&:nth-child(2n) {
-					margin-right 2%
-				}
-				&:nth-child(3n) {
-					margin-right 0 !important
-				}
-			}
-		}
-	}
-}
-@media only screen and (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
-	body {
-		font-size 16px
-		.innerContainer {
-			width 96%
-		}
-		ul.gallery {
-			li {
-				a {
-					.imageContainer {
-						height 150px
-					}
-				}
-			}
-		}
-	}
-}
-@media only screen and (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
-	body {
-		font-size 18px
-		#header {
-			#inner {
-				width 800px
-			}
-		}
-		.innerContainer {
-			width 800px
-		}
-		ul.gallery {
-			li {
-				a {
-					.imageContainer {
-						height 170px
-					}
-				}
-			}
-		}
-	}
-}
-@media only screen and (min-width:1281px) { /* hi-res laptops and desktops */ 
-	body {
-		font-size 20px
-		#header {
-			#inner {
-				width 1000px
-			}
-		}
-		.innerContainer {
-			width 1000px
-		}
-		ul.gallery {
-			li {
-				width 23.5%
-				margin 0 2% 2% 0
-				a {
-					.imageContainer {
-						height 180px
-					}
-				}
-				&:nth-child(2n) {
-					margin-right 2% !important
-				}
-				&:nth-child(3n) {
-					margin-right 2% !important
-				}
-				&:nth-child(4n) {
-					margin-right 0 !important
-				}
-			}
-		}
-	}
-}
-@media only screen and (min-width:1825px) { /* hi-res laptops and desktops */ 
-	body {
-		#header {
-			#inner {
-				width 1200px
-			}
-		}
-		.innerContainer {
-			width 1200px
-		}
-		ul.gallery {
-			li {
-				a {
-					.imageContainer {
-						height 200px
-					}
-				}
-			}
-		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .baslikOlay {
 	position relative
 	h1, textarea {
 		background white //url(/img/headerbg.png) repeat
 		color fuitextcolor
-		font-size: 2.5em;
-		letter-spacing 0px
+		font-size: 1.6em;
+		letter-spacing -2px
 		line-height: 1.1
-		font-weight: 700;
-		padding: 15px 40px 15px 40px;
+		font-weight: bold;
+		padding: 0.5em 0.7em;
 		box-shadow(0 1px 2px rgba(0,0,0,0.07))
 		text-align center
 		display block
 		width 100%
-		font-family ff3
+		font-family ff1
 		margin 0px
 		border-radius(4px)
 		//border-left 30px solid rgba(0,0,0,0.3)
@@ -899,7 +702,151 @@ ul.gallery {
 		}
 	}
 }
-
+@media only screen and (min-width:0) { /* smartphones, iPhone, portrait 480x320 phones */ 
+	body {
+		font-size 12px
+		#header {
+			#inner {
+				width 96%
+			}
+		}
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 140px
+					}
+				}
+				width 49%
+				margin 0 2% 2% 0
+				&:nth-child(2n) {
+					margin-right 0
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:641px) { /* smartphones, iPhone, portrait 480x320 phones */ 
+	body {
+		font-size 14px
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 140px
+					}
+				}
+				width 32%
+				margin 0 2% 2% 0
+				&:nth-child(2n) {
+					margin-right 2%
+				}
+				&:nth-child(3n) {
+					margin-right 0 !important
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+	body {
+		font-size 16px
+		.innerContainer {
+			width 96%
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 150px
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
+	body {
+		font-size 18px
+		#header {
+			#inner {
+				width 800px
+			}
+		}
+		.innerContainer {
+			width 800px
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 170px
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1281px) { /* hi-res laptops and desktops */ 
+	body {
+		font-size 20px
+		#header {
+			#inner {
+				width 1000px
+			}
+		}
+		.innerContainer {
+			width 1000px
+		}
+		ul.gallery {
+			li {
+				width 23.5%
+				margin 0 2% 2% 0
+				a {
+					.imageContainer {
+						height 180px
+					}
+				}
+				&:nth-child(2n) {
+					margin-right 2% !important
+				}
+				&:nth-child(3n) {
+					margin-right 2% !important
+				}
+				&:nth-child(4n) {
+					margin-right 0 !important
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width:1825px) { /* hi-res laptops and desktops */ 
+	body {
+		#header {
+			#inner {
+				width 1200px
+			}
+		}
+		.innerContainer {
+			width 1200px
+		}
+		ul.gallery {
+			li {
+				a {
+					.imageContainer {
+						height 200px
+					}
+				}
+			}
+		}
+	}
+}
 .entryButtonsContainer {
 	font-family ff1
 	position relative

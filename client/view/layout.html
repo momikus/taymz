@@ -1,13 +1,13 @@
 <template name="home">
 	{{yield 'header'}}
 	<div class="clear"></div>
-	{{yield 'gallery'}}
+	{{yield}}
 </template>
 
 <template name="singleTimeline">
 	{{yield 'header'}}
 	<div class="clear"></div>
-	<div id="mainContainer">
+	<div class="innerContainer">
 		{{yield}}
 		<div class="clear"></div>
 	</div>
