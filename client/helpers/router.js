@@ -118,6 +118,8 @@ Router.map(function () {
 		},
 		before: function () {
 			Session.set('singleTimeline', parseFloat(this.params._id));
+			// $('head').append( '<meta property="og:description" content="Çok acayip">' );
+			// $('head').append( '<meta property="og:title" content="Çok ">' );
 		},
 
 		waitOn: function () {
@@ -127,12 +129,17 @@ Router.map(function () {
 			else
 				admin = false;
 			Meteor.subscribe('timelineMain', 'single', id, admin);
+			// $('head').append( '<meta property="og:description" content="Çok acayip">' );
+			// $('head').append( '<meta property="og:title" content="Çok ">' );
 		},
 
+		// navigasyonu engelliyor ga is not defined hatası veriyor o yüzden kapatıldı
 		after: function () {
 			// analytics
-			ga('create', 'UA-48882288-1', 'taymz.com');
-		  ga('send', 'pageview');
+			// ga('create', 'UA-48882288-1', 'taymz.com');
+		 //  ga('send', 'pageview');
+			// $('head').append( '<meta property="og:description" content="Çok acayip">' );
+			// $('head').append( '<meta property="og:title" content="Çok ">' );
 		},
 
 		data: {

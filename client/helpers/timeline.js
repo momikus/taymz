@@ -63,28 +63,30 @@ Template.timeline.rendered = function () {
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 1600) {
 			$('.basaDon').fadeIn(300);
+			$(".gizliBaslik").fadeIn(300);
 		} else {
 			$('.basaDon').fadeOut(300);
+			$(".gizliBaslik").fadeOut(300);
 		}
 	});
 
-	// meta descripton ve title basıyoruz
+	//meta descripton ve title basıyoruz
 	if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined  ) {
 		var relatedTimeline = Timeline.findOne({'tid': Session.get('singleTimeline')});
 		var ogTitle = relatedTimeline.title;
 		var ogUrl = "http://taymz.com/t/"+relatedTimeline.tid;
 		var ogSiteName = "taymz";
-		var ogDescription = relatedTimeline.milestones[0].tagline + "ve ardından" + relatedTimeline.length-1 + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
-		var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+relatedTimeline.milestones[0].img;
-		$('head').append( '<meta property="og:title" content="'+ogTitle+'">' ).append( '<meta property="og:image" content="'+ogImage+'">' );
+		var ogDescription = relatedTimeline.milestones[0].tagline + " ve ardından " + relatedTimeline.milestones.length + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
+		var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+_.findWhere(relatedTimeline.milestones, {'mainimg': true}).img;
+		$('head').append( '<meta property="og:title" content="'+ogTitle+'">' );
+		$('head').append( '<meta property="og:image" content="'+ogImage+'">' );
 		$('head').append( '<meta property="og:url" content="'+ogUrl+'">' );
-		$('head').append( '<meta property="og:site_name" content="'+ogSiteName+'">' );
 		$('head').append( '<meta property="og:description" content="'+ogDescription+'">' );
 
 		if (Router.current().route.name === "timeline") {
 			var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});
 			document.title = 'taymz - ' + pageSeo.title;
-			$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ard65565ından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
+			$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ardından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
 		} else if (Router.current().route.name === "home") {
 			document.title = 'taymz - ' + 'zamanı geldi';
 			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
