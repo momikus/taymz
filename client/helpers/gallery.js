@@ -28,5 +28,14 @@ Template.gallery.helpers({
 			var milestones = Timeline.findOne({_id: this._id}).milestones;
 			return milestones.length; 
 		}
+	},
+
+	// indicates if a taym is a draft
+	draft: function () {
+		if (Timeline.findOne({_id: this._id}) !== undefined) {
+			if (Timeline.findOne({_id: this._id}).status === 'draft')
+				return 'draft';
+		}
 	}
+
 });
