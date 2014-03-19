@@ -22,25 +22,11 @@ Template.gallery.helpers({
 		}
 	},
 
-	//olay count alıyp carouselde göstermek
+	// olay count alıp galeride göstermek
 	olayCount: function () {
 		if (Timeline.findOne({_id: this._id}) !== undefined) {
 			var milestones = Timeline.findOne({_id: this._id}).milestones;
 			return milestones.length; 
 		}
-	},
-
-	// // handler to display a loading spinner
-	// timelineCarouselLoaded: function () {
-	// 	return Session.get('timelineCarouselLoaded');
-	// },
-
-
-
-	// // indicates if a taym is a draft
-	// draft: function () {
-	// 	if (Timeline.findOne({_id: this._id}) !== undefined)
-	// 		if (Timeline.findOne({_id: this._id}).status === 'draft')
-	// 			return 'draft';
-	// }
+	}
 });

@@ -32,6 +32,11 @@ Router.map(function () {
 				admin = false;
 			Meteor.subscribe('timelineAll', admin);
 		},
+
+		after: function () {
+			Session.set('singleTimeline', null);
+		},
+
 		data: {
 			timelineAll: function () {
 				return Timeline.find({}, {limit: 50, sort: {created: -1}});
@@ -86,10 +91,8 @@ Router.map(function () {
 			'entryCall': {to: 'entryCall'}
 		},
 		waitOn: function () {
-			Deps.autorun(function () {
-				var tid = Session.get('singleTimeline');
-				Meteor.subscribe('timelineMain', 'single', tid);
-			});
+			var tid = Session.get('singleTimeline');
+			Meteor.subscribe('timelineMain', 'single', tid);
 		},
 		before: function () {
 			Meteor.call('removeLocalTimeline');
@@ -124,6 +127,12 @@ Router.map(function () {
 			else
 				admin = false;
 			Meteor.subscribe('timelineMain', 'single', id, admin);
+		},
+
+		after: function () {
+			// analytics
+			ga('create', 'UA-48882288-1', 'taymz.com');
+		  ga('send', 'pageview');
 		},
 
 		data: {
