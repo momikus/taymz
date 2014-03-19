@@ -209,8 +209,8 @@ ul.gallery {
 			box-shadow(0 1px 2px rgba(0,0,0,0.07))
 			width 100%
 			display block
-			background white //url(/img/polaroid2.png)
-			padding 0.6em 0.6em 0.25em
+			background white url(/img/polaroid.png)
+			padding 0 0 0.25em
 			border-radius(2px)
 			overflow hidden
 			.imageContainer {
@@ -218,7 +218,6 @@ ul.gallery {
 				background-position top
 				background-size cover
 				position relative
-				box-shadow(inset 0 0px 2px rgba(0,0,0,0.4))
 				.olayCount {
 					position absolute
 					width 100%
@@ -421,7 +420,7 @@ ul.gallery {
 						left 0
 						z-index 12
 						content ""
-						box-shadow(inset 0px 0px 2px rgba(0,0,0,0.15))
+						box-shadow(inset 0px 0px 2px rgba(0,0,0,0.5))
 					}				
 					img, i.fa-camera {
 						width 100%
@@ -498,6 +497,7 @@ ul.gallery {
 		}
 		.olayText {
 			color white
+			text-align left
 			.tarihContainer {
 				display inline-block
 				background white
@@ -624,7 +624,8 @@ ul.gallery {
 					background none
 					float left
 					width 100%
-					color #aaa
+					color #ddd
+					text-align left
 					a {
 						color white
 						&:hover {
@@ -714,7 +715,6 @@ ul.gallery {
 			.birimOlay {
 				margin-bottom 4em
 				.olayText {
-					text-align center
 					float left
 					width 100%
 					.tarihContainer {
@@ -724,6 +724,13 @@ ul.gallery {
 						}
 						i.fa-caret-left {
 							display none
+						}
+					}
+					h2, textarea.manset {
+					}
+					.textContainer {
+						p, textarea.desc {
+							font-size 0.85em
 						}
 					}
 				}
@@ -760,6 +767,40 @@ ul.gallery {
 		}
 	}
 }
+@media only screen and (max-width:640px) {
+	body {
+		.birimOlayContainer {
+			.birimOlay {
+				.olayText {
+					.tarihContainer {
+						margin-bottom 20px
+					}
+					h2, textarea.manset {
+						text-align center
+						background white
+						border-radius(4px 4px 0 0)
+						padding 0.5em 0.5em 0.2em
+						color fuitextcolor
+						margin-bottom 0
+						text-align left
+						text-shadow none
+					}
+					.textContainer {
+						margin-bottom 10px
+						border-radius(0 0 4px 4px)
+						padding 0 1em 1em
+						background white
+						p, textarea.desc {
+							font-size 0.85em	
+							text-shadow none
+							color fuitextcolor
+						}
+					}
+				}
+			}
+		}
+	}	
+}
 @media only screen and (min-width:641px) { /* smartphones, iPhone, portrait 480x320 phones */ 
 	body {
 		.birimOlayContainer {
@@ -768,7 +809,6 @@ ul.gallery {
 				.olayText {
 					float right
 					width 47%
-					text-align left
 					.tarihContainer {
 						width auto
 						i.fa-caret-down {
@@ -776,6 +816,13 @@ ul.gallery {
 						}
 						i.fa-caret-left {
 							display block
+						}
+					}
+					h2, textarea.manset {
+					}
+					.textContainer {
+						p, textarea.desc {
+							font-size 1em
 						}
 					}
 				}
@@ -820,7 +867,7 @@ ul.gallery {
 			li {
 				a {
 					.imageContainer {
-						height 150px
+						height 170px
 					}
 				}
 			}
