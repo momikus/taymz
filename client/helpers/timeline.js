@@ -112,7 +112,7 @@ Template.timeline.rendered = function () {
 	}
 
 	//kullanıcılar link verdiğinde nofollow ve target blank yapmaca
-	$('.olay a').attr('target', '_blank').attr('rel', 'nofollow');
+	$('.olayText a').attr('target', '_blank').attr('rel', 'nofollow');
 
 };
 
