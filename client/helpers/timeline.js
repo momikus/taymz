@@ -42,7 +42,6 @@ Template.timeline.helpers({
 			});
 		}
 	}
-
 });
 
 Template.timeline.rendered = function () {
@@ -56,25 +55,23 @@ Template.timeline.rendered = function () {
 	// lazy load images
 	// with fadeIn effect
 	$('img.lazy').lazyload({
-		effect : 'fadeIn'
+		effect : 'fadeIn',
+		threshold: 300
 	});
 
 	//Go to top butonunun çıkıp çıkmaması fonksiyonu
-	$( window ).scroll(function() {
+	$(window).scroll(function () {
 		if ($(window).scrollTop() > 1600) {
 			$('.basaDon').fadeIn(300);
-			// $('.gizliBaslik').
-		}
-		else {
+		} else {
 			$('.basaDon').fadeOut(300);
 		}
 	});
 
 	// meta descripton ve title basıyoruz
-	if(Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined  ) {
+	if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined  ) {
 		var relatedTimeline = Timeline.findOne({'tid': Session.get('singleTimeline')});
 		var ogTitle = relatedTimeline.title;
-		console.log(ogTitle);
 		var ogUrl = "http://taymz.com/t/"+relatedTimeline.tid;
 		var ogSiteName = "taymz";
 		var ogDescription = relatedTimeline.milestones[0].tagline + "ve ardından" + relatedTimeline.length-1 + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
@@ -88,35 +85,19 @@ Template.timeline.rendered = function () {
 			var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});
 			document.title = 'taymz - ' + pageSeo.title;
 			$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ard65565ından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
-		}
-		else if (Router.current().route.name === "home") {
+		} else if (Router.current().route.name === "home") {
 			document.title = 'taymz - ' + 'zamanı geldi';
 			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
 		}
-			
-// <meta property="og:title" content="The Rock"/>
-
-// <meta property="og:url" content="http://www.imdb.com/title/tt0117500/"/>
-// <meta property="og:image" content="http://ia.media-imdb.com/rock.jpg"/>
-// <meta property="og:site_name" content="IMDb"/>
-
-// <meta property="og:description"
-//       content="A group of U.S. Marines, under command of
-//                a renegade general, take over Alcatraz and
-//                threaten San Francisco Bay with biological
-//                weapons."/>
-
-
-
-
 	}
 
 	//kullanıcılar link verdiğinde nofollow ve target blank yapmaca
 	$('.olayText a').attr('target', '_blank').attr('rel', 'nofollow');
-
 };
 
 Template.timeline.events({
+
+	// go to top button
 	'click .basaDon':function() {
 		$('html,body').animate({ scrollTop: 0 }, 'slow');
 	}
