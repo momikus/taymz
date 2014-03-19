@@ -147,7 +147,7 @@ button, a.buttonSq {
 body {
 	font-family ff1
 	margin 0
-	background white url(/img/bg8.png) repeat
+	background white url(/img/bg.png) repeat
 	font-size 20px
 	text-align center
 	#mainContainer {
@@ -210,7 +210,7 @@ ul.gallery {
 			display block
 			background white //url(/img/polaroid2.png)
 			padding 0.6em 0.6em 0.25em
-			border-radius(4px)
+			border-radius(2px)
 			overflow hidden
 			.imageContainer {
 				width 100%
@@ -243,14 +243,17 @@ ul.gallery {
 			.baslik {
 				display table
 				height 5.8em
+				max-height 5.8em
+				min-height 5.8em
 				width 100%
 				line-height 1.2em
-				font-size 1em
-				font-weight 600
+				font-weight 700
 				font-family ff1
 				color fuitextcolor
 				padding 0.5em
 				text-align center
+				word-break: break-word;
+				overflow hidden
 				span {
 					vertical-align middle
 					display table-cell
@@ -273,21 +276,20 @@ ul.gallery {
 .baslikOlay {
 	position relative
 	h1, textarea {
-		background white //url(/img/headerbg.png) repeat
-		color fuitextcolor
-		font-size: 1.6em;
+		color white
+		font-size: 2.2em;
 		letter-spacing -2px
 		line-height: 1.1
 		font-weight: bold;
-		padding: 0.5em 0.7em;
-		box-shadow(0 1px 2px rgba(0,0,0,0.07))
+		padding: 0.6em 0.6em;
+		text-shadow -1px -1px black
 		text-align center
 		display block
 		width 100%
 		font-family ff1
 		margin 0px
 		border-radius(4px)
-		//border-left 30px solid rgba(0,0,0,0.3)
+		background none
 	}
 	textarea {
 		border 1px dashed #ccc
@@ -350,19 +352,31 @@ ul.gallery {
 }
 .birimOlayContainer {
 	position relative
-	padding-top 60px
+	padding-top 2em
 	text-align center
 	&:before {
 		position absolute
 		content ""
 		width 6px
 		height 100%
-		background url(/img/bg10.png)
+		background rgba(0,0,0,0.4) //url(/img/headerbg.png)
 		top 0
 		left 50%
 		display block
 		margin-left:-3px;
 		z-index -1
+	}
+	.dot {
+		position absolute
+		width 0.8em
+		height 0.8em
+		left 50%
+		top 1.6em
+		background white
+		margin-top 0px
+		margin-left -0.4em
+		border-radius(100%)
+		box-shadow(0 1px 2px rgba(0,0,0,0.07))
 	}
 	&.taymEnd {
 		padding-bottom 0
@@ -370,7 +384,6 @@ ul.gallery {
 	}
 	.birimOlay {
 		position relative
-		margin-bottom 60px
 		z-index 1
 		&:hover:after {
 			background fuializarin
@@ -382,110 +395,22 @@ ul.gallery {
 			left 50%
 			top 50%
 		}
-		.tarihContainer {
-			display inline-block
-			background white
-			text-align center
-			border-radius(4px)
-			padding 10px 30px
-			margin 0 0 20px 0
-			position relative
-			height 76px
-			box-shadow(0 1px 2px rgba(0,0,0,0.07))
-			i, .dot {
-				position absolute
-				left -20px
-				line-height 1
-				top 50%
-				margin-top -38px
-				color white
-				font-size 76px
-			}
-			.dot {
-				left -40px
-				width 20px
-				height 20px
-				background white
-				top 50%
-				margin-top -10px
-				border-radius(100%)
-				box-shadow(0 1px 2px rgba(0,0,0,0.07))
-			}
-			.tarih{ //yılı ifade ediyor
-				padding 0px 0
-				line-height 1.1
-				font-size 36px
-				font-weight 800
-				display inline-block
-				color fuitextcolor
-				background none
-				font-family ff1
-				margin-right 0
-				margin-top 9px
-				text-align center
-				position relative
-			
- 			}
- 			input.tarih {
- 				border 1px dashed fuipreclouds
- 				width 100%
- 				margin-top 0px
- 				line-height normal
- 				&:focus {
- 					border-color white
- 				}
- 			}
-			.aygun {
-				text-align center
-				margin 0px 0 0 0px
-				display block
-				color fuitextcolor
-				padding 0px
-				vertical-align top
-				.ay, .gun {
-					display inline-block
-					padding 0
-					font-family ff1
-					font-weight 300
-					line-height 1.2
-					font-size 14px
-				}
-				select.month, select.day {
-					display inline-block
-					font-size 13px
-					margin 4px 0 0
-					font-family ff1
-				}
-				&.boxShadow {
-					box-shadow(inset 0 0 5px rgba(0,0,0,0.7))					
-				}
-			}
-		}
 		.olay {
-			width 47%
-			float left
 			text-align left
 			position relative
-			margin-right 6%
-			//-webkit-perspective: 1000;
-			// -webkit-backface-visibility: hidden;
-			// -ms-transform: rotate(2deg); /* IE 9 */
-			// -webkit-transform: rotateZ(2deg); /* Chrome, Safari, Opera */
-			// transform: rotate(2deg);
-			//margin-bottom 40px
 			.innerOlay {
 				background white //url(/img/polaroid.png) repeat
 				width 100%
 				margin 0 0 0 0
 				float left
-				padding 20px 20px 40px
+				padding 0.8em 0.8em 1.6em
 				box-shadow(0 1px 2px rgba(0,0,0,0.07))
 				border-radius(3px)
 				.imageContainer {
 					text-align center
 					position relative
 					padding 0%
-					margin-bottom 20px
+					margin-bottom 1em
 					&:before {
 						position absolute
 						width 100%
@@ -570,23 +495,97 @@ ul.gallery {
 			}
 		}
 		.olayText {
-			float left
-			width 47%
-			text-align left
-			color fuipreclouds
+			color white
+			.tarihContainer {
+				display inline-block
+				background white
+				text-align center
+				border-radius(4px)
+				padding 0.5em 1.5em
+				margin 0 0 0.7em 0
+				position relative
+				height 4em
+				box-shadow(0 1px 2px rgba(0,0,0,0.07))
+				.tarih { //yılı ifade ediyor
+					padding 0px 0
+					line-height 1.1
+					font-size 1.7em
+					font-weight 800
+					display inline-block
+					color fuitextcolor
+					background none
+					font-family ff1
+					margin-right 0
+					margin-top 0.35em
+					text-align center
+					position relative
+				
+ 				}
+ 				input.tarih {
+ 					border 1px dashed fuiconcrete
+ 					width 4em
+ 					margin-top 0px
+ 					line-height normal
+ 					&:focus {
+ 						border-color fuiasbestos
+ 					}
+ 				}
+				.aygun {
+					text-align center
+					margin 0px 0 0em 0px
+					display block
+					color fuitextcolor
+					padding 0px
+					vertical-align top
+					.ay, .gun {
+						display inline-block
+						padding 0
+						font-family ff1
+						font-weight 300
+						line-height 1.2
+						font-size 1em
+					}
+					select.month, select.day {
+						display inline-block
+						font-size 13px
+						margin 4px 0 0
+						font-family ff1
+					}
+					&.boxShadow {
+						box-shadow(inset 0 0 5px rgba(0,0,0,0.7))					
+					}
+				}
+			}
+			i.fa-caret-down {
+				width 1em
+				height 1em
+				font-size 2em
+				position absolute
+				left 50%
+				color white
+				margin-left -0.5em
+				bottom -0.6em
+			}
+			i.fa-caret-left {
+				font-size 3em
+				position absolute
+				left -0.2em
+				top 0.2em
+			}
 			h2, textarea.manset {
-				font-size 40px
-				line-height 1.2
-				margin 0px 0px 10px
+				font-size 1.8em
+				line-height 1.12
+				margin 0px 0px 0.3em
 				padding 0px
-				font-family ff3
-				font-weight 800
+				font-family ff1
+				font-weight 700
 				letter-spacing -1px
 				position relative
 				background none
-				color fuitextcolor
 				float left
 				width 100%
+				text-shadow 0 -1px black
+				color white
 			}
 			textarea.manset {
 				border 1px dashed fuiasbestos
@@ -595,11 +594,10 @@ ul.gallery {
 				padding 5px 10px
 				resize vertical
 				&:focus {
-					border-color fuitextcolor !important
+					border-color fuisilver !important
 				}
 			}
 			span.counterManset, span.counterDesc  {
-				color fuitextcolor
 				font-weight 600
 				visibility hidden
 				display block
@@ -615,16 +613,16 @@ ul.gallery {
 				float left
 				width 100%
 				p, textarea.desc {
-					font-size 20px
+					font-size 1em
 					line-height 1.35
 					padding 0 0px
 					font-family ff2
-					margin 0 0px 10px
+					margin 0 0px 0.5em
 					font-weight normal
 					background none
-					color fuitextcolor
 					float left
 					width 100%
+					color #aaa
 				}
 				textarea.desc {
 					border 1px dashed fuiasbestos
@@ -633,7 +631,7 @@ ul.gallery {
 					resize vertical
 					display block
 					&:focus {
-						border-color fuitextcolor !important
+						border-color fuisilver
 					}
 				}
 			} 			
@@ -704,7 +702,29 @@ ul.gallery {
 }
 @media only screen and (min-width:0) { /* smartphones, iPhone, portrait 480x320 phones */ 
 	body {
-		font-size 12px
+		.birimOlayContainer {
+			.birimOlay {
+				margin-bottom 4em
+				.olayText {
+					text-align center
+					float left
+					width 100%
+					.tarihContainer {
+						width 100%
+						i.fa-caret-down {
+							display block
+						}
+						i.fa-caret-left {
+							display none
+						}
+					}
+				}
+				.olay {
+					float left
+					width 100%				
+				}
+			}
+		}
 		#header {
 			#inner {
 				width 96%
@@ -719,6 +739,9 @@ ul.gallery {
 					.imageContainer {
 						height 140px
 					}
+					.baslik {
+						font-size 0.7em
+					}
 				}
 				width 49%
 				margin 0 2% 2% 0
@@ -731,7 +754,30 @@ ul.gallery {
 }
 @media only screen and (min-width:641px) { /* smartphones, iPhone, portrait 480x320 phones */ 
 	body {
-		font-size 14px
+		.birimOlayContainer {
+			.birimOlay {
+				margin-bottom 3em
+				.olayText {
+					float right
+					width 47%
+					text-align left
+					.tarihContainer {
+						width auto
+						i.fa-caret-down {
+							display none
+						}
+						i.fa-caret-left {
+							display block
+						}
+					}
+				}
+				.olay {
+					width 47%
+					float left
+					margin-right 6%
+				}
+			}
+		}
 		.innerContainer {
 			width 96%
 		}
@@ -740,6 +786,9 @@ ul.gallery {
 				a {
 					.imageContainer {
 						height 140px
+					}
+					.baslik {
+						font-size 0.9em
 					}
 				}
 				width 32%
@@ -756,7 +805,6 @@ ul.gallery {
 }
 @media only screen and (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ 
 	body {
-		font-size 16px
 		.innerContainer {
 			width 96%
 		}
@@ -773,7 +821,6 @@ ul.gallery {
 }
 @media only screen and (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
 	body {
-		font-size 18px
 		#header {
 			#inner {
 				width 800px
@@ -795,7 +842,6 @@ ul.gallery {
 }
 @media only screen and (min-width:1281px) { /* hi-res laptops and desktops */ 
 	body {
-		font-size 20px
 		#header {
 			#inner {
 				width 1000px
@@ -850,13 +896,13 @@ ul.gallery {
 .entryButtonsContainer {
 	font-family ff1
 	position relative
-	padding 0px 0 40px
+	padding 0px 0 0.6em
 	&:before {
 		position absolute
 		content ""
 		width 6px
 		height 100%
-		background url(/img/bg10.png)
+		background rgba(0,0,0,0.4)
 		top 0
 		left 50%
 		display block
@@ -869,26 +915,26 @@ ul.gallery {
 		line-height 51px
 		color fuitextcolor
 		font-size 30px
-		background fuicream
+		background white
 		border-radius 100%
 		margin-top -20px
-		border 6px solid fuicream2
+		border 6px solid #222
 		&:hover {
 			cursor pointer
 			background fuiemerald
 			color white
 		}
 	}
-	button#yayinla, button#guncelle, button#updateAndSaveAsDraft {
+	button#yayinla, button#guncelle, button#updateAndSaveAsDraft, button#saveAsDraft {
 		line-height: 38px;
 		height: 50px;
 		padding: 0 18px;
 		font-size: 20px;
 		font-weight: 600;
 		font-family ff1
-		background fuicream
-		border 6px solid fuicream2
-		color fuitextcolor
+		background url(/img/bg.png)
+		border 6px solid rgba(0,0,0,0.4)
+		color white
 		border-radius(24px)
 		&:hover {
 			cursor pointer
@@ -904,9 +950,6 @@ ul.gallery {
 	text-align center
 	margin-bottom 20px
 	#inner {
-		margin auto
-		display block
-		width 1000px
 		text-align center
 		color white
 	}

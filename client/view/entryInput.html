@@ -5,10 +5,11 @@
 					placeholder="Buraya güzel bir taym başlığı girin">{{localTimelineTitle}}</textarea>
 		<span id="counterTitle"></span>
 	</div>
-	<div class="birimOlayContainer float100" >
+	<div class="birimOlayContainer" >
 		{{#each localTimelineNode}}
 			{{> birimOlayInput}}
 		{{/each}}
+		<div class="clear"></div>
 	</div>
 	<div class="float100 noSelection entryButtonsContainer">
 		<i id="addOlay" class="noSelection fa fa-plus"></i>

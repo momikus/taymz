@@ -19,10 +19,10 @@
 		</div>
 
 		<div class="olayText">
-			<div class="tarihContainer" style="border-radius:4px;">
-			<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
+			<div class="tarihContainer" style="border-radius:4px;height:auto">
+				<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
 				{{#if year}}value="{{year}}"{{/if}}>
-			<div class="aygun" style="background:none !important;padding-right:0;">
+				<div class="aygun" style="background:none !important;padding-right:0;">
 				<select class="month" name="monthlist" form="monthform"
 					{{#if year}}value="{{month}}"{{else}}disabled{{/if}}>
 					<option value="0">Ay</option>
@@ -75,7 +75,7 @@
 					<option value="28">28</option>
 					{{ayaYilaGoreGun month year}}
 				</select>
-			</div>
+				</div>
 			</div>
 			<textarea rows="1" maxlength="100" class="	noLineBreak manset" placeholder="Olay manşetini yazın">{{tagline}}</textarea>
 			<span class="counterManset"></span>
