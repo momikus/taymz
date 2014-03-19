@@ -14,8 +14,8 @@ Meteor.publish('timelineAll', function (admin) {
 	if (admin === true)
 		return Timeline.find({}, {
 			limit: 50,
-			sort: {created: -1},
-			fields: {updated: 0}});
+			sort: {created: -1}
+		});
 	else
 		return Timeline.find({'status': 'published'}, {
 			limit: 50,

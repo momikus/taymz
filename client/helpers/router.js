@@ -92,7 +92,7 @@ Router.map(function () {
 		},
 		waitOn: function () {
 			var tid = Session.get('singleTimeline');
-			Meteor.subscribe('timelineMain', 'single', tid);
+			Meteor.subscribe('timelineMain', 'single', tid, admin);
 		},
 		before: function () {
 			Meteor.call('removeLocalTimeline');
