@@ -83,14 +83,11 @@ Template.timeline.rendered = function () {
 		$('head').append( '<meta property="og:url" content="'+ogUrl+'">' );
 		$('head').append( '<meta property="og:description" content="'+ogDescription+'">' );
 
-		if (Router.current().route.name === "timeline") {
-			var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});
-			document.title = 'taymz - ' + pageSeo.title;
-			$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ardından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
-		} else if (Router.current().route.name === "home") {
-			document.title = 'taymz - ' + 'zamanı geldi';
-			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
-		}
+		// meta description adn title
+		var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});
+		document.title = 'taymz - ' + pageSeo.title;
+		$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ardından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
+
 	}
 
 	//kullanıcılar link verdiğinde nofollow ve target blank yapmaca
