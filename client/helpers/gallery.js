@@ -37,5 +37,4 @@ Template.gallery.helpers({
 				return 'draft';
 		}
 	}
-
 });

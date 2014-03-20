@@ -22,7 +22,7 @@ Router.map(function () {
 		template: 'gallery',
 		layoutTemplate: 'home',
 		yieldTemplates: {
-			'header': {to: 'header'},
+			'header': {to: 'header'}
 		},
 		before: function() {
 			document.title = 'taymz - zamanı geldi';
@@ -119,7 +119,7 @@ Router.map(function () {
 		layoutTemplate: 'singleTimeline',
 		template: 'timeline',
 		yieldTemplates: {
-			'header': {to: 'header'},
+			'header': {to: 'header'}
 		},
 		before: function () {
 			Session.set('singleTimeline', parseFloat(this.params._id));
@@ -141,8 +141,8 @@ Router.map(function () {
 		// navigasyonu engelliyor ga is not defined hatası veriyor o yüzden kapatıldı
 		after: function () {
 			// analytics
-			// ga('create', 'UA-48882288-1', 'taymz.com');
-		 //  ga('send', 'pageview');
+			ga('create', 'UA-48882288-1', 'taymz.com');
+		  ga('send', 'pageview');
 			// $('head').append( '<meta property="og:description" content="Çok acayip">' );
 			// $('head').append( '<meta property="og:title" content="Çok ">' );
 		},
