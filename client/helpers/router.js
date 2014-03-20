@@ -24,6 +24,11 @@ Router.map(function () {
 		yieldTemplates: {
 			'header': {to: 'header'},
 		},
+		before: function() {
+			document.title = 'taymz - zamanı geldi';
+			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
+		},
+		
 		waitOn: function () {	
 			var admin;
 			if (Session.equals('varoAdmin', true))
