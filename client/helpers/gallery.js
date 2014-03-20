@@ -38,7 +38,6 @@ Template.gallery.helpers({
 				return 'draft';
 		}
 	}
-
 });
 
 Template.gallery.rendered = function () {
@@ -48,3 +47,4 @@ Template.gallery.rendered = function () {
 	// 	$('.imageContainer').css('visibility','visible');
 	// });
 }
+>>>>>>> 2094ee7506fed0c97a59443fa596423c64b61ca2
