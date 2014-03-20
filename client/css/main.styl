@@ -147,7 +147,7 @@ button, a.buttonSq {
 body {
 	font-family ff1
 	margin 0
-	background white url(/img/bg.png) repeat
+	background fuiwetasphalt url(/img/bg.png) repeat
 	font-size 20px
 	text-align center
 	#mainContainer {
@@ -219,25 +219,49 @@ ul.gallery {
 				background-position top
 				background-size cover
 				position relative
+				// .olayCount {
+				// 	position absolute
+				// 	width 100%
+				// 	height 100%
+				// 	text-align center
+				// 	line-height 1em
+				// 	top 0
+				// 	font-family ff2
+				// 	font-weight normal
+				// 	font-size 2em
+				// 	display none
+				// 	background rgba(0,0,0,0.5)
+				// 	text-shadow 0 1px 2px black
+				// 	.inner {
+				// 		display table-cell
+				// 		vertical-align middle
+				// 		i {
+				// 			display block
+				// 		}		
+				// 	}
+				// }
 				.olayCount {
 					position absolute
-					width 100%
-					height 100%
 					text-align center
 					line-height 1em
-					top 0
-					font-family ff2
+					top -4px
+					right 10px
 					font-weight normal
-					font-size 2em
-					display none
-					background rgba(0,0,0,0.5)
-					text-shadow 0 1px 2px black
-					.inner {
-						display table-cell
-						vertical-align middle
-						i {
-							display block
-						}		
+					font-size 2.4em
+					display block
+					color rgba(0,0,0,0.6)
+					div {
+						position absolute
+						top 0
+						text-align center
+						font-family ff3
+						font-size 0.3em
+						line-height 2.4em
+						text-shadow none
+						color white
+						display block
+						margin auto
+						width 100%
 					}
 				}
 			}
@@ -264,8 +288,11 @@ ul.gallery {
 			&:hover {
 				.imageContainer {
 					color white
+					// .olayCount {
+					// 	display table
+					// }
 					.olayCount {
-						display table
+						color rgba(0,0,0,0.9)
 					}
 				}
 				.baslik {
