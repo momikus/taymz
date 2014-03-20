@@ -61,7 +61,7 @@ Template.timeline.rendered = function () {
 
 	//Go to top butonunun çıkıp çıkmaması fonksiyonu
 	$(window).scroll(function () {
-		if ($(window).scrollTop() > 1600) {
+		if ($(window).scrollTop() > 600) {
 			$('.basaDon').fadeIn(300);
 			$(".gizliBaslik").fadeIn(300);
 		} else {
