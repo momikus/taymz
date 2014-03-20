@@ -147,7 +147,7 @@ button, a.buttonSq {
 body {
 	font-family ff1
 	margin 0
-	background fuiwetasphalt url(/img/bg.png) repeat
+	background #EEE //url(/img/bg.png) repeat
 	font-size 20px
 	text-align center
 	#mainContainer {
@@ -206,7 +206,7 @@ ul.gallery {
 		float left
 		list-style-type: none;
 		a {
-			box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			box-shadow(0 1px 1px 0 #d3d3d3)
 			width 100%
 			display block
 			background white //url(/img/polaroid.png)
@@ -319,13 +319,12 @@ ul.gallery {
 .baslikOlay {
 	position relative
 	h1, textarea {
-		color white
+		color fuitextcolor
 		font-size: 2.2em;
 		letter-spacing -2px
 		line-height: 1.1
 		font-weight: bold;
 		padding: 0.6em 0.6em;
-		text-shadow -1px -1px black
 		text-align center
 		display block
 		width 100%
@@ -402,7 +401,7 @@ ul.gallery {
 		content ""
 		width 6px
 		height 100%
-		background rgba(0,0,0,0.4) //url(/img/headerbg.png)
+		background #E1E1E4 //rgba(0,0,0,0.0) //url(/img/headerbg.png)
 		top 0
 		left 50%
 		display block
@@ -447,8 +446,6 @@ ul.gallery {
 				margin 0 0 0 0
 				float left
 				padding 0.6em
-				box-shadow(0 1px 2px rgba(0,0,0,0.07))
-				border-radius(3px)
 				.imageContainer {
 					text-align center
 					position relative
@@ -537,11 +534,11 @@ ul.gallery {
 			}
 		}
 		.olayText {
-			color white
+			color fuitextcolor
 			text-align left
 			.tarihContainer {
 				display inline-block
-				background white
+				background fuiwetasphalt
 				text-align center
 				border-radius(4px)
 				padding 0.5em 1.5em
@@ -555,7 +552,7 @@ ul.gallery {
 					font-size 1.7em
 					font-weight 800
 					display inline-block
-					color fuitextcolor
+					color white
 					background none
 					font-family ff1
 					margin-right 0
@@ -577,7 +574,7 @@ ul.gallery {
 					text-align center
 					margin 0px 0 0em 0px
 					display block
-					color fuitextcolor
+					color white
 					padding 0px
 					vertical-align top
 					.ay, .gun {
@@ -605,7 +602,7 @@ ul.gallery {
 				font-size 2em
 				position absolute
 				left 50%
-				color white
+				color fuiwetasphalt
 				margin-left -0.5em
 				bottom -0.6em
 			}
@@ -614,6 +611,7 @@ ul.gallery {
 				position absolute
 				left -0.2em
 				top 0.2em
+				color fuiwetasphalt
 			}
 			h2, textarea.manset {
 				font-size 1.8em
@@ -627,8 +625,7 @@ ul.gallery {
 				background none
 				float left
 				width 100%
-				text-shadow 0 -1px black
-				color white
+				color fuitextcolor
 			}
 			textarea.manset {
 				border 1px dashed fuiasbestos
@@ -665,12 +662,12 @@ ul.gallery {
 					background none
 					float left
 					width 100%
-					color #ddd
+					color fuitextcolor
 					text-align left
 					a {
-						color white
+						color fuipeterriver
 						&:hover {
-							color fuisunflower
+							color fuibelizehole
 						}
 					}
 				}
