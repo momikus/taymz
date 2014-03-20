@@ -147,7 +147,7 @@ button, a.buttonSq {
 body {
 	font-family ff1
 	margin 0
-	background fuiwetasphalt url(/img/bg.png) repeat
+	background #f0f0f0 //url(/img/bg.png) repeat
 	font-size 20px
 	text-align center
 	#mainContainer {
@@ -206,62 +206,38 @@ ul.gallery {
 		float left
 		list-style-type: none;
 		a {
-			box-shadow(0 1px 2px rgba(0,0,0,0.07))
+			//box-shadow(0 1px 1px 0 #d3d3d3)
 			width 100%
 			display block
 			background white //url(/img/polaroid.png)
-			padding 0 0 0.25em
+			padding 0 0 0em
 			border-radius(2px)
 			overflow hidden
 			position relative
 			.imageContainer {
+				visibility visible
 				width 100%
 				background-position top
 				background-size cover
 				position relative
-				// .olayCount {
-				// 	position absolute
-				// 	width 100%
-				// 	height 100%
-				// 	text-align center
-				// 	line-height 1em
-				// 	top 0
-				// 	font-family ff2
-				// 	font-weight normal
-				// 	font-size 2em
-				// 	display none
-				// 	background rgba(0,0,0,0.5)
-				// 	text-shadow 0 1px 2px black
-				// 	.inner {
-				// 		display table-cell
-				// 		vertical-align middle
-				// 		i {
-				// 			display block
-				// 		}		
-				// 	}
-				// }
 				.olayCount {
 					position absolute
 					text-align center
 					line-height 1em
-					top -4px
-					right 10px
-					font-weight normal
-					font-size 2.4em
+					top 5px
+					right 5px
+					font-weight 300
+					padding 0.2em
+					font-size 1.3em
 					display block
-					color rgba(0,0,0,0.6)
+					background rgba(0,0,0,0.5)
+					color white
+					border-radius(2px)
 					div {
-						position absolute
-						top 0
-						text-align center
-						font-family ff3
-						font-size 0.3em
-						line-height 2.4em
-						text-shadow none
-						color white
-						display block
-						margin auto
-						width 100%
+						font-size 0.5em
+						line-height 1
+						color fuisilver
+						font-weight 300
 					}
 				}
 			}
@@ -272,14 +248,14 @@ ul.gallery {
 				min-height 6.2em
 				width 100%
 				line-height 1.3em
-				font-weight 700
+				font-weight 600
 				font-family ff1
-				color fuitextcolor
+				color fuiasbestos
 				padding 0.5em
 				text-align center
 				word-break: break-word;
 				overflow hidden
-				letter-spacing -1px
+				letter-spacing 0px
 				span {
 					vertical-align middle
 					display table-cell
@@ -292,11 +268,15 @@ ul.gallery {
 					// 	display table
 					// }
 					.olayCount {
-						color fuiturquoise //rgba(0,0,0,0.9)
+						color black //rgba(0,0,0,0.9)
+						background fuisunflower
+						div {
+							color black
+						}
 					}
 				}
 				.baslik {
-					color fuipeterriver
+					color black
 				}
 			}
 			i.fa-save {
@@ -319,13 +299,12 @@ ul.gallery {
 .baslikOlay {
 	position relative
 	h1, textarea {
-		color white
+		color fuitextcolor
 		font-size: 2.2em;
 		letter-spacing -2px
 		line-height: 1.1
-		font-weight: bold;
+		font-weight: 700;
 		padding: 0.6em 0.6em;
-		text-shadow -1px -1px black
 		text-align center
 		display block
 		width 100%
@@ -402,7 +381,7 @@ ul.gallery {
 		content ""
 		width 6px
 		height 100%
-		background rgba(0,0,0,0.4) //url(/img/headerbg.png)
+		background #d3d3d3 //url(/img/headerbg.png)
 		top 0
 		left 50%
 		display block
@@ -447,7 +426,6 @@ ul.gallery {
 				margin 0 0 0 0
 				float left
 				padding 0.6em
-				box-shadow(0 1px 2px rgba(0,0,0,0.07))
 				border-radius(3px)
 				.imageContainer {
 					text-align center
@@ -541,28 +519,27 @@ ul.gallery {
 			text-align left
 			.tarihContainer {
 				display inline-block
-				background white
+				background #60b7e1
 				text-align center
 				border-radius(4px)
 				padding 0.5em 1.5em
 				margin 0 0 0.7em 0
 				position relative
 				height 4em
-				box-shadow(0 1px 2px rgba(0,0,0,0.07))
+				//box-shadow(0 1px 2px rgba(0,0,0,0.07))
 				.tarih { //yılı ifade ediyor
 					padding 0px 0
 					line-height 1.1
 					font-size 1.7em
 					font-weight 800
 					display inline-block
-					color fuitextcolor
 					background none
 					font-family ff1
 					margin-right 0
 					margin-top 0.35em
 					text-align center
 					position relative
-				
+					color white		
  				}
  				input.tarih {
  					border 1px dashed fuiconcrete
@@ -577,7 +554,6 @@ ul.gallery {
 					text-align center
 					margin 0px 0 0em 0px
 					display block
-					color fuitextcolor
 					padding 0px
 					vertical-align top
 					.ay, .gun {
@@ -605,7 +581,7 @@ ul.gallery {
 				font-size 2em
 				position absolute
 				left 50%
-				color white
+				color #60b7e1
 				margin-left -0.5em
 				bottom -0.6em
 			}
@@ -614,27 +590,27 @@ ul.gallery {
 				position absolute
 				left -0.2em
 				top 0.2em
+				color #60b7e1
 			}
 			h2, textarea.manset {
-				font-size 1.8em
-				line-height 1.12
-				margin 0px 0px 0.3em
-				padding 0px
+				font-size 1.4em
+				line-height 1.3
+				margin 0px 0px
+				padding 0.6em 4%
 				font-family ff1
-				font-weight 700
+				font-weight 600
 				letter-spacing -1px
 				position relative
-				background none
+				background white
 				float left
 				width 100%
-				text-shadow 0 -1px black
-				color white
+				color black
+				border-radius(4px 4px 0 0)
 			}
 			textarea.manset {
 				border 1px dashed fuiasbestos
 				width 100%
 				line-height 1.4
-				padding 5px 10px
 				resize vertical
 				&:focus {
 					border-color fuisilver !important
@@ -648,38 +624,41 @@ ul.gallery {
 				line-height 19px
 				text-align right
 				border-radius(3px)
-				margin-top -10px
+				margin-top 2px
 				float left
 				width 100%
+				color fuitextcolor
 			}
 			.textContainer {
 				float left
 				width 100%
+				background white
+				padding 0 4% 3.4%
 				p, textarea.desc {
-					font-size 1em
-					line-height 1.35
-					padding 0 0px
-					font-family ff2
-					margin 0 0px 0.5em
-					font-weight normal
-					background none
+					font-size 0.9em
+					line-height 1.5
+					margin 0 0em
+					font-weight 300
 					float left
 					width 100%
-					color #ddd
+					color fuitextcolor
 					text-align left
+					font-family ff2
+					border-radius(0 0 4px 4px)
 					a {
-						color white
+						color fuipeterriver
 						&:hover {
-							color fuisunflower
+							color fuibelizehole
 						}
 					}
 				}
 				textarea.desc {
 					border 1px dashed fuiasbestos
 					width 100%
-					padding 5px 10px
 					resize vertical
 					display block
+					background white
+					padding 0.6em 4%
 					&:focus {
 						border-color fuisilver
 					}
@@ -771,7 +750,7 @@ ul.gallery {
 					}
 					.textContainer {
 						p, textarea.desc {
-							font-size 0.85em
+							//font-size 0.85em
 						}
 					}
 				}
@@ -829,7 +808,6 @@ ul.gallery {
 					.textContainer {
 						margin-bottom 10px
 						border-radius(0 0 4px 4px)
-						padding 0 1em 1em
 						background white
 						p, textarea.desc {
 							font-size 0.85em	
@@ -863,7 +841,7 @@ ul.gallery {
 					}
 					.textContainer {
 						p, textarea.desc {
-							font-size 1em
+							//font-size 1em
 						}
 					}
 				}
@@ -1045,6 +1023,7 @@ ul.gallery {
 	padding 20px
 	text-align center
 	margin-bottom 20px
+	display none
 	#inner {
 		text-align center
 		color white
