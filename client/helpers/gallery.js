@@ -42,7 +42,9 @@ Template.gallery.helpers({
 });
 
 Template.gallery.rendered = function () {
-	$(window).load(function() {
-		$('.imageContainer').css('visibility','visible');
-	});
+	//Bu kod galeride tüm resimler yüklendikten sonra tüm resimlerin aynı anda
+	// gmrünüyor olmasını sağlıyordu ama efektif olmadığı için commentout şimdilik
+	// $(window).load(function() {
+	// 	$('.imageContainer').css('visibility','visible');
+	// });
 }
