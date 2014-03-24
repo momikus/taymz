@@ -27,6 +27,8 @@ Router.map(function () {
 		before: function() {
 			document.title = 'taymz - zamanı geldi';
 			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
+			$('body').append("<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>");
+		
 		},
 		
 		waitOn: function () {	
@@ -46,6 +48,16 @@ Router.map(function () {
 			timelineAll: function () {
 				return Timeline.find({}, {limit: 50, sort: {created: -1}});
 			},
+		},
+	});
+
+	// home route
+	this.route('static', {
+		path: '/nedir',
+		template: 'static',
+		layoutTemplate: 'home',
+		yieldTemplates: {
+			'header': {to: 'header'}
 		},
 	});
 
@@ -134,6 +146,7 @@ Router.map(function () {
 			Meteor.subscribe('timelineMain', 'single', id, admin);
 		},
 		after: function () {
+
 			//*****************************// 
       // **** Google Analytics  **** //
       //*****************************// 
@@ -148,7 +161,8 @@ Router.map(function () {
 			// set the main timeline according to url 
 			timelineMain: function () {
 				return Timeline.findOne({'tid': Session.get('singleTimeline')});
-			}
+			},
+
 		}
 	});
 });
