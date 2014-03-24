@@ -10,7 +10,7 @@ var requireAdmin = function () {
 };
 
 Router.before(requireAdmin,
-  {except: ['home', 'timeline', 'edit']
+  {except: ['home', 'timeline', 'edit', 'nedir']
 });
 
 // route definitions
@@ -46,16 +46,6 @@ Router.map(function () {
 			timelineAll: function () {
 				return Timeline.find({}, {limit: 50, sort: {created: -1}});
 			},
-		},
-	});
-
-	// home route
-	this.route('static', {
-		path: '/nedir',
-		template: 'static',
-		layoutTemplate: 'home',
-		yieldTemplates: {
-			'header': {to: 'header'}
 		},
 	});
 
@@ -163,4 +153,15 @@ Router.map(function () {
 
 		}
 	});
+
+	//nedir route
+	this.route('nedir', {
+		path: '/nedir',
+		template: 'nedir',
+		layoutTemplate: 'static',
+		yieldTemplates: {
+			'header': {to: 'header'}
+		}
+	});
+
 });
