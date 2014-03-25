@@ -48,10 +48,11 @@
 						<h2>
 						{{tagline}}
 						</h2>
-						<div class="textContainer">
-						
-						{{#markdown}}{{desc}}{{/markdown}}
-						</div>
+						{{#if desc}}
+							<div class="textContainer">
+								{{#markdown}}{{desc}}{{/markdown}}
+							</div>
+						{{/if}}
 					</div>
 					<div class="olay">
 						<div class="innerOlay">
