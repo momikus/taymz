@@ -25,9 +25,8 @@
 					<div class="dot"></div>
 					<div class="olayText">
 						<div class="tarihContainer">
-							<div class=" tarih" {{#if month}}style="margin-top:0px"{{/if}}>
+							<div class=" tarih" {{#if month}}style=""{{/if}}>
 								{{year}}
-								<div class="kacYilOldu">{{kacYilOldu}}</div>
 							</div>
 							{{#if month}}
 							<div class="aygun">
@@ -43,7 +42,9 @@
 							{{/if}}
 							<i class="fa fa-caret-down"></i>
 							<i class="fa fa-caret-left"></i>
+							<div class="kacYilOldu">{{kacYilOldu}}</div>
 						</div>
+						<div class="clear"></div>
 						<h2>
 						{{tagline}}
 						</h2>

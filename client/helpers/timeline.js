@@ -40,7 +40,7 @@ Template.timeline.helpers({
 			})).sortBy(function (milestones) {
 				return milestones.year;
 			});
-			return array.reverse();
+			return array;
 		}
 	},
 	kacYilOldu: function () {
