@@ -33,14 +33,31 @@ Template.timeline.helpers({
 			var milestones = Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones;
 
 			// return milestone sorted by year, month, day
-			return _(_(_(milestones).sortBy(function (milestones) {
+			var array = _(_(_(milestones).sortBy(function (milestones) {
 				return milestones.day;
 			})).sortBy(function (milestones) {
 				return milestones.month;
 			})).sortBy(function (milestones) {
 				return milestones.year;
 			});
+			return array.reverse();
 		}
+	},
+	kacYilOldu: function () {
+		var sonuc = new Date().getFullYear() - this.year;
+		if (sonuc > 0)
+			return sonuc + " yıl oldu";
+		else {
+			var currentTime = new Date()
+			var ayliSonuc = currentTime.getMonth()+1- this.month;
+			if( ayliSonuc > 0)
+				return ayliSonuc + " ay oldu"
+			else if (ayliSonuc==0)
+				return "Bu ay oldu";
+			else 
+				return "Bu Yıl oldu";			
+		}
+
 	}
 });
 
@@ -59,6 +76,7 @@ Template.timeline.rendered = function () {
 		threshold: 300
 	});
 
+	$('body').scrollTop(0);
 	//Go to top butonunun çıkıp çıkmaması fonksiyonu
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 600) {
