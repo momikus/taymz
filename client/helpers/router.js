@@ -35,7 +35,7 @@ Router.map(function () {
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineAll', admin);
+			Meteor.subscribe('timelineAll', admin, 'main');
 		},
 
 		after: function () {
@@ -140,7 +140,7 @@ Router.map(function () {
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineAll', admin);
+			Meteor.subscribe('timelineAll', admin, 'single');
 		},
 		after: function () {
 
@@ -160,11 +160,9 @@ Router.map(function () {
 				return Timeline.findOne({'tid': Session.get('singleTimeline')});
 			},
 			timelineAll: function () {
-				var skipper = Math.floor((Math.random()*30)+1);
-				return Timeline.find(
-							{'tid':{$ne:Session.get('singleTimeline')}}, 
-							{limit: 10, sort: {created: -1}, skip:skipper});
-			},
+				return Timeline.find({'tid':{$ne:Session.get('singleTimeline')}}, 
+					{limit: 10, sort: {created: -1}});
+			}
 		}
 	});
 
