@@ -25,7 +25,8 @@ Meteor.publish('timelineAll', function (admin) {
 });
 
 Meteor.publish('timelineCarousel', function () {
-	var skip = Math.ceil(Random.fraction() * Timeline.find({'status': 'published'}).count());
+	var total = Timeline.find({'status': 'published'}).count();
+	var skip = Math.ceil(Math.floor((Math.random()*(total-10))+1));
 	return Timeline.find({'status': 'published'}, {
 		limit: 10,
 		sort: {created: -1},
