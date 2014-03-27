@@ -13,12 +13,12 @@ Meteor.publish('timelineMain', function (route, id, admin) {
 Meteor.publish('timelineAll', function (admin) {
 	if (admin === true)
 		return Timeline.find({}, {
-			limit: 50,
+			limit: 100,
 			sort: {created: -1}
 		});
 	else
 		return Timeline.find({'status': 'published'}, {
-			limit: 50,
+			limit: 100,
 			sort: {created: -1},
 			fields: {status: 0, updated: 0}
 		});

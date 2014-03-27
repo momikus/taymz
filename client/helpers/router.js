@@ -48,7 +48,7 @@ Router.map(function () {
 
 		data: {
 			timelineAll: function () {
-				return Timeline.find({}, {limit: 50, sort: {created: -1}});
+				return Timeline.find({}, {limit: 100, sort: {created: -1}});
 			},
 		},
 	});
