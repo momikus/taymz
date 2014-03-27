@@ -35,11 +35,15 @@ Router.map(function () {
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineAll', admin, 'main');
+			Meteor.subscribe('timelineAll', admin, function () {
+				Session.set('galleryLoaded', true);
+			});
 		},
 
 		after: function () {
 			Session.set('singleTimeline', null);
+			Session.set('galleryLoaded', false);
+			Session.set('carouselLoaded', false);
 		},
 
 		data: {
@@ -140,10 +144,11 @@ Router.map(function () {
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineAll', admin, 'single');
+			Meteor.subscribe('timelineCarousel', function () {
+				Session.set('carouselLoaded', true);
+			});
 		},
 		after: function () {
-
 			//*****************************// 
       // **** Google Analytics  **** //
       //*****************************// 

@@ -1,5 +1,6 @@
 <template name="gallery">
 	<ul class="gallery innerContainer">
+		{{#if galleryLoaded}}
 		{{#each timelineAll}}
 		<li>
 			<a href="/t/{{tid}}">
@@ -16,6 +17,7 @@
 			</a>
 		</li>
 		{{/each}}
+		{{/if}}
 		<div class="clear"></div>
 	</ul>
 	<div class="clear"></div>

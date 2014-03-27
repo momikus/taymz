@@ -37,6 +37,10 @@ Template.gallery.helpers({
 			if (Timeline.findOne({_id: this._id}).status === 'draft')
 				return 'draft';
 		}
+	},
+
+	galleryLoaded: function () {
+		return Session.get('galleryLoaded');
 	}
 });
 

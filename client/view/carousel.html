@@ -1,5 +1,6 @@
 <template name="carousel">
 	<ul class="carousel">
+		{{#if carouselLoaded}}
 		{{#each timelineAll}}
 			<li>
 				<a href="/t/{{tid}}">
@@ -16,6 +17,7 @@
 				</a>
 			</li>
 		{{/each}}
+		{{/if}}
 	</ul>
 	<div class="clear"></div>
 </template>
