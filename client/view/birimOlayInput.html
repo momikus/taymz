@@ -1,24 +1,6 @@
 <template name="birimOlayInput">
 	<div class="birimOlay float100" id="{{_id}}">
-		<div class="olay">
-			<div class="innerOlay">
-				<div class="imageContainer">
-					{{#if img}}
-						<img src="https://s3-eu-west-1.amazonaws.	com/taymz/{{img}}">
-						<div class="degistir gorselYukle">	Resmi değiştir</div>
-						{{#isolate}}
-							<div class="anaResimYap {{mainImage}}">	<i class="fa fa-picture-o"></i></div>
-						{{/isolate}}
-					{{else}}
-						<i class="fa fa-camera">
-							<div class="gorselYukleButonu 	gorselYukle">Görsel Yükle</div>
-						</i>
-					{{/if}}
-				</div>
-			</div>
-		</div>
-
-		<div class="olayText">
+		<div class="column1">
 			<div class="tarihContainer" style="border-radius:4px;height:auto">
 				<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
 				{{#if year}}value="{{year}}"{{/if}}>
@@ -77,8 +59,27 @@
 				</select>
 				</div>
 			</div>
-			<textarea rows="1" maxlength="100" class="noLineBreak manset" placeholder="Olay manşetini yazın">{{tagline}}</textarea>
+		</div>
+		<div class="column2">
+			<div class="clear"></div>
+			<textarea rows="1" maxlength="250" class="noLineBreak manset" placeholder="Olay manşetini yazın">{{tagline}}</textarea>
 			<span class="counterManset"></span>
+			<div class="clear"></div>
+			<div class="imageContainerParent">
+				<div class="imageContainer">
+					{{#if img}}
+						<img src="https://s3-eu-west-1.amazonaws.	com/taymz/{{img}}">
+						<div class="degistir gorselYukle">	Resmi değiştir</div>
+						{{#isolate}}
+							<div class="anaResimYap {{mainImage}}">	<i class="fa fa-picture-o"></i></div>
+						{{/isolate}}
+					{{else}}
+						<i class="fa fa-camera">
+							<div class="gorselYukleButonu 	gorselYukle">Görsel Yükle</div>
+						</i>
+					{{/if}}
+				</div>
+			</div>
 			<div class="textContainer" style="padding:0;background:none;">
 				<textarea rows="1" maxlength="500" class="desc" 	placeholder="Buraya Kısa Özet Yazın">{{desc}}</textarea>
 				<span class="counterDesc"></span>

@@ -119,7 +119,8 @@ Router.map(function () {
 		layoutTemplate: 'singleTimeline',
 		template: 'timeline',
 		yieldTemplates: {
-			'header': {to: 'header'}
+			'header': {to: 'header'},
+			'carousel': {to: 'carousel'}
 		},
 		before: function () {
 			Session.set('singleTimeline', parseFloat(this.params._id));
@@ -132,6 +133,14 @@ Router.map(function () {
 			else
 				admin = false;
 			Meteor.subscribe('timelineMain', 'single', id, admin);
+
+			// carousel öğelerinin subscribeı için
+			var admin;
+			if (Session.equals('varoAdmin', true))
+				admin = true;
+			else
+				admin = false;
+			Meteor.subscribe('timelineAll', admin);
 		},
 		after: function () {
 
@@ -150,7 +159,12 @@ Router.map(function () {
 			timelineMain: function () {
 				return Timeline.findOne({'tid': Session.get('singleTimeline')});
 			},
-
+			timelineAll: function () {
+				var skipper = Math.floor((Math.random()*30)+1);
+				return Timeline.find(
+							{'tid':{$ne:Session.get('singleTimeline')}}, 
+							{limit: 10, sort: {created: -1}, skip:skipper});
+			},
 		}
 	});
 

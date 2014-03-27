@@ -1,17 +1,10 @@
 <template name="timeline">
+	<div class="timeline">
 	{{#with timelineMain}}
 		<div class="baslikOlay">
 			<h1>{{title}}</h1>
-			<div style="margin-top:-20px;margin-bottom:10px"><!--
-				--><a class="facebook" target="_blank" onclick="window.open(this.href, 'mywin','left=20,top=20,width=600,height=500,toolbar=1'); return false;" href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://taymz.com/t/{{tid}}"><!--
-					--><i class="fa fa-facebook-square"></i> Facebook'ta Paylaş
-				</a><!--
-				--><a class="twitter" target="_blank" onclick="window.open(this.href, 'mywin2','left=20,top=20,width=600,height=250,toolbar=1'); return false;" href="https://twitter.com/intent/tweet?text={{title}}&url=http://taymz.com/t/{{tid}}"><!--
-					--><i class="fa fa-twitter-square"></i> Tweetle
-				</a><!--
-			--></div>
-		</div>
-		<div class="gizliBaslik"><!--
+		</div><!--
+		--><div class="gizliBaslik"><!--
 				--><a class="facebook" target="_blank" onclick="window.open(this.href, 'mywin','left=20,top=20,width=600,height=500,toolbar=1'); return false;" href="https://www.facebook.com/sharer/sharer.php?s=100&p[url]=http://taymz.com/t/{{tid}}"><!--
 					--><i class="fa fa-facebook-square"></i> Facebook'ta Paylaş
 				</a><!--
@@ -23,48 +16,47 @@
 			{{#each milestones}}
 				<div class="birimOlay float100">
 					<div class="dot"></div>
-					<div class="olayText">
+					<div class="column1">
 						<div class="tarihContainer">
 							<div class=" tarih" {{#if month}}style=""{{/if}}>
 								{{year}}
 							</div>
 							{{#if month}}
-							<div class="aygun">
-								<div class="ay">
+							<div class="aygun"><!--
+								--><div class="ay">
 									{{ayIsmi month}}
-								</div>
+								</div><!--
 								{{#if day}}
-									<div class="gun">
+									--><div class="gun">
 										{{day}}
-									</div>
+									</div><!--
 								{{/if}}
-							</div>
+							--></div>
 							{{/if}}
-							<i class="fa fa-caret-down"></i>
-							<i class="fa fa-caret-left"></i>
 							<div class="kacYilOldu">{{kacYilOldu}}</div>
 						</div>
+					</div>
+					<div class="column2">
 						<div class="clear"></div>
 						<h2>
 						{{tagline}}
 						</h2>
 						<div class="clear"></div>
-						{{#if desc}}
+						<div class="imageContainerParent">
+							<div class="imageContainer">
+								<img class="lazy" data-original="http://s3-eu-west-1.amazonaws.		com/taymz/{{img}}">
+							</div>
+						</div>
+						{{#if desc}}	
 							<div class="textContainer">
 								{{#markdown}}{{desc}}{{/markdown}}
 							</div>
 						{{/if}}
-					</div>
-					<div class="olay">
-						<div class="innerOlay">
-							<div class="imageContainer">
-								<img class="lazy" data-original="http://s3-eu-west-1.amazonaws.com/taymz/{{img}}">
-							</div>
-						</div>
 					</div>
 				</div>
 			{{/each}}
 			<i class="basaDon fa fa-chevron-circle-up"></i>
 		</div>
 	{{/with}}
+	</div>
 </template>

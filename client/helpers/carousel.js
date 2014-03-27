@@ -1,6 +1,6 @@
-Template.gallery.helpers({
+Template.carousel.helpers({
 
-	// set the image to be displayed in gallery
+	// set the image to be displayed in carousel
 	img: function () {
 		
 			if (Timeline.findOne({_id: this._id}) !== undefined) {
@@ -39,11 +39,3 @@ Template.gallery.helpers({
 		}
 	}
 });
-
-Template.gallery.rendered = function () {
-	//Bu kod galeride tüm resimler yüklendikten sonra tüm resimlerin aynı anda
-	// gmrünüyor olmasını sağlıyordu ama efektif olmadığı için commentout şimdilik
-	// $(window).load(function() {
-	// 	$('.imageContainer').css('visibility','visible');
-	// });
-}

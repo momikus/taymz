@@ -388,7 +388,7 @@ Template.entryInput.rendered = function () {
 
 	$('.manset').simplyCountable({
 		counter: '.counterManset', // A jQuery selector to match the 'counter' element.
-		maxCount:	100, // The maximum character (or word) count of the text input or textarea. 
+		maxCount:	250, // The maximum character (or word) count of the text input or textarea. 
 	});
 
 	$('.desc').simplyCountable({
