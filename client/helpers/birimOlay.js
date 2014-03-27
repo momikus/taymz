@@ -10,6 +10,7 @@ Template.birimOlayInput.rendered = function () {
 		$(this).find('select[name^="daylist"] option[value="' +
 			day + '"]').attr('selected', 'selected');
 	});
+
 };
 
 Template.birimOlayInput.helpers({

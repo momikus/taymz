@@ -396,18 +396,6 @@ Template.entryInput.rendered = function () {
 		maxCount:	500, // The maximum character (or word) count of the text input or textarea. 
 	});
 
-	// Textareanın otomatik olarak dikey büyümesi 
-	// için. Compatibilityde kütüphanesi var.
-	$('#title').autosize();
-	$('.manset').autosize();
-	$('.desc').autosize();
-
-	// Tarihte yıl alanına paste yapılmasını engelliyoruz. 
-	// Şimdilik sadece 0 ila 2014 arası tarihleri kabul edeceğiz.
-	$('input.tarih').on('paste', function (e) {
-		e.preventDefault();
-	});
-
 	// Bu fonksiyon başlık ve manşette kullanıcıların line 
 	// break (enter - paragraf) yapamamasını sağlıyor.
 	// Multiple events olduğu için (paste'i de engellemek 
@@ -415,6 +403,20 @@ Template.entryInput.rendered = function () {
 	$('.noLineBreak').on('keyup paste focus blur', function () {
 		var msg = $(this).val().replace(/\n/g, "");
 		$(this).val(msg);
+	});
+
+	// Textareanın otomatik olarak dikey büyümesi 
+	// için. Compatibilityde kütüphanesi var.
+	$('.manset').autosize();
+	$('.desc').autosize();
+	Meteor.setTimeout(function() {
+		$('#title').autosize();
+	}, 300)
+
+	// Tarihte yıl alanına paste yapılmasını engelliyoruz. 
+	// Şimdilik sadece 0 ila 2014 arası tarihleri kabul edeceğiz.
+	$('input.tarih').on('paste', function (e) {
+		e.preventDefault();
 	});
 
 	// html title'ın görüntüsü
