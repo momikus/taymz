@@ -100,8 +100,13 @@ Router.map(function () {
 			'entryCall': {to: 'entryCall'}
 		},
 		waitOn: function () {
+			var admin;
+			if (Session.equals('varoAdmin', true))
+				admin = true;
+			else
+				admin = false;
 			var tid = Session.get('singleTimeline');
-			Meteor.subscribe('timelineMain', 'single', tid, 'admin');
+			Meteor.subscribe('timelineMain', 'single', tid, admin);
 		},
 		before: function () {
 			Meteor.call('removeLocalTimeline');
