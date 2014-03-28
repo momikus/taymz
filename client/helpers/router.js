@@ -40,6 +40,14 @@ Router.map(function () {
 				admin = false;
 			Meteor.subscribe('timelineAll', admin, limit, function () {
 				Session.set('galleryLoaded', true);
+				// Meteor.setTimeout(function(){
+				// 	$('ul.gallery li').each(function(){
+				// 		$(this).find('img').load(function(){
+				// 			var resim = $(this).attr('src');
+				// 			$(this).parent().css('background-image', "url("+resim+")");	
+				// 		})
+				// 	});		
+				// },500)
 			});
 		},
 
@@ -115,13 +123,15 @@ Router.map(function () {
 		onBeforeAction: function () {
 			Meteor.call('removeLocalTimeline');
 			if (Timeline.findOne() !== undefined) {
-				var tid = Session.get('singleTimeline');
-				var title = Timeline.findOne({tid: tid}).title;
-				var milestones = Timeline.findOne({tid: tid}).milestones;
+				var tid 		= Session.get('singleTimeline');
+				var title 		= Timeline.findOne({tid: tid}).title;
+				var milestones 	= Timeline.findOne({tid: tid}).milestones;
+				var mainimg		= Timeline.findOne({tid: tid}).mainimg;
 				LocalTimeline.insert({
 					tid: tid,
 					title: title,
-					milestones: milestones
+					milestones: milestones,
+					mainimg: mainimg
 				});
 			}
 		}

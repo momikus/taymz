@@ -40,6 +40,7 @@ function inputValidate() {
 		}
 
 	};
+
 	// Yeni olay açabilir miyim?
 	if (isValidYil === false || isValidManset === false || isValidImg === false) {
 		return false;
@@ -85,4 +86,13 @@ function deleteValidate() {
 		$where: 'this.milestones.length > 3'
 	}).count();
 	return taymLenAbove3; // returns 1 or 0 which is true or false respectively
+}
+
+function thumbnailValidate() {
+	if (LocalTimeline.findOne().mainimg === null) {
+		alert("Galeride görünmesi için bir ana resim ekle");
+		return false;
+	}
+	else
+		return true;
 }

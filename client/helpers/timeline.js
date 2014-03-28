@@ -89,17 +89,18 @@ Template.timeline.rendered = function () {
 	});
 
 	//meta descripton ve title basıyoruz
-	if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined  ) {
+	if (Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones !== undefined  ) {
 		var relatedTimeline = Timeline.findOne({'tid': Session.get('singleTimeline')});
+		console.log(relatedTimeline);
 		var ogTitle = relatedTimeline.title;
-		var ogUrl = "http://taymz.com/t/"+relatedTimeline.tid;
+		var ogUrl = "http://taymz.com/t/" + relatedTimeline.tid;
 		var ogSiteName = "taymz";
 		var ogDescription = relatedTimeline.milestones[0].tagline + " ve ardından " + relatedTimeline.milestones.length + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
-		var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+_.findWhere(relatedTimeline.milestones, {'mainimg': true}).img;
-		$('head').append( '<meta property="og:title" content="'+ogTitle+'">' );
-		$('head').append( '<meta property="og:image" content="'+ogImage+'">' );
-		$('head').append( '<meta property="og:url" content="'+ogUrl+'">' );
-		$('head').append( '<meta property="og:description" content="'+ogDescription+'">' );
+		var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+relatedTimeline.mainimg;
+		$('head').append('<meta property="og:title" content="'+ ogTitle +'">');
+		$('head').append('<meta property="og:image" content="'+ ogImage +'">');
+		$('head').append('<meta property="og:url" content="'+ogUrl+'">');
+		$('head').append('<meta property="og:description" content="'+ ogDescription +'">');
 
 		// meta description adn title
 		var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});

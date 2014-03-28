@@ -8,6 +8,10 @@ Template.entryInput.helpers({
 		if (LocalTimeline.findOne() !== undefined)
 			return LocalTimeline.findOne().title;
 	},
+	localTimelineMainimg: function () {
+		if (LocalTimeline.findOne() !== undefined)
+			return LocalTimeline.findOne().mainimg;
+	},
 	submit: function () {
 		if (Router.current().route.name === 'add')
 			return new Handlebars.SafeString('<button id="yayinla"' +
@@ -105,6 +109,46 @@ Template.entryInput.events({
 		);
 	},
 
+	// upload ana resim
+	'click .uploadThumb': function (e) {
+
+		filepicker.setKey('AwZnN4OdwSLK02ZzAFkvrz');
+		filepicker.pickAndStore({
+			mimetypes: ['image/*'],
+			container: 'modal',
+			services : ['COMPUTER', 'URL', 'IMAGE_SEARCH']
+		},
+			{
+				location: 'S3',
+				path    : '/',
+				access  : 'public'
+			},
+			function (InkBlob) {
+				milestonesUpdater();
+				LocalTimeline.upsert({}, {$set: {
+					'mainimg': InkBlob[0].key
+				}});
+			},
+			function (FPError) {
+				console.log('error in uploading ' + FPError);
+			}
+		);
+	},
+
+	// 'click .anaResimYap': function (e) {
+	// 	$(e.currentTarget).addClass('active');
+	// 	var id = $(e.currentTarget).parent().parent().parent().parent().attr('id');
+
+	// 	// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
+	// 	LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {
+	// 		'milestones.$.mainimg':true}});
+
+	// 	// ilgili olayın mainimg fieldını true yap
+	// 	LocalTimeline.update({'milestones._id': id}, {$set: {
+	// 		'milestones.$.mainimg': true
+	// 	}});
+	// },
+
 	'click #addOlay': function () {
 		if (inputValidate() === true) { // Yeni olay açabilir miyim?
 			titleUpdater();
@@ -123,7 +167,7 @@ Template.entryInput.events({
 
 	// validates inputs and insert into db
 	'click #yayinla': function () {
-		if (inputValidate() === true && titleValidate() === true) {
+		if (inputValidate() === true && titleValidate() === true && thumbnailValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -134,9 +178,10 @@ Template.entryInput.events({
 			// get the milestones and the title
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
+			var mainimg = LocalTimeline.findOne().mainimg;
 
 			// insert to db
-				Meteor.call('timelineInsert', title, milestones, 'published');
+				Meteor.call('timelineInsert', title, milestones, mainimg, 'published');
 
 			// route to main page
 			Router.go('/');
@@ -166,7 +211,7 @@ Template.entryInput.events({
 	},
 	// validates inputs and insert into db
 	'click #saveAsDraft': function () {
-		if (inputValidate() === true && titleValidate() === true) {
+		if (inputValidate() === true && titleValidate() === true && thumbnailValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -177,9 +222,10 @@ Template.entryInput.events({
 			// get the milestones and the title
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
+			var mainimg = LocalTimeline.findOne().mainimg;
 
 			// insert to db as draft
-			Meteor.call('timelineInsert', title, milestones, 'draft');
+			Meteor.call('timelineInsert', title, milestones, mainimg, 'draft');
 
 			// route to main page
 			Router.go('/');
@@ -208,7 +254,7 @@ Template.entryInput.events({
 		}
 	},
 	'click #guncelle': function () {
-		if (inputValidate() === true && titleValidate() === true) {
+		if (inputValidate() === true && titleValidate() === true && thumbnailValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -220,9 +266,10 @@ Template.entryInput.events({
 			var tid = LocalTimeline.findOne().tid;
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
+			var mainimg = LocalTimeline.findOne().mainimg;
 
 			// insert to db
-			Meteor.call('timelineUpdate', tid, title, milestones, 'published');
+			Meteor.call('timelineUpdate', tid, title, milestones, mainimg, 'published');
 
 			// route to main page
 			Router.go('/t/' + tid);
@@ -251,7 +298,7 @@ Template.entryInput.events({
 		}
 	},
 	'click #updateAndSaveAsDraft': function () {
-		if (inputValidate() === true && titleValidate() === true) {
+		if (inputValidate() === true && titleValidate() === true && thumbnailValidate() === true) {
 
 			// update local title 
 			titleUpdater();
@@ -263,9 +310,10 @@ Template.entryInput.events({
 			var tid = LocalTimeline.findOne().tid;
 			var milestones = LocalTimeline.findOne().milestones;
 			var title = LocalTimeline.findOne().title;
+			var mainimg = LocalTimeline.findOne().mainimg;
 
 			// insert to db
-			Meteor.call('timelineUpdate', tid, title, milestones, 'draft');
+			Meteor.call('timelineUpdate', tid, title, milestones, mainimg, 'draft');
 
 			// route to main page
 			Router.go('/t/' + tid);
@@ -361,20 +409,8 @@ Template.entryInput.events({
 		else {
 			alert('"En az 3 olay istiyorum!" buyurdu beyfendi.');
 		}
-	},
-	'click .anaResimYap': function (e) {
-		$(e.currentTarget).addClass('active');
-		var id = $(e.currentTarget).parent().parent().parent().parent().attr('id');
-
-		// Diğer tüm olay documentlarındaki mainimg fieldlarını yok et
-		LocalTimeline.update({'milestones.mainimg': {$exists: true}}, {$unset: {
-			'milestones.$.mainimg':true}});
-
-		// ilgili olayın mainimg fieldını true yap
-		LocalTimeline.update({'milestones._id': id}, {$set: {
-			'milestones.$.mainimg': true
-		}});
 	}
+
 });
 
 Template.entryInput.rendered = function () {

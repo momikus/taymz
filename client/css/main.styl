@@ -247,25 +247,8 @@ ul.gallery, ul.carousel {
 				background-position top
 				background-size cover
 				position relative
-				.olayCount {
-					position absolute
-					text-align center
-					line-height 1em
-					top 5px
-					right 5px
-					font-weight 300
-					padding 0.2em
-					font-size 1.3em
-					display block
-					background rgba(0,0,0,0.5)
-					color white
-					border-radius(2px)
-					div {
-						font-size 0.5em
-						line-height 1
-						color fuisilver
-						font-weight 300
-					}
+				img {
+					display none
 				}
 			}
 			.baslik {
@@ -290,16 +273,6 @@ ul.gallery, ul.carousel {
 			&:hover {
 				.imageContainer {
 					color white
-					// .olayCount {
-					// 	display table
-					// }
-					.olayCount {
-						color black //rgba(0,0,0,0.9)
-						background fuisunflower
-						div {
-							color black
-						}
-					}
 				}
 				.baslik {
 					color fuibelizehole
@@ -388,6 +361,56 @@ ul.gallery, ul.carousel {
 		right 5px
 		color fuiconcrete
 		font-weight 700
+	}
+}
+.thumbnail {
+	width 266px
+	height 180px
+	background black
+	margin 20px auto
+	.thumbContainer {
+		width 100%
+		height 100%
+		background-size cover
+		position relative
+		.changeThumb {
+			position absolute
+			top 5px
+			left 5px
+			color white
+			z-index 13
+			height 24px
+			line-height 24px
+			font-size 13px
+			background rgba(0,0,0,0.8)
+			border-radius(3px)
+			text-align center
+			padding 0 8px
+			i {
+				font-size 14px
+			}
+			&:hover {
+				cursor pointer
+				background fuipeterriver
+			}
+		}
+	}
+	.uploadBtn {
+		height 40px
+		line-height 40px
+		font-size 17px
+		font-weight 600
+		background fuinephritis
+		color white
+		margin 70px auto 0
+		display inline-block
+		padding 0 10px
+		border-radius(3px)
+		&:hover {
+			cursor pointer
+			background fuiemerald
+		}
+		
 	}
 }
 .gizliBaslik {
@@ -532,6 +555,7 @@ ul.gallery, ul.carousel {
  					border 1px dashed fuiconcrete
  					margin-top 0px
  					line-height normal
+ 					text-align right
  					&:focus {
  						border-color fuiasbestos
  					}
@@ -900,21 +924,25 @@ ul.gallery, ul.carousel {
 		vertical-align middle
 		line-height 22px
 		font-size 17px
-		color fuiasbestos
+		color fuitextcolor
 		img {
-			width 44px
-			height 44px
+			width 10%
 			overflow hidden
 			border-radius(100%)
-			vertical-align middle
-			float left
-			margin-right 10px
+			vertical-align top
+			float left			
+			margin-right 2%
+			visibility hidden
 		}
 		strong {
-			color black
+			color fuiconcrete
+			font-weight 600
 		}
-		span {
+		div {
 			vertical-align top
+			font-weight 600
+			float left
+			width 88%
 		}
 	}
 	.social {

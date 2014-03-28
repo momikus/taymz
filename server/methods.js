@@ -10,7 +10,7 @@ Meteor.methods({
   },
 
   // inserts new timeline to the db
-  timelineInsert: function (title, milestones, draftOrPublish) {
+  timelineInsert: function (title, milestones, mainimg, draftOrPublish) {
 
     // get latest tid
     var tid = Timeline.findOne({}, {limit: 1, sort: {created: -1}}).tid;
@@ -22,6 +22,7 @@ Meteor.methods({
     Timeline.insert({
       tid: tid,
       title: title,
+      mainimg: mainimg,
       created: new Date(),
       milestones: milestones,
       status: draftOrPublish
@@ -34,11 +35,12 @@ Meteor.methods({
   },
 
   // update taym
-  timelineUpdate: function (tid, title, milestones, draftOrPublish) {
+  timelineUpdate: function (tid, title, milestones, mainimg, draftOrPublish) {
     Timeline.update({tid: tid}, {
       $set: {
         title: title,
         milestones: milestones,
+        mainimg: mainimg,
         status: draftOrPublish,
         updated: new Date(),
       }

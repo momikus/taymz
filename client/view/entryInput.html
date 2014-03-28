@@ -6,6 +6,19 @@
 					placeholder="Buraya güzel bir taym başlığı girin">{{localTimelineTitle}}</textarea>
 		<span id="counterTitle"></span>
 	</div>
+	<div class="clear"></div>
+	<div class="thumbnail">
+		{{#if localTimelineMainimg}}
+		<div class="thumbContainer" style="background-image:url(http://s3-eu-west-1.amazonaws.com/taymz/{{localTimelineMainimg}})">
+			<div class="changeThumb uploadThumb">Değiştir</div>
+		</div>
+		{{else}}
+		<div class="uploadThumb uploadBtn">
+			Ana Resim Yükle
+		</div>
+		{{/if}}
+	</div>
+	<div class="clear"></div>
 	<div class="birimOlayContainer" >
 		{{#each localTimelineNode}}
 			{{> birimOlayInput}}

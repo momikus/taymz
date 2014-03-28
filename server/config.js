@@ -14,13 +14,14 @@ Meteor.publish('timelineAll', function (admin, limit) {
 	if (admin === true)
 		return Timeline.find({}, {
 			limit: limit,
-			sort: {created: -1}
+			sort: {created: -1},
+			fields: {milestones: 0}
 		});
 	else
 		return Timeline.find({'status': 'published'}, {
 			limit: limit,
 			sort: {created: -1},
-			fields: {status: 0, updated: 0}
+			fields: {status: 0, updated: 0, milestones: 0}
 		});
 });
 
