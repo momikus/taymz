@@ -235,12 +235,10 @@ ul.gallery, ul.carousel {
 		float left
 		list-style-type: none;
 		a {
-			//box-shadow(0 1px 1px 0 #d3d3d3)
 			width 100%
 			display block
 			background white //url(/img/polaroid.png)
 			padding 0 0 0em
-			border-radius(2px)
 			overflow hidden
 			position relative
 			.imageContainer {
@@ -272,19 +270,18 @@ ul.gallery, ul.carousel {
 			}
 			.baslik {
 				display block
-				height 6.2em
-				max-height 6.2em
-				min-height 6.2em
+				height 5.4em
 				width 100%
 				line-height 1.3em
-				font-weight 700
+				font-weight 600
 				font-family ff1
 				color fuitextcolor
-				padding 0.5em 0 0
+				padding 0.4em 0 0
 				text-align left
 				word-break: break-word;
 				overflow hidden
-				letter-spacing -1px
+				letter-spacing 0px
+				font-size 0.92em
 				span {
 					vertical-align middle
 					display block
@@ -335,7 +332,7 @@ ul.gallery, ul.carousel {
 		width 30%
 		margin-left 3%
 		margin-top 20px
-		float left
+		float right
 		height 1250px
 		li {
 			width 100%
@@ -359,14 +356,14 @@ ul.gallery, ul.carousel {
 .baslikOlay {
 	position relative
 	h1, textarea {
-		color fuitextcolor
+		color black
 		font-size: 1.8em;
-		letter-spacing -2px
+		letter-spacing -1px
 		line-height: 1.1
 		font-weight: 800;
 		padding: 0.7em 0 0.5em;
 		text-align left
-		display block
+		display inline-block
 		width 100%
 		font-family ff1
 	}
@@ -376,6 +373,7 @@ ul.gallery, ul.carousel {
 		line-height 1.1
 		margin-top 10px
 		padding 2%
+		overflow hidden
 		&:focus {
 			border-color fuiconcrete !important
 		}
@@ -397,7 +395,7 @@ ul.gallery, ul.carousel {
 	z-index 100
 	text-align center
 	display none
-	margin-left 10%
+	margin-left 11%
 	border-radius(4px 4px 0 0)
 	.baslik {
 		display inline-block
@@ -455,15 +453,15 @@ ul.gallery, ul.carousel {
 	}
 	.dot {
 		position absolute
-		width 0.8em
-		height 0.8em
+		width 1em
+		height 1em
 		top 0.5em
 		background white
 		margin-top 0px
-		margin-left -0.4em
+		margin-left -0.5em
 		border-radius(100%)
 		box-shadow(0 1px 2px rgba(0,0,0,0.07))
-		border 2px solid cizgiler
+		border 4px solid cizgiler
 		text-align center
 	}
 	&.taymEnd {
@@ -572,7 +570,7 @@ ul.gallery, ul.carousel {
 			h2, textarea.manset {
 				font-size 1.2em
 				line-height 1.2
-				margin 0px 0px 10px
+				margin 0px 0px 12px
 				padding 0
 				font-family ff1
 				font-weight 700
@@ -1078,7 +1076,7 @@ ul.gallery, ul.carousel {
 						height 140px
 					}
 					.baslik {
-						font-size 0.9em
+						font-size 0.92em
 					}
 				}
 				width 32%
@@ -1120,11 +1118,11 @@ ul.gallery, ul.carousel {
 	body {
 		#header {
 			#inner {
-				width 1000px
+				width 88%
 			}
 		}
 		.innerContainer {
-			width 1000px
+			width 88%
 		}
 		ul.gallery {
 			li {
