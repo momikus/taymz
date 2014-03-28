@@ -26,7 +26,12 @@ Router.map(function () {
 			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
 
 			// get total count for infinite loading
-			Meteor.call('totalTimelineCount', function (err, result) {
+			var admin;
+			if (Session.equals('varoAdmin', true))
+				admin = true;
+			else
+				admin = false;
+			Meteor.call('totalTimelineCount', admin, function (err, result) {
 				Session.set('totalTimelineCount', result);
 			});
 		},
@@ -145,7 +150,14 @@ Router.map(function () {
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineMain', 'single', id, admin);
+			Meteor.subscribe('timelineMain', 'single', id, admin, function () {
+				Meteor.setTimeout(function () {
+					$('img.lazy').lazyload({
+						effect : 'fadeIn',
+						threshold: 300
+					});
+				}, 500);
+			});
 
 			// carousel öğelerinin subscribeı için
 			var admin;

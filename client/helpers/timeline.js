@@ -71,10 +71,10 @@ Template.timeline.rendered = function () {
 
 	// lazy load images
 	// with fadeIn effect
-	$('img.lazy').lazyload({
-		effect : 'fadeIn',
-		threshold: 300
-	});
+	// $('img.lazy').lazyload({
+	// 	effect : 'fadeIn',
+	// 	threshold: 300
+	// });
 
 	$('body').scrollTop(0);
 	//Go to top butonunun çıkıp çıkmaması fonksiyonu
