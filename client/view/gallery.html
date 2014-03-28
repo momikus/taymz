@@ -19,6 +19,9 @@
 		{{/each}}
 		{{/if}}
 		<div class="clear"></div>
+		{{#unless allTimelinesLoaded}}
+			<div id="showMoreResults"><img src="img/ajax-loader.gif"/></div>
+		{{/unless}}
 	</ul>
 	<div class="clear"></div>
 </template>

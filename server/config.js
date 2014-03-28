@@ -10,15 +10,15 @@ Meteor.publish('timelineMain', function (route, id, admin) {
 	}
 });
 
-Meteor.publish('timelineAll', function (admin) {
+Meteor.publish('timelineAll', function (admin, limit) {
 	if (admin === true)
 		return Timeline.find({}, {
-			limit: 100,
+			limit: limit,
 			sort: {created: -1}
 		});
 	else
 		return Timeline.find({'status': 'published'}, {
-			limit: 100,
+			limit: limit,
 			sort: {created: -1},
 			fields: {status: 0, updated: 0}
 		});

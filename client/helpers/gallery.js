@@ -41,13 +41,11 @@ Template.gallery.helpers({
 
 	galleryLoaded: function () {
 		return Session.get('galleryLoaded');
+	},
+
+	allTimelinesLoaded: function () {
+		if (Timeline.find().count() === Session.get('totalTimelineCount'))
+			return true;
 	}
 });
 
-Template.gallery.rendered = function () {
-	//Bu kod galeride tüm resimler yüklendikten sonra tüm resimlerin aynı anda
-	// gmrünüyor olmasını sağlıyordu ama efektif olmadığı için commentout şimdilik
-	// $(window).load(function() {
-	// 	$('.imageContainer').css('visibility','visible');
-	// });
-}
