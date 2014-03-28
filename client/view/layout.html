@@ -1,35 +1,35 @@
 <template name="home">
-	{{yield 'header'}}
+	{{>yield region='header'}}
 	<div class="clear"></div>
 	{{> social}}
 	<div class="clear"></div>
-	{{yield}}
+	{{>yield}}
 </template>
 
 <template name="singleTimeline">
-	{{yield 'header'}}
+	{{>yield region='header'}}
 	<div class="clear"></div>
 	<div class="innerContainer">
-		{{yield}}
-		{{yield 'carousel'}}
+		{{>yield}}
+		{{>yield region='carousel'}}
 		<div class="clear"></div>
 	</div>
 </template>
 
 <template name="add-edit">
-	{{yield 'header'}}
+	{{>yield region='header'}}
 	<div class="clear"></div>
-	{{yield 'entryCall'}}
+	{{>yield region='entryCall'}}
 	<div class="innerContainer">
-		{{yield}}
+		{{>yield}}
 		<div class="clear"></div>
 	</div>
 </template>
 
 <template name="static">
-	{{yield 'header'}}
+	{{>yield region='header'}}
 	<div class="clear"></div>
-	{{yield}}
+	{{>yield}}
 </template>
 
 

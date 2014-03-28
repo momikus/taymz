@@ -2,11 +2,9 @@
 	<div class="birimOlay float100" id="{{_id}}">
 		<div class="column1">
 			<div class="tarihContainer" style="border-radius:4px;height:auto">
-				<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" 
-				{{#if year}}value="{{year}}"{{/if}}>
+				<input maxlength="4" onkeypress='validate(event)' class="tarih" placeholder="Yıl" value="{{year}}">
 				<div class="aygun" style="background:none !important;padding-right:0;">
-				<select class="month" name="monthlist" form="monthform"
-					{{#if year}}value="{{month}}"{{else}}disabled{{/if}}>
+				<select class="month" name="monthlist" form="monthform" value="{{month}}">
 					<option value="0">Ay</option>
 					<option value="1">Ocak</option>
 					<option value="2">Şubat</option>
@@ -21,11 +19,7 @@
 					<option value="11">Kasım</option>
 					<option value="12">Aralık</option>
 				</select>
-				<select class="day" name="daylist" form="dayform" 
-					{{#if day}}value="{{day}}"{{/if}} 
-					{{#if month}}
-					{{else}}disabled
-					{{/if}}>
+				<select class="day" name="daylist" form="dayform" value="{{day}}">
 					<option value="0">Gün</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -70,9 +64,7 @@
 					{{#if img}}
 						<img src="https://s3-eu-west-1.amazonaws.	com/taymz/{{img}}">
 						<div class="degistir gorselYukle">	Resmi değiştir</div>
-						{{#isolate}}
 							<div class="anaResimYap {{mainImage}}">	<i class="fa fa-picture-o"></i></div>
-						{{/isolate}}
 					{{else}}
 						<i class="fa fa-camera">
 							<div class="gorselYukleButonu 	gorselYukle">Görsel Yükle</div>

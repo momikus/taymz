@@ -1,7 +1,3 @@
-Router.configure({
-	layoutTemplate: 'layout'
-});
-
 var requireAdmin = function () {
 	if (!Session.equals('varoAdmin', true)) {
 		Router.go('home');
@@ -9,7 +5,7 @@ var requireAdmin = function () {
 	}
 };
 
-Router.before(requireAdmin,
+Router.onBeforeAction(requireAdmin,
   {except: ['home', 'timeline', 'edit', 'nedir']
 });
 
@@ -24,26 +20,34 @@ Router.map(function () {
 		yieldTemplates: {
 			'header': {to: 'header'}
 		},
-		before: function() {
+		onBeforeAction: function() {
+			// for seo
 			document.title = 'taymz - zamanı geldi';
 			$('head').append( '<meta name="description" content="Tarihi hiç bu kadar kronolojik görmemiştiniz.">' );
+
+			// get total count for infinite loading
+			Meteor.call('totalTimelineCount', function (err, result) {
+				Session.set('totalTimelineCount', result);
+			});
 		},
 		
 		waitOn: function () {	
+			var limit = Session.get('timelineLimit');
 			var admin;
 			if (Session.equals('varoAdmin', true))
 				admin = true;
 			else
 				admin = false;
-			Meteor.subscribe('timelineAll', admin, function () {
+			Meteor.subscribe('timelineAll', admin, limit, function () {
 				Session.set('galleryLoaded', true);
 			});
 		},
 
-		after: function () {
+		onAfterAction: function () {
 			Session.set('singleTimeline', null);
 			Session.set('galleryLoaded', false);
 			Session.set('carouselLoaded', false);
+			Session.set('timelineLimit', 12);
 		},
 
 		data: {
@@ -62,7 +66,7 @@ Router.map(function () {
 			'header': {to: 'header'},
 			'entryCall': {to: 'entryCall'}
 		},
-		before: function () {
+		onBeforeAction: function () {
 			Meteor.call('removeLocalTimeline');
 			LocalTimeline.insert({
 				title: '',
@@ -108,7 +112,7 @@ Router.map(function () {
 			var tid = Session.get('singleTimeline');
 			Meteor.subscribe('timelineMain', 'single', tid, admin);
 		},
-		before: function () {
+		onBeforeAction: function () {
 			Meteor.call('removeLocalTimeline');
 			if (Timeline.findOne() !== undefined) {
 				var tid = Session.get('singleTimeline');
@@ -131,7 +135,7 @@ Router.map(function () {
 			'header': {to: 'header'},
 			'carousel': {to: 'carousel'}
 		},
-		before: function () {
+		onBeforeAction: function () {
 			Session.set('singleTimeline', parseFloat(this.params._id));
 		},
 
@@ -153,7 +157,7 @@ Router.map(function () {
 				Session.set('carouselLoaded', true);
 			});
 		},
-		after: function () {
+		onAfterAction: function () {
 			//*****************************// 
       // **** Google Analytics  **** //
       //*****************************// 
