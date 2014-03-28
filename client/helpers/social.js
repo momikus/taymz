@@ -15,4 +15,7 @@ Template.social.rendered = function () {
     	  po.src = 'https://apis.google.com/js/platform.js';
     	  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
     	})();
+
+    	//quote rand gelir
+    	randomQuote();
 }
