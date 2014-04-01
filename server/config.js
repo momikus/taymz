@@ -31,6 +31,6 @@ Meteor.publish('timelineCarousel', function () {
 		limit: 10,
 		sort: {created: -1},
 		skip: skip,
-		fields: {status: 0, updated: 0}
+		fields: {status: 0, updated: 0, milestones: 0}
 	});
 });

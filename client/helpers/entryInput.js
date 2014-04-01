@@ -441,14 +441,6 @@ Template.entryInput.rendered = function () {
 		$(this).val(msg);
 	});
 
-	// Textareanın otomatik olarak dikey büyümesi 
-	// için. Compatibilityde kütüphanesi var.
-	$('.manset').autosize();
-	$('.desc').autosize();
-	Meteor.setTimeout(function() {
-		$('#title').autosize();
-	}, 300)
-
 	// Tarihte yıl alanına paste yapılmasını engelliyoruz. 
 	// Şimdilik sadece 0 ila 2014 arası tarihleri kabul edeceğiz.
 	$('input.tarih').on('paste', function (e) {

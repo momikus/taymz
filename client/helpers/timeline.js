@@ -43,25 +43,28 @@ Template.timeline.helpers({
 			return array;
 		}
 	},
-	kacYilOldu: function () {
-		var sonuc = new Date().getFullYear() - this.year;
-		if (sonuc > 0)
-			return sonuc + " yıl oldu";
-		else {
-			var currentTime = new Date()
-			var ayliSonuc = currentTime.getMonth()+1- this.month;
-			if( ayliSonuc > 0)
-				return ayliSonuc + " ay oldu"
-			else if (ayliSonuc==0)
-				return "Bu ay oldu";
-			else 
-				return "Bu Yıl oldu";			
-		}
+	// kacYilOldu: function () {
+	// 	var sonuc = new Date().getFullYear() - this.year;
+	// 	if (sonuc > 0)
+	// 		return sonuc + " yıl oldu";
+	// 	else {
+	// 		var currentTime = new Date()
+	// 		var ayliSonuc = currentTime.getMonth()+1- this.month;
+	// 		if( ayliSonuc > 0)
+	// 			return ayliSonuc + " ay oldu"
+	// 		else if (ayliSonuc==0)
+	// 			return "Bu ay oldu";
+	// 		else 
+	// 			return "Bu Yıl oldu";			
+	// 	}
 
-	}
+	// },
+
 });
 
-Template.timeline.rendered = function () {
+Template.timeline.created = function () {
+
+	// bunun burda ne işi var bakılacak. başka bi yere mi ait?
 	$('p').on('paste', function () {
 		$('p').delay(50).queue(function (next) {
 			$('p').html($('p').text());
@@ -69,8 +72,7 @@ Template.timeline.rendered = function () {
 		});
 	});
 
-	$('body').scrollTop(0);
-	//Go to top butonunun çıkıp çıkmaması fonksiyonu
+	//Go to top butonunun ve sosyal butonların çıkıp çıkmaması fonksiyonu
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 600) {
 			$('.basaDon').fadeIn(300);
@@ -81,29 +83,6 @@ Template.timeline.rendered = function () {
 		}
 	});
 
-	//meta descripton ve title basıyoruz
-	if (Timeline.findOne({'tid': Session.get('singleTimeline')}).milestones !== undefined  ) {
-		var relatedTimeline = Timeline.findOne({'tid': Session.get('singleTimeline')});
-		console.log(relatedTimeline);
-		var ogTitle = relatedTimeline.title;
-		var ogUrl = "http://taymz.com/t/" + relatedTimeline.tid;
-		var ogSiteName = "taymz";
-		var ogDescription = relatedTimeline.milestones[0].tagline + " ve ardından " + relatedTimeline.milestones.length + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
-		var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+relatedTimeline.mainimg;
-		$('head').append('<meta property="og:title" content="'+ ogTitle +'">');
-		$('head').append('<meta property="og:image" content="'+ ogImage +'">');
-		$('head').append('<meta property="og:url" content="'+ogUrl+'">');
-		$('head').append('<meta property="og:description" content="'+ ogDescription +'">');
-
-		// meta description adn title
-		var pageSeo = Timeline.findOne({'tid': Session.get('singleTimeline')});
-		document.title = 'taymz - ' + pageSeo.title;
-		$('head').append( '<meta name="description" content="'+ pageSeo.milestones[0].tagline +' ve ardından '+ pageSeo.milestones.length+' olay daha oldu. Kronolojik ve resimli olarak taymz\'da">' );
-
-	}
-
-	//kullanıcılar link verdiğinde nofollow ve target blank yapmaca
-	$('.textContainer a').attr('target', '_blank').attr('rel', 'nofollow');
 };
 
 Template.timeline.events({

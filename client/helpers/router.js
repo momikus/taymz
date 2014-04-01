@@ -161,12 +161,6 @@ Router.map(function () {
 			else
 				admin = false;
 			Meteor.subscribe('timelineMain', 'single', id, admin, function () {
-				Meteor.setTimeout(function () {
-					$('img.lazy').lazyload({
-						effect : 'fadeIn',
-						threshold: 300
-					});
-				}, 500);
 			});
 
 			// carousel öğelerinin subscribeı için
@@ -180,13 +174,49 @@ Router.map(function () {
 			});
 		},
 		onAfterAction: function () {
+
+			if (Timeline.findOne({'tid': Session.get('singleTimeline')}) !== undefined  ) {
+				// Facebook open graph propertyleri burada yükleniyor. template rendered da olmuyor.
+				var relatedTimeline = Timeline.findOne({'tid': Session.get('singleTimeline')});
+				var ogTitle = relatedTimeline.title;
+				var ogUrl = "http://taymz.com/t/" + relatedTimeline.tid;
+				var ogSiteName = "taymz";
+				//var ogDescription = relatedTimeline.milestones[0].tagline + " ve ardından " + relatedTimeline.milestones.length + " olay daha oldu. Kronolojik ve resimli olarak taymz\'da";
+				var ogDescription = "Kronolojik sırayla ve resimli olarak taymz\'da";
+				var ogImage = "http://s3-eu-west-1.amazonaws.com/taymz/"+relatedTimeline.mainimg;
+				$('head').append('<meta property="og:title" content="'+ ogTitle +'">');
+				$('head').append('<meta property="og:image" content="'+ ogImage +'">');
+				$('head').append('<meta property="og:url" content="'+ogUrl+'">');
+				$('head').append('<meta property="og:description" content="'+ ogDescription +'">');
+				//Seosal hareketler
+				$('meta[name=description]').attr('content', ogDescription);
+				$('title').text('taymz - ' + ogTitle);
+			}
+
+				Meteor.setTimeout(function () {
+					$('img.lazy').lazyload({
+						effect : 'fadeIn',
+						threshold: 800
+					});
+				}, 40);
+
+			//kullanıcılar link verdiğinde nofollow ve target blank yapmaca
+			Meteor.setTimeout(function(){
+				$('.textContainer p a').attr('target', '_blank');
+				$('.textContainer p a').attr('rel', 'nofollow');
+			})
+
+			// Sayfa yukarıdan açılsın
+			$('body').scrollTop(0);
+			$('html').scrollTop(0);
+
 			//*****************************// 
-      // **** Google Analytics  **** //
-      //*****************************// 
-      window._gaq = window._gaq || [];
-      _gaq.push(['_setAccount', 'UA-48882288-1']);
-      _gaq.push(['_setDomainName', 'taymz.com']);
-      _gaq.push(['_trackPageview']);
+			// **** Google Analytics  **** //
+			//*****************************// 
+			window._gaq = window._gaq || [];
+			_gaq.push(['_setAccount', 'UA-48882288-1']);
+			_gaq.push(['_setDomainName', 'taymz.com']);
+			_gaq.push(['_trackPageview']);
 		},
 
 		data: {

@@ -21,7 +21,6 @@ function randomQuote() {
 		"balzac.jpg"
 	];
 	var ra = _.random(0, 6)
-	console.log(ra)
 	$('.quote div').html(quotes[ra]);
 	$('#celeb').attr('src','/img/quote/'+images[ra]);
 }

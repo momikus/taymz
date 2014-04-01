@@ -11,12 +11,16 @@ Template.birimOlayInput.rendered = function () {
 			day + '"]').attr('selected', 'selected');
 	});
 
+	// Textareanın otomatik olarak dikey büyümesi 
+	// için. Compatibilityde kütüphanesi var.
+	$('.manset').autosize();
+	$('.desc').autosize();
+	Meteor.setTimeout(function() {
+		$('#title').autosize();
+	}, 300)			
 };
 
 Template.birimOlayInput.helpers({
-	mainImage: function () {
-		if (this.mainimg)
-			return 'active';
-	}
+
 });
 
